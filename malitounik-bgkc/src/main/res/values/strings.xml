@@ -92,6 +92,8 @@
     <!--<string name="S19">Зачацьце сьв. Ганны</string>-->
     <string name="Sv1">Заўтра сьвята</string>
     <string name="Sv2">Сьвята</string>
+    <string name="Sv3">Заўтра абавязковае сьвята</string>
+    <string name="Sv4">Абавязковае сьвята</string>
     <string name="Bright">Яркасьць</string>
     <string name="Bright3">ЯРКАСЬЦЬ</string>
     <string name="spovedz">Падрыхтоўка да споведзі</string>

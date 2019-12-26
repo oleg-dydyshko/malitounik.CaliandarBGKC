@@ -130,7 +130,7 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
     private long mLastClickTime = 0;
     private static final String[] colors = {"#D00505", "#800080", "#C71585", "#FF00FF", "#F4A460", "#D2691E", "#A52A2A", "#1E90FF", "#6A5ACD", "#228B22", "#9ACD32", "#20B2AA"};
 
-    public static String[] getColors(Context context) {
+    public static String[] getColors(@NonNull Context context) {
         SharedPreferences k = context.getSharedPreferences("biblia", MODE_PRIVATE);
         boolean dzenNoch = k.getBoolean("dzen_noch", false);
         if (dzenNoch) {
@@ -252,7 +252,7 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
         color = 0;
         textViewDate.setText(da);
 
-        String[] notifi = {"Хвілін", "Часоў", "Дзён", "Тыдняў"};
+        String[] notifi = {"хвілінаў", "часоў", "дзён", "тыдняў"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                 R.layout.simple_list_item_1, notifi);
         spinner.setAdapter(adapter2);
@@ -557,6 +557,10 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
         taSave = textViewTime.getText().toString();
         daKSave = textViewDateK.getText().toString();
         taKSave = textViewTimeK.getText().toString();
+        labelbutton12Save = labelbutton12.getText().toString();
+        editText4Save = Objects.requireNonNull(editText4.getText()).toString();
+        colorSave = spinner5.getSelectedItemPosition();
+        radioSave = radio;
     }
 
     @Override
@@ -2518,7 +2522,7 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
         return super.onOptionsItemSelected(item);
     }
 
-    private Intent createIntent(String action, String extra, String data, String time) {
+    private Intent createIntent(String action, String extra, @NonNull String data, @NonNull String time) {
         Intent i = new Intent(this, ReceiverBroad.class);
         i.setAction(action);
         i.putExtra("sabytieSet", true);

@@ -1,11 +1,13 @@
 package by.carkva_gazeta.biblijateka;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -17,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -76,6 +79,7 @@ public class Dialog_bibliateka extends DialogFragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -102,10 +106,28 @@ public class Dialog_bibliateka extends DialogFragment {
             textViewZaglavie.setText("АПІСАНЬНЕ");
         } else {
             textViewZaglavie.setText("СПАМПАВАЦЬ ФАЙЛ?");
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                new Thread(() -> {
+                    try {
+                        String format;
+                        StorageManager storageManager = (StorageManager) getActivity().getSystemService(Context.STORAGE_SERVICE);
+                        long bates = Objects.requireNonNull(storageManager).getAllocatableBytes(storageManager.getUuidForPath(getActivity().getFilesDir()));
+                        float bat = (float) bates / 1024;
+                        if (bat < 10000f)
+                            format = ": ДАСТУПНА " + formatFigureTwoPlaces(new BigDecimal(bat).setScale(2, RoundingMode.HALF_EVEN).floatValue()) + " КБ";
+                        else if (bates < 1000L)
+                            format = ": ДАСТУПНА " + bates + " БАЙТ";
+                        else
+                            format = "";
+                        getActivity().runOnUiThread(() -> textViewZaglavie.setText(textViewZaglavie.getText().toString() + format));
+                    } catch (IOException ignored) {
+                    }
+                }).start();
+            }
         }
         textViewZaglavie.setTextSize(TypedValue.COMPLEX_UNIT_SP, SettingsActivity.GET_FONT_SIZE_MIN);
         textViewZaglavie.setTypeface(null, Typeface.BOLD);
-        textViewZaglavie.setTextColor(ContextCompat.getColor(getActivity(), by.carkva_gazeta.malitounik.R.color.colorIcons));
+        textViewZaglavie.setTextColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), by.carkva_gazeta.malitounik.R.color.colorIcons));
         linearLayout.addView(textViewZaglavie);
         InteractiveScrollView isv = new InteractiveScrollView(getActivity());
         isv.setVerticalScrollBarEnabled(false);
@@ -147,6 +169,7 @@ public class Dialog_bibliateka extends DialogFragment {
         return alert;
     }
 
+    @NonNull
     private String formatFigureTwoPlaces(float value) {
         DecimalFormat myFormatter = new DecimalFormat("##0.00");
         return myFormatter.format(value);

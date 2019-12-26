@@ -2089,6 +2089,8 @@ string Sabytie_uved
 string Strogi_post
 string Sv1
 string Sv2
+string Sv3
+string Sv4
 string Trash
 string VIBRATION
 string Vial_Dvun

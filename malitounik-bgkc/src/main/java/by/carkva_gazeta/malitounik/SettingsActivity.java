@@ -101,6 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
         onSupportNavigateUp();
     }
 
+    @NonNull
     private String formatFigureTwoPlaces(float value) {
         DecimalFormat myFormatter = new DecimalFormat("##0.00");
         return myFormatter.format(value);
@@ -141,13 +142,8 @@ public class SettingsActivity extends AppCompatActivity {
         if (k.getInt("notification", 2) == 0)
             spinnerTime.setVisibility(View.GONE);
         ArrayList<DataTime> dataTimes = new ArrayList<>();
-        String zero;
         for (int i = 6; i < 18; i++) {
-            if (i < 10)
-                zero = "0";
-            else
-                zero = "";
-            dataTimes.add(new DataTime("Паведамляць ў " + zero + i + " гадзін", i));
+            dataTimes.add(new DataTime("Паведамляць а " + i + "-й гадзіне", i));
         }
         for (DataTime time : dataTimes) {
             if (time.data == k.getInt("timeNotification", 8))
@@ -815,7 +811,7 @@ public class SettingsActivity extends AppCompatActivity {
         return intent;
     }
 
-    public static void setNotifications(Context context, int notifications) {
+    public static void setNotifications(@NonNull Context context, int notifications) {
         GregorianCalendar c = (GregorianCalendar) Calendar.getInstance();
         Intent intent;
         PendingIntent pIntent;
@@ -846,7 +842,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
             if (notifications != 0) {
                 if (c.getTimeInMillis() < mkTime(year, month_p - 1, data_p - 1, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S1), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, month_p - 1, data_p), mkTimeYear(year, month_p, data_p - 1));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S1), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, month_p - 1, data_p), mkTimeYear(year, month_p, data_p - 1));  // Абавязковае
                     String code = "1" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -858,7 +854,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, month_p - 1, data_p, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S1), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S1), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "2" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -871,7 +867,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
 
                 if (c.getTimeInMillis() < mkTime(year, 0, 5, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S2), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, 0, 6), mkTimeYear(year, 0, 6));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S2), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, 0, 6), mkTimeYear(year, 0, 6));  // Абавязковае
                     String code = "3" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -883,7 +879,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 0, 6, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S2), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S2), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "4" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -899,7 +895,7 @@ public class SettingsActivity extends AppCompatActivity {
                 cet.set(year, month_p - 1, data_p - 1);
                 cet.add(Calendar.DATE, -7);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S5), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S5), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
                     String code = "5" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -912,7 +908,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 cet.add(Calendar.DATE, 1);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S5), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S5), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "6" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -927,7 +923,7 @@ public class SettingsActivity extends AppCompatActivity {
                 cet.set(year, month_p - 1, data_p - 1);
                 cet.add(Calendar.DATE, +39);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S6), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S6), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
                     String code = "7" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -940,7 +936,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 cet.add(Calendar.DATE, 1);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S6), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S6), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "8" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -955,7 +951,7 @@ public class SettingsActivity extends AppCompatActivity {
                 cet.set(year, month_p - 1, data_p - 1);
                 cet.add(Calendar.DATE, +49);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S7), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S7), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1), mkTimeYear(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH) + 1));  // Абавязковае
                     String code = "9" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -968,7 +964,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 cet.add(Calendar.DATE, 1);
                 if (c.getTimeInMillis() < mkTime(year, cet.get(Calendar.MONTH), cet.get(Calendar.DAY_OF_MONTH), timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S7), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S7), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "10" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -980,7 +976,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 2, 24, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S4), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, 2, 25), mkTimeYear(year, 2, 25));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S4), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, 2, 25), mkTimeYear(year, 2, 25));  // Абавязковае
                     String code = "11" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -992,7 +988,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 2, 25, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S4), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S4), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "12" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1005,7 +1001,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
 
                 if (c.getTimeInMillis() < mkTime(year, 7, 14, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S9), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, 7, 15), mkTimeYear(year, 7, 15));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S9), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, 7, 15), mkTimeYear(year, 7, 15));  // Абавязковае
                     String code = "13" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1017,7 +1013,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 7, 15, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S9), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S9), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "14" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1030,7 +1026,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
 
                 if (c.getTimeInMillis() < mkTime(year, 11, 24, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S13), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, 11, 25), mkTimeYear(year, 11, 25));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S13), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, 11, 25), mkTimeYear(year, 11, 25));  // Абавязковае
                     String code = "15" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1042,7 +1038,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 11, 25, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S13), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S13), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "16" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1055,7 +1051,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
 
                 if (c.getTimeInMillis() < mkTime(year, 5, 28, 19)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S16), context.getResources().getString(R.string.Sv1), mkTimeDayOfYear(year, 5, 29), mkTimeYear(year, 5, 29));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S16), context.getResources().getString(R.string.Sv3), mkTimeDayOfYear(year, 5, 29), mkTimeYear(year, 5, 29));  // Абавязковае
                     String code = "17" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -1067,7 +1063,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
                 if (c.getTimeInMillis() < mkTime(year, 5, 29, timeNotification)) {
-                    intent = createIntent(context, context.getResources().getString(R.string.S16), context.getResources().getString(R.string.Sv2));  // Абавязковае
+                    intent = createIntent(context, context.getResources().getString(R.string.S16), context.getResources().getString(R.string.Sv4));  // Абавязковае
                     String code = "18" + year;
                     pIntent = PendingIntent.getBroadcast(context, Integer.parseInt(code), intent, 0);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
