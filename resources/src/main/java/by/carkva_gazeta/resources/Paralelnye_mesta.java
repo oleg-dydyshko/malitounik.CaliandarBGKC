@@ -1,5 +1,6 @@
 package by.carkva_gazeta.resources;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -25,6 +26,7 @@ class Paralelnye_mesta {
 
     private InputStream inputStream;
 
+    @SuppressLint("SetTextI18n")
     @SuppressWarnings("ConstantConditions")
     ArrayList<TextView_Roboto_Condensed> paralel(Context context, String cytanneSours, String cytanneParalelnye, boolean semuxa) {
         ArrayList<TextView_Roboto_Condensed> arrayList = new ArrayList<>();
