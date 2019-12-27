@@ -133,5 +133,6 @@
     <orderEntry type="library" name="Gradle: com.google.android.play:core:1.6.4@aar" level="project" />
     <orderEntry type="module" module-name="malitounik-bgkc" />
     <orderEntry type="module" module-name="malitounik-bgkc" />
+    <orderEntry type="module" module-name="malitounik-bgkc" />
   </component>
 </module>

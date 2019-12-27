@@ -1000,6 +1000,7 @@ class Paralelnye_mesta {
                             textViewZag.setTextColor(ContextCompat.getColor(context, by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
                             textViewOpis.setTextColor(ContextCompat.getColor(context, by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
                         }
+                        textViewOpis.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontBiblia);
                         textViewZag.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontBiblia);
                         textViewZag.setTypeface(null, Typeface.BOLD);
                         String kon;
@@ -1013,7 +1014,7 @@ class Paralelnye_mesta {
                         }
                         textViewZag.setText(kon);
                         arrayList.add(textViewZag);
-                        textViewOpis.setText(context.getResources().getString(by.carkva_gazeta.malitounik.R.string.semuxa_maran_ata_error));
+                        textViewOpis.setText(context.getResources().getString(by.carkva_gazeta.malitounik.R.string.semuxa_maran_ata_error) + "\n");
                     }
                     arrayList.add(textViewOpis);
                 } catch (Throwable ignored) {

@@ -138,5 +138,6 @@
     <orderEntry type="module" module-name="malitounik-bgkc" />
     <orderEntry type="library" name="Gradle: __local_aars__:/home/oleg/AndroidStudioProjects/Malitounik/biblijateka/libs/fb2parser.jar:unspecified@jar" level="project" />
     <orderEntry type="module" module-name="malitounik-bgkc" />
+    <orderEntry type="module" module-name="malitounik-bgkc" />
   </component>
 </module>
