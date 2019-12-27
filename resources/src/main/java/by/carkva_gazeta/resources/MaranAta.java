@@ -119,7 +119,7 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
     private boolean autoscroll = false;
     private ListView listView;
     private maran_ata_ListAdaprer adapter;
-    private ArrayList<String> maranAta = new ArrayList<>();
+    private final ArrayList<String> maranAta = new ArrayList<>();
     private ArrayList<ArrayList<Integer>> Vydelenie;
     private int n;
     private int yS;
@@ -280,7 +280,7 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
         listView.setAdapter(adapter);
         listView.setDivider(null);
         cytanne = Objects.requireNonNull(getIntent().getExtras()).getString("cytanneMaranaty");
-        setMaranata(cytanne);
+        setMaranata(Objects.requireNonNull(cytanne));
         if (savedInstanceState != null) {
             onsave = true;
             fullscreenPage = savedInstanceState.getBoolean("fullscreen");
@@ -1188,15 +1188,13 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                     if (s3 != -1) {
                         int s4 = fit.indexOf("-");
                         s5 = fit.indexOf(".", s3 + 1);
+                        nachalo = Integer.parseInt(fit.substring(s2 + 1, s3));
+                        stixn = Integer.parseInt(fit.substring(s3 + 1, s4));
                         if (s5 != -1) {
-                            nachalo = Integer.parseInt(fit.substring(s2 + 1, s3));
                             konec = Integer.parseInt(fit.substring(s4 + 1, s5));
-                            stixn = Integer.parseInt(fit.substring(s3 + 1, s4));
                             stixk = Integer.parseInt(fit.substring(s5 + 1));
                         } else {
-                            nachalo = Integer.parseInt(fit.substring(s2 + 1, s3));
                             konec = nachalo;
-                            stixn = Integer.parseInt(fit.substring(s3 + 1, s4));
                             stixk = Integer.parseInt(fit.substring(s4 + 1));
                         }
                     } else {
@@ -1371,8 +1369,8 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                                     builder.append(line).append("\n");
                                 continue;
                             }
-                            builder.append(line).append("\n");
-                        } else builder.append(line).append("\n");
+                        }
+                        builder.append(line).append("\n");
                     }
                     inputStream.close();
                     inputStream = null;
@@ -2049,6 +2047,8 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
             res = parallel.kniga77(glava, position + 1);
         }
         if (!res.contains("+-+")) res = "$" + res;
+        if (belarus)
+            res = ExpArrayAdapterParallel.translateToBelarus(res);
         return res;
     }
 
@@ -2120,7 +2120,6 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                     if (Vydelenie.get(pos).get(3) == 1)
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
-                viewHolder.text.setText(ssb);
             } else {
                 Spanned spanned = MainActivity.fromHtml(textView);
                 end = spanned.length();
@@ -2137,8 +2136,8 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                     if (Vydelenie.get(pos).get(3) == 1)
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
-                viewHolder.text.setText(ssb);
             }
+            viewHolder.text.setText(ssb);
             if (position == MaranAta_Global_List.getListPosition() && linearLayout2.getVisibility() == View.VISIBLE) {
                 if (dzenNoch) {
                     viewHolder.text.setBackgroundResource(by.carkva_gazeta.malitounik.R.color.colorprimary_material_dark2);

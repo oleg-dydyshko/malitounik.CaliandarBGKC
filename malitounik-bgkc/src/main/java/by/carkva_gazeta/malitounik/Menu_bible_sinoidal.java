@@ -49,7 +49,7 @@ public class Menu_bible_sinoidal extends Fragment {
         TextView_Roboto_Condensed prodolzyt = rootview.findViewById(R.id.prodolzych);
         prodolzyt.setOnClickListener((v -> {
             String bible_time = k.getString("bible_time_sinodal", "");
-            if (!bible_time.equals("")) {
+            if (!Objects.requireNonNull(bible_time).equals("")) {
                 if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
                     return;
                 }
@@ -145,7 +145,7 @@ public class Menu_bible_sinoidal extends Fragment {
         TextView_Roboto_Condensed umovy = rootview.findViewById(R.id.umovy_karystannia);
         umovy.setVisibility(View.GONE);
         if (dzenNoch) {
-            novyzavet.setBackgroundDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.knopka_red_black));
+            novyzavet.setBackgroundDrawable(ContextCompat.getDrawable(Objects.requireNonNull(getActivity()), R.drawable.knopka_red_black));
             staryzavet.setBackgroundDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.knopka_red_black));
         }
         return rootview;

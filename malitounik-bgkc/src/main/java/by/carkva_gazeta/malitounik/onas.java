@@ -70,10 +70,8 @@ public class onas extends AppCompatActivity {
                     line = line.replace("#d00505", "#f44336");
                 if (line.contains("<!--<VERSION></VERSION>-->")) {
                     line = line.replace("<!--<VERSION></VERSION>-->", "<em>Версія праграмы: " + version + "</em><br><br>");
-                    builder.append(line).append("\n");
-                } else {
-                    builder.append(line).append("\n");
                 }
+                builder.append(line).append("\n");
             }
             inputStream.close();
             //CaseInsensitiveResourcesFontLoader FontLoader = new CaseInsensitiveResourcesFontLoader();

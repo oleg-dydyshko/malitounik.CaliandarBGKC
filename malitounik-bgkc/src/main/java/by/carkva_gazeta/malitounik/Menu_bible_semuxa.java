@@ -53,7 +53,7 @@ public class Menu_bible_semuxa extends Fragment {
             }
             mLastClickTime = SystemClock.elapsedRealtime();
             String bible_time = k.getString("bible_time_semuxa", "");
-            if (!bible_time.equals("")) {
+            if (!Objects.requireNonNull(bible_time).equals("")) {
                 Gson gson = new Gson();
                 Type type = new TypeToken<ArrayMap<String, Integer>>() {
                 }.getType();
@@ -152,7 +152,7 @@ public class Menu_bible_semuxa extends Fragment {
             semukha.show(Objects.requireNonNull(getFragmentManager()), "Alesya_Semukha");
         }));
         if (dzenNoch) {
-            novyzavet.setBackgroundDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.knopka_red_black));
+            novyzavet.setBackgroundDrawable(ContextCompat.getDrawable(Objects.requireNonNull(getActivity()), R.drawable.knopka_red_black));
             staryzavet.setBackgroundDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.knopka_red_black));
         }
         return rootview;

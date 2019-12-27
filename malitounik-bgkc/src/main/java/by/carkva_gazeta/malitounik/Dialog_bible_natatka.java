@@ -83,7 +83,7 @@ public class Dialog_bible_natatka extends DialogFragment {
         linearLayout.addView(textViewZaglavie);
         if (semuxa == 1) {
             for (int i = 0; i < MaranAta_Global_List.getNatatkiSemuxa().size(); i++) {
-                if (MaranAta_Global_List.getNatatkiSemuxa().get(i).get(0).contains(novyzavet) && Integer.valueOf(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(1)) == kniga && Integer.valueOf(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(2)) == glava && Integer.valueOf(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(3)) == stix) {
+                if (MaranAta_Global_List.getNatatkiSemuxa().get(i).get(0).contains(novyzavet) && Integer.parseInt(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(1)) == kniga && Integer.parseInt(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(2)) == glava && Integer.parseInt(MaranAta_Global_List.getNatatkiSemuxa().get(i).get(3)) == stix) {
                     redaktor = true;
                     editText = MaranAta_Global_List.getNatatkiSemuxa().get(i).get(5);
                     position = i;
@@ -93,7 +93,7 @@ public class Dialog_bible_natatka extends DialogFragment {
         }
         if (semuxa == 2) {
             for (int i = 0; i < MaranAta_Global_List.getNatatkiSinodal().size(); i++) {
-                if (MaranAta_Global_List.getNatatkiSinodal().get(i).get(0).contains(novyzavet) && Integer.valueOf(MaranAta_Global_List.getNatatkiSinodal().get(i).get(1)) == kniga && Integer.valueOf(MaranAta_Global_List.getNatatkiSinodal().get(i).get(2)) == glava && Integer.valueOf(MaranAta_Global_List.getNatatkiSinodal().get(i).get(3)) == stix) {
+                if (MaranAta_Global_List.getNatatkiSinodal().get(i).get(0).contains(novyzavet) && Integer.parseInt(MaranAta_Global_List.getNatatkiSinodal().get(i).get(1)) == kniga && Integer.parseInt(MaranAta_Global_List.getNatatkiSinodal().get(i).get(2)) == glava && Integer.parseInt(MaranAta_Global_List.getNatatkiSinodal().get(i).get(3)) == stix) {
                     redaktor = true;
                     editText = MaranAta_Global_List.getNatatkiSinodal().get(i).get(5);
                     position = i;

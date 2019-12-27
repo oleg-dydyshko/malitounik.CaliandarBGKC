@@ -309,7 +309,6 @@ public class search_pesny extends AppCompatActivity {
         } else {
             toolbar.setBackgroundResource(by.carkva_gazeta.malitounik.R.color.colorPrimary);
             title_toolbar.setBackgroundResource(by.carkva_gazeta.malitounik.R.color.colorPrimary);
-            title_toolbar.setTextColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorIcons));
         }
     }
 
@@ -483,7 +482,7 @@ public class search_pesny extends AppCompatActivity {
         }
     }
 
-    class search_ListAdaprer extends ArrayAdapter<String> {
+    static class search_ListAdaprer extends ArrayAdapter<String> {
 
         private final Activity mContext;
         private final SharedPreferences k;

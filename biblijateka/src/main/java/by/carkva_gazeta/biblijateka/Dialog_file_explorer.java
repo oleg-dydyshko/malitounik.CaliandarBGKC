@@ -272,7 +272,7 @@ public class Dialog_file_explorer extends DialogFragment {
         }
     }
 
-    private class ViewHolder {
+    private static class ViewHolder {
         TextView_Roboto_Condensed text;
     }
 }

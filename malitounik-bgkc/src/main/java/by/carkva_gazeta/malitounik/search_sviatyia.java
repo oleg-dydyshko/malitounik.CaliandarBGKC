@@ -112,13 +112,13 @@ public class search_sviatyia extends AppCompatActivity {
         });
         akafist.setTextSize(TypedValue.COMPLEX_UNIT_SP, SettingsActivity.GET_FONT_SIZE_MIN - 2);
         arrayRes = new ArrayList<>();
-        if (!chin.getString("search_svityx_string", "").equals("")) {
+        if (!Objects.requireNonNull(chin.getString("search_svityx_string", "")).equals("")) {
             if (savedInstanceState == null) {
                 Gson gson = new Gson();
                 String json = chin.getString("search_svityx_array", "");
                 Type type = new TypeToken<ArrayList<String>>() {
                 }.getType();
-                arrayRes.addAll(gson.fromJson(json, type));
+                arrayRes.addAll(Objects.requireNonNull(gson.fromJson(json, type)));
                 akafist.setText(getResources().getString(R.string.seash, arrayRes.size()));
                 for (int i = 0; i < arrayRes.size(); i++) {
                     if (dzenNoch)
@@ -243,7 +243,6 @@ public class search_sviatyia extends AppCompatActivity {
         } else {
             toolbar.setBackgroundResource(R.color.colorPrimary);
             title_toolbar.setBackgroundResource(R.color.colorPrimary);
-            title_toolbar.setTextColor(ContextCompat.getColor(this, R.color.colorIcons));
         }
     }
 
@@ -349,7 +348,7 @@ public class search_sviatyia extends AppCompatActivity {
                         int t1 = aSviatyia.toLowerCase().replace("ё", "е").indexOf(poshuk.toLowerCase());
                         int t2 = poshuk.toLowerCase().length();
                         aSviatyia = aSviatyia.substring(0, t1) + color + aSviatyia.substring(t1, t1 + t2) + "</font>" + aSviatyia.substring(t1 + t2);
-                        GregorianCalendar g = new GregorianCalendar(Integer.valueOf(arrayLists.get(e).get(3)), Integer.valueOf(arrayLists.get(e).get(2)), Integer.valueOf(arrayLists.get(e).get(1)));
+                        GregorianCalendar g = new GregorianCalendar(Integer.parseInt(arrayLists.get(e).get(3)), Integer.parseInt(arrayLists.get(e).get(2)), Integer.parseInt(arrayLists.get(e).get(1)));
                         String res = "<!--" + g.get(Calendar.DAY_OF_MONTH) + ":" + g.get(Calendar.MONTH) + "--><em>" + arrayLists.get(e).get(1) + " " + munName[Integer.parseInt(arrayLists.get(e).get(2))] + "</em><br>" + aSviatyia;
                         arrayRes.add(res);
                     }
@@ -442,7 +441,7 @@ public class search_sviatyia extends AppCompatActivity {
         }
     }
 
-    class search_ListAdapter extends ArrayAdapter<String> {
+    private static class search_ListAdapter extends ArrayAdapter<String> {
 
         private final Activity mContext;
         private final SharedPreferences k;

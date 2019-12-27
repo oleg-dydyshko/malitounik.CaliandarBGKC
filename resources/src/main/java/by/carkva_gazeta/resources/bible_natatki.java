@@ -289,9 +289,9 @@ public class bible_natatki extends AppCompatActivity implements AdapterView.OnIt
         int kniga = -1;
         int knigaS = -1;
         if (data.get(position).get(0).contains("1"))
-            kniga = Integer.valueOf(data.get(position).get(1));
+            kniga = Integer.parseInt(data.get(position).get(1));
         else
-            knigaS = Integer.valueOf(data.get(position).get(1));
+            knigaS = Integer.parseInt(data.get(position).get(1));
         Intent intent = null;
         /*if (semuxa == 3) {
             intent = new Intent(this, nadsanContentActivity.class);

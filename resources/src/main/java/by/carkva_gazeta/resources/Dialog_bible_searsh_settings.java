@@ -181,7 +181,7 @@ public class Dialog_bible_searsh_settings extends DialogFragment {
         return alert;
     }
 
-    class Dialog_Bible_Adapter extends ArrayAdapter<String> {
+    static class Dialog_Bible_Adapter extends ArrayAdapter<String> {
 
         private final Activity context;
         private final String[] name;

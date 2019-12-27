@@ -54,6 +54,7 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
     private int position;
     private long mLastClickTime = 0;
 
+    @NonNull
     public static caliandar_full newInstance(int position, int day, int year, int dayYear) {
         caliandar_full fragment = new caliandar_full();
         Bundle args = new Bundle();
@@ -595,11 +596,10 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
                     }
                     if (data.equals(dataK) && time.equals(timeK)) {
                         textView.setText(getResources().getString(R.string.sabytieKali, data, time, res));
-                        sabytieList.add(textView);
                     } else {
                         textView.setText(getResources().getString(R.string.sabytieDoKuda, data, time, dataK, timeK, res));
-                        sabytieList.add(textView);
                     }
+                    sabytieList.add(textView);
                     LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
                     llp.setMargins(0, 0, 0, 10);
                     textView.setLayoutParams(llp);

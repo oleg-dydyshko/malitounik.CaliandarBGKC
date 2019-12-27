@@ -1,5 +1,7 @@
 package by.carkva_gazeta.biblijateka;
 
+import androidx.annotation.NonNull;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -20,6 +22,7 @@ class bibliotekaEpub {
         navig = new ArrayList<>();
     }
 
+    @NonNull
     private String getFullPatch(String dirPatch) {
         StringBuilder builder = new StringBuilder();
         try {

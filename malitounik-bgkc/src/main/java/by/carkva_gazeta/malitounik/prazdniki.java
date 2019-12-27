@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
  * Created by oleg on 23.12.16
  */
 
-class prazdniki implements Comparable {
+class prazdniki implements Comparable<prazdniki> {
 
     final int data;
     final String opisanie;
@@ -19,8 +19,7 @@ class prazdniki implements Comparable {
     }
 
     @Override
-    public int compareTo(@NonNull Object o) {
-        prazdniki tmp = (prazdniki) o;
+    public int compareTo(@NonNull prazdniki tmp) {
         if (this.data < tmp.data) {
             return -1;
         } else if (this.data > tmp.data) {

@@ -2,7 +2,7 @@ package by.carkva_gazeta.malitounik;
 
 import java.util.Comparator;
 
-public class Vybranoe_data_sort implements Comparator<Vybranoe_data> {
+class Vybranoe_data_sort implements Comparator<Vybranoe_data> {
 
     @Override
     public int compare(Vybranoe_data o1, Vybranoe_data o2) {

@@ -657,9 +657,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String[] t1 = line.split(" ");
                             try {
                                 if (t1.length == 11)
-                                    MainActivity.padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.valueOf(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], 0));
+                                    MainActivity.padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.parseLong(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], 0));
                                 else
-                                    MainActivity.padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.valueOf(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], Integer.parseInt(t1[11])));
+                                    MainActivity.padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.parseLong(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], Integer.parseInt(t1[11])));
                             } catch (Exception ignored) {
                                 fileS.delete();
                             }

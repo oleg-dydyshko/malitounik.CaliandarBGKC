@@ -25,7 +25,7 @@ import by.carkva_gazeta.malitounik.SettingsActivity;
 /**
  * Created by oleg on 25.5.16
  */
-@SuppressWarnings("ConstantConditions")
+
 class zmenyiaChastki {
 
     private final ArrayMap<String, Integer> data;
@@ -162,6 +162,7 @@ class zmenyiaChastki {
             } else if (zag1 != -1) {
                 zaglnum = Integer.parseInt(zaglav.substring(0, zag1)); // Номер главы
             }
+            int knigaN1 = Integer.parseInt(zaglav.substring(zag1 + 1));
             if (glav) {
                 int zagS1 = zagS.indexOf(".");
                 if (zagS1 == -1) {
@@ -172,7 +173,7 @@ class zmenyiaChastki {
                 }
             } else if (zag2 == -1) {
                 if (zag1 != -1) {
-                    knigaN = Integer.parseInt(zaglav.substring(zag1 + 1)); // Начало чтения
+                    knigaN = knigaN1; // Начало чтения
                 } else {
                     knigaN = Integer.parseInt(zaglav); // Начало чтения
                 }
@@ -181,7 +182,7 @@ class zmenyiaChastki {
                 knigaN = Integer.parseInt(zaglav.substring(zag1 + 1, zag2)); // Начало чтения
             }
             if (glav) {
-                knigaK = Integer.parseInt(zaglav.substring(zag1 + 1)); // Конец чтения
+                knigaK = knigaN1; // Конец чтения
             } else if (zag2 != -1) {
                 if (zag3 == -1) {
                     knigaK = Integer.parseInt(zaglav.substring(zag2 + 1)); // Конец чтения
@@ -191,7 +192,7 @@ class zmenyiaChastki {
             }
 
             int kniga = 0;
-            if (zagl.equals("Ціт")) kniga = 0;
+            //if (zagl.equals("Ціт")) kniga = 0;
             if (zagl.equals("Езэк")) kniga = 1;
             if (zagl.equals("Габ")) kniga = 2;
             if (zagl.equals("Гал")) kniga = 3;
@@ -230,60 +231,56 @@ class zmenyiaChastki {
             try {
                 Resources r = context.getResources();
                 InputStream inputStream = r.openRawResource(data.valueAt(kniga));
-                if (inputStream != null) {
-                    InputStreamReader isr = new InputStreamReader(inputStream);
-                    BufferedReader reader = new BufferedReader(isr);
-                    String line;
-                    StringBuilder builder = new StringBuilder();
-                    while ((line = reader.readLine()) != null) {
-                        if (!line.equals("")) {
-                            if (line.contains("//")) {
-                                int t1 = line.indexOf("//");
-                                line = line.substring(0, t1).trim();
-                                if (!line.equals(""))
-                                    builder.append(line).append("<br>\n");
-                                continue;
-                            }
-                            builder.append(line).append("<br>\n");
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                BufferedReader reader = new BufferedReader(isr);
+                String line;
+                StringBuilder builder = new StringBuilder();
+                while ((line = reader.readLine()) != null) {
+                    if (!line.equals("")) {
+                        if (line.contains("//")) {
+                            int t1 = line.indexOf("//");
+                            line = line.substring(0, t1).trim();
+                            if (!line.equals(""))
+                                builder.append(line).append("<br>\n");
+                            continue;
                         }
+                        builder.append(line).append("<br>\n");
                     }
-                    inputStream.close();
-                    String[] split2 = builder.toString().split("===");
-                    String spl;
-                    int desK1, desN;
-                    spl = split2[zaglnum].trim();
-                    desN = spl.indexOf(knigaN + ".");
-
-                    if (e == 0) {
-                        res.append("<strong>").append(data.keyAt(kniga)).append(zaglavieName).append("</strong><br>");
-                    } else {
-                        res.append("[...]<br>");
-                    }
-                    if (knigaN == knigaK) {
-                        desK1 = desN;
-                    } else {
-                        desK1 = spl.indexOf(knigaK + ".");
-                        if (zag3 != -1 || glav) {
-                            String spl1 = split2[zaglnum].trim();
-                            String spl2 = split2[zaglnum + 1].trim();
-                            int des1 = spl1.length();
-                            desN = spl1.indexOf(knigaN + ".");
-                            desK1 = spl2.indexOf(knigaK + ".");
-                            int desN1 = spl2.indexOf(knigaK + 1 + ".", desK1);
-                            if (desN1 != -1) {
-                                desK1 = desN1 + des1;
-                            } else {
-                                desN1 = spl1.length();
-                                desK1 = desN1 + des1;
-                            }
-                            spl = spl1 + "\n" + spl2;
-                            zaglnum = zaglnum + 1;
-                        }
-                    }
-                    int desK = spl.indexOf("\n", desK1);
-                    if (desK == -1) res.append(spl.substring(desN));
-                    else res.append(spl.substring(desN, desK));
                 }
+                inputStream.close();
+                String[] split2 = builder.toString().split("===");
+                String spl;
+                int desK1, desN;
+                spl = split2[zaglnum].trim();
+                desN = spl.indexOf(knigaN + ".");
+
+                if (e == 0) {
+                    res.append("<strong>").append(data.keyAt(kniga)).append(zaglavieName).append("</strong><br>");
+                } else {
+                    res.append("[...]<br>");
+                }
+                if (knigaN == knigaK) {
+                    desK1 = desN;
+                } else {
+                    desK1 = spl.indexOf(knigaK + ".");
+                    if (zag3 != -1 || glav) {
+                        String spl1 = split2[zaglnum].trim();
+                        String spl2 = split2[zaglnum + 1].trim();
+                        int des1 = spl1.length();
+                        desN = spl1.indexOf(knigaN + ".");
+                        desK1 = spl2.indexOf(knigaK + ".");
+                        int desN1 = spl2.indexOf(knigaK + 1 + ".", desK1);
+                        if (desN1 == -1) {
+                            desN1 = spl1.length();
+                        }
+                        desK1 = desN1 + des1;
+                        spl = spl1 + "\n" + spl2;
+                        zaglnum = zaglnum + 1;
+                    }
+                }
+                int desK = spl.indexOf("\n", desK1);
+                if (desK == -1) res.append(spl.substring(desN));
+                else res.append(spl.substring(desN, desK));
             } catch (Throwable ignored) {
             }
         }
@@ -298,21 +295,17 @@ class zmenyiaChastki {
             SharedPreferences k = context.getSharedPreferences("biblia", Context.MODE_PRIVATE);
             boolean dzenNoch = k.getBoolean("dzen_noch", false);
             InputStream inputStream = r.openRawResource(R.raw.bogashlugbovya9);
-            if (inputStream != null) {
-                try {
-                    InputStreamReader isr = new InputStreamReader(inputStream);
-                    BufferedReader reader = new BufferedReader(isr);
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        if (dzenNoch)
-                            line = line.replace("#d00505", "#f44336");
-                        builder.append(line).append("\n");
-                    }
-                } catch (Exception ignored) {
+            try {
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                BufferedReader reader = new BufferedReader(isr);
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    if (dzenNoch)
+                        line = line.replace("#d00505", "#f44336");
+                    builder.append(line).append("\n");
                 }
+            } catch (Exception ignored) {
             }
-
-
             String w = arrayData.get(kal.get(Calendar.DATE) - 1).get(20);
 
             String result = "";
@@ -492,20 +485,17 @@ class zmenyiaChastki {
         StringBuilder builder = new StringBuilder();
         Resources r = context.getResources();
         InputStream inputStream = r.openRawResource(R.raw.bogashlugbovya10);
-        if (inputStream != null) {
-            try {
-                InputStreamReader isr = new InputStreamReader(inputStream);
-                BufferedReader reader = new BufferedReader(isr);
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    builder.append(line).append("\n");
-                }
-            } catch (Exception ignored) {
+        try {
+            InputStreamReader isr = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(isr);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line).append("\n");
             }
+        } catch (Exception ignored) {
         }
 
         String result = "";
-
         if (day_of_week == 2) {
             int sfn = builder.toString().indexOf("<!--ton1n-->");
             int sfk = builder.toString().indexOf("<!--ton1k-->");

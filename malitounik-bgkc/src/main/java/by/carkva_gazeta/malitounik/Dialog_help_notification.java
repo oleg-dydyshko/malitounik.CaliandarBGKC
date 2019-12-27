@@ -24,12 +24,10 @@ import java.util.Objects;
 
 public class Dialog_help_notification extends DialogFragment {
 
-    private SharedPreferences k;
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        k = Objects.requireNonNull(getActivity()).getSharedPreferences("biblia", Context.MODE_PRIVATE);
+        SharedPreferences k = Objects.requireNonNull(getActivity()).getSharedPreferences("biblia", Context.MODE_PRIVATE);
         boolean dzenNoch = k.getBoolean("dzen_noch", false);
         if (dzenNoch) getActivity().setTheme(R.style.AppCompatDark);
         else getActivity().setTheme(R.style.AppTheme);

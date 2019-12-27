@@ -321,7 +321,7 @@ public class Menu_cviaty extends ListFragment {
         }
     }
 
-    private class MyArrayAdapter extends ArrayAdapter<String> {
+    private static class MyArrayAdapter extends ArrayAdapter<String> {
 
         private final Activity context;
         private final List<String> list;

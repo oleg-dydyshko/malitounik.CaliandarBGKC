@@ -97,7 +97,7 @@ public class ReceiverUpdate extends BroadcastReceiver {
                                 if (t1[10].equals("0")) {
                                     switch (Integer.parseInt(t1[9])) {
                                         case 1:
-                                            long timerepit = Long.valueOf(t1[3]);
+                                            long timerepit = Long.parseLong(t1[3]);
                                             while (true) {
                                                 if (timerepit > c.getTimeInMillis()) {
                                                     Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
@@ -109,7 +109,7 @@ public class ReceiverUpdate extends BroadcastReceiver {
                                             }
                                             break;
                                         case 4:
-                                            timerepit = Long.valueOf(t1[3]);
+                                            timerepit = Long.parseLong(t1[3]);
                                             while (true) {
                                                 if (timerepit > c.getTimeInMillis()) {
                                                     Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
@@ -121,7 +121,7 @@ public class ReceiverUpdate extends BroadcastReceiver {
                                             }
                                             break;
                                         case 5:
-                                            timerepit = Long.valueOf(t1[3]);
+                                            timerepit = Long.parseLong(t1[3]);
                                             while (true) {
                                                 if (timerepit > c.getTimeInMillis()) {
                                                     Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
@@ -133,7 +133,7 @@ public class ReceiverUpdate extends BroadcastReceiver {
                                             }
                                             break;
                                         case 6:
-                                            timerepit = Long.valueOf(t1[3]);
+                                            timerepit = Long.parseLong(t1[3]);
                                             while (true) {
                                                 if (timerepit > c.getTimeInMillis()) {
                                                     Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
@@ -145,29 +145,29 @@ public class ReceiverUpdate extends BroadcastReceiver {
                                             }
                                             break;
                                         default:
-                                            if (Long.valueOf(t1[3]) > c.getTimeInMillis()) {
+                                            if (Long.parseLong(t1[3]) > c.getTimeInMillis()) {
                                                 Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
                                                 pIntent = PendingIntent.getBroadcast(context, (int) Long.valueOf(t1[3]).longValue(), intent, 0);
                                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                                    Objects.requireNonNull(am).setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                                    Objects.requireNonNull(am).setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                                    Objects.requireNonNull(am).setExact(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                                    Objects.requireNonNull(am).setExact(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                                 } else {
-                                                    Objects.requireNonNull(am).set(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                                    Objects.requireNonNull(am).set(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                                 }
                                             }
                                             break;
                                     }
                                 } else {
-                                    if (Long.valueOf(t1[3]) > c.getTimeInMillis()) {
+                                    if (Long.parseLong(t1[3]) > c.getTimeInMillis()) {
                                         Intent intent = createIntentSabytie(t1[0].replace("_", " ") + " " + t1[1] + " у " + t1[2], t1[1]);
                                         pIntent = PendingIntent.getBroadcast(context, (int) Long.valueOf(t1[3]).longValue(), intent, 0);
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                            Objects.requireNonNull(am).setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                            Objects.requireNonNull(am).setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                            Objects.requireNonNull(am).setExact(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                            Objects.requireNonNull(am).setExact(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                         } else {
-                                            Objects.requireNonNull(am).set(AlarmManager.RTC_WAKEUP, Long.valueOf(t1[3]), pIntent);
+                                            Objects.requireNonNull(am).set(AlarmManager.RTC_WAKEUP, Long.parseLong(t1[3]), pIntent);
                                         }
                                     }
                                 }

@@ -334,9 +334,9 @@ public class SettingsActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView58);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, GET_FONT_SIZE_MIN);
         if (dirCount / 1024 > 1000) {
-            textView.setText(getResources().getString(R.string.QUOTA_M, formatFigureTwoPlaces(new BigDecimal((float) dirCount / 1024 / 1024).setScale(2, RoundingMode.HALF_UP).floatValue())));
+            textView.setText(getResources().getString(R.string.QUOTA_M, formatFigureTwoPlaces(BigDecimal.valueOf((float) dirCount / 1024 / 1024).setScale(2, RoundingMode.HALF_UP).floatValue())));
         } else {
-            textView.setText(getResources().getString(R.string.QUOTA, formatFigureTwoPlaces(new BigDecimal((float) dirCount / 1024).setScale(2, RoundingMode.HALF_UP).floatValue())));
+            textView.setText(getResources().getString(R.string.QUOTA, formatFigureTwoPlaces(BigDecimal.valueOf((float) dirCount / 1024).setScale(2, RoundingMode.HALF_UP).floatValue())));
         }
 
         if (Build.MANUFACTURER.toLowerCase().contains("huawei")) {
@@ -727,7 +727,7 @@ public class SettingsActivity extends AppCompatActivity {
             /*for (File aDirContents2 : dirContents2) {
                 aDirContents2.delete();
             }*/
-            textView.setText(getResources().getString(R.string.QUOTA, formatFigureTwoPlaces(new BigDecimal((float) 0).setScale(2, RoundingMode.HALF_UP).floatValue())));
+            textView.setText(getResources().getString(R.string.QUOTA, formatFigureTwoPlaces(BigDecimal.valueOf((float) 0).setScale(2, RoundingMode.HALF_UP).floatValue())));
         });
         checkBoxV.setTypeface(TextView_Roboto_Condensed.createFont(Typeface.NORMAL));
         checkBoxG.setTypeface(TextView_Roboto_Condensed.createFont(Typeface.NORMAL));
@@ -1470,7 +1470,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
-    class timeAdapter extends ArrayAdapter<DataTime> {
+    private static class timeAdapter extends ArrayAdapter<DataTime> {
 
         private final Activity activity;
         private final ArrayList<DataTime> dataTimes;
@@ -1522,7 +1522,7 @@ public class SettingsActivity extends AppCompatActivity {
         TextView_Roboto_Condensed text;
     }
 
-    private class DataTime {
+    private static class DataTime {
         private final String string;
         private final int data;
 

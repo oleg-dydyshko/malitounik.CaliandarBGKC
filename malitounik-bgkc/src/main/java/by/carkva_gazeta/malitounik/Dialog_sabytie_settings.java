@@ -67,7 +67,7 @@ public class Dialog_sabytie_settings extends DialogFragment {
         String soundURI = k.getString("soundURI", "");
         uri = Uri.parse(soundURI);
         ringTone = RingtoneManager.getRingtone(getActivity(), uri);
-        if (soundURI.equals("")) notificationPicker.setText("Іншая мелодыя");
+        if (Objects.requireNonNull(soundURI).equals("")) notificationPicker.setText("Іншая мелодыя");
         else
             notificationPicker.setText(getString(R.string.uriPicker, ringTone.getTitle(getActivity())));
         int sound = k.getInt("soundnotification", 0);

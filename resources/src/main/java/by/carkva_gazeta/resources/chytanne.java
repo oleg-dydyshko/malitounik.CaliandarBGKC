@@ -397,12 +397,12 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                     int zag3 = zaglav.indexOf(".", zag1 + 1);
                     String zagS;
                     boolean supadzenneNachKonc = false;
+                    int i1 = Integer.parseInt(zaglav.substring(zag1 + 1, zag2));
+                    int i2 = Integer.parseInt(zaglav.substring(zag3 + 1));
                     if (zag2 != -1) {
                         zagS = zaglav.substring(0, zag2);
                         if (zag3 != -1) {
-                            int glava1 = Integer.valueOf(zaglav.substring(zag1 + 1, zag2));
-                            int glava2 = Integer.valueOf(zaglav.substring(zag3 + 1));
-                            if (glava1 == glava2) supadzenneNachKonc = true;
+                            if (i1 == i2) supadzenneNachKonc = true;
                         }
                     } else {
                         zagS = zaglav;
@@ -427,17 +427,17 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                             knigaN = Integer.parseInt(zagS.substring(zagS1 + 1)); // Начало чтения
                         }
                     } else if (zag2 == -1) {
+                        // Конец чтения
                         if (zag != -1) {
                             int zagS1 = zagS.indexOf(".");
                             zaglnum = Integer.parseInt(zagS.substring(zag + 1, zagS1)); // Номер главы
                             knigaN = Integer.parseInt(zagS.substring(zagS1 + 1)); // Начало чтения
-                            knigaK = knigaN; // Конец чтения
                         } else {
                             knigaN = Integer.parseInt(zaglav); // Начало чтения
-                            knigaK = knigaN; // Конец чтения
                         }
+                        knigaK = knigaN; // Конец чтения
                     } else {
-                        knigaN = Integer.parseInt(zaglav.substring(zag1 + 1, zag2)); // Начало чтения
+                        knigaN = i1; // Начало чтения
                     }
                     if (glav) {
                         knigaK = Integer.parseInt(zaglav.substring(zag1 + 1)); // Конец чтения
@@ -445,7 +445,7 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                         if (zag3 == -1) {
                             knigaK = Integer.parseInt(zaglav.substring(zag2 + 1)); // Конец чтения
                         } else {
-                            knigaK = Integer.parseInt(zaglav.substring(zag3 + 1)); // Конец чтения
+                            knigaK = i2; // Конец чтения
                         }
                     }
                     String spln = "";
@@ -854,12 +854,10 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                                     desN = spl1.indexOf(knigaN + ".");
                                     desK1 = spl2.indexOf(knigaK + ".");
                                     int desN1 = spl2.indexOf(knigaK + 1 + ".", desK1);
-                                    if (desN1 != -1) {
-                                        desK1 = desN1 + des1;
-                                    } else {
+                                    if (desN1 == -1) {
                                         desN1 = spl1.length();
-                                        desK1 = desN1 + des1;
                                     }
+                                    desK1 = desN1 + des1;
                                     spl = spl1 + "\n" + spl2;
                                     zaglnum = zaglnum + 1;
                                 }

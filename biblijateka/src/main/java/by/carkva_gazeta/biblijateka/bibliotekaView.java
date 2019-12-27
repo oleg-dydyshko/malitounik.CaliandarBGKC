@@ -781,7 +781,7 @@ public class bibliotekaView extends AppCompatActivity implements OnPageChangeLis
                 savedInstance = 0;
             }
             saveindep = false;
-            if (!json.equals("")) {
+            if (!Objects.requireNonNull(json).equals("")) {
                 Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
                 }.getType();
                 naidaunia.addAll(gson.fromJson(json, type));
@@ -822,13 +822,13 @@ public class bibliotekaView extends AppCompatActivity implements OnPageChangeLis
                     } else {
                         webView.setVisibility(View.VISIBLE);
                     }
-                    if (!json.equals("")) {
+                    if (!Objects.requireNonNull(json).equals("")) {
                         Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
                         }.getType();
                         naidaunia.addAll(gson.fromJson(json, type));
                     }
                 } else {
-                    if (!json.equals("")) {
+                    if (!Objects.requireNonNull(json).equals("")) {
                         Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
                         }.getType();
                         naidaunia.addAll(gson.fromJson(json, type));
@@ -1707,14 +1707,14 @@ public class bibliotekaView extends AppCompatActivity implements OnPageChangeLis
                     } else {
                         Gson gson = new Gson();
                         String json = k.getString("Biblioteka", "");
-                        if (!json.equals("")) {
+                        if (!Objects.requireNonNull(json).equals("")) {
                             Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
                             }.getType();
                             arrayList.addAll(gson.fromJson(json, type));
                         }
                         ArrayList<ArrayList<String>> temp = new ArrayList<>();
                         for (int i = 0; i < arrayList.size(); i++) {
-                            int rtemp2 = Integer.valueOf(arrayList.get(i).get(4));
+                            int rtemp2 = Integer.parseInt(arrayList.get(i).get(4));
                             if (rtemp2 != rub) temp.add(arrayList.get(i));
                         }
                         arrayList.removeAll(temp);

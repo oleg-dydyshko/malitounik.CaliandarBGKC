@@ -103,7 +103,7 @@ public class Menu_caliandar extends Fragment {
         menu.findItem(R.id.search_sviatyia).setVisible(true);
     }
 
-    class MyCalendarAdapter extends SmartFragmentStatePagerAdapter {
+    private static class MyCalendarAdapter extends SmartFragmentStatePagerAdapter {
 
         private Fragment mCurrentFragment;
         private int mun = Calendar.JANUARY;

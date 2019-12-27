@@ -81,12 +81,11 @@ public class navinyView extends AppCompatActivity {
                     }
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     view.getContext().startActivity(intent);
-                    return true;
                 } else {
                     Dialog_no_internet dialog_no_internet = new Dialog_no_internet();
                     dialog_no_internet.show(getSupportFragmentManager(), "no_internet");
-                    return true;
                 }
+                return true;
             }
         });
         mviewWeb.loadDataWithBaseURL("file:///android_asset/", getIntent().getExtras().getString("htmlData"), "text/html", "UTF-8", null);

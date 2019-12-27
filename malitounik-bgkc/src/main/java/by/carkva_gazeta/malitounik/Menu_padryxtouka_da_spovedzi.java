@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class Menu_padryxtouka_da_spovedzi extends ListFragment {
 
-    private ArrayAdapter adapter;
+    private ArrayAdapter<String> adapter;
     private SharedPreferences k;
 
     @Override
@@ -93,7 +93,7 @@ public class Menu_padryxtouka_da_spovedzi extends ListFragment {
         getListView().setPadding(pad,pad,pad,pad);
     }
 
-    private class MyArrayAdapter extends ArrayAdapter<String> {
+    private static class MyArrayAdapter extends ArrayAdapter<String> {
 
         private final ArrayList<String> list;
         private final Activity activity;

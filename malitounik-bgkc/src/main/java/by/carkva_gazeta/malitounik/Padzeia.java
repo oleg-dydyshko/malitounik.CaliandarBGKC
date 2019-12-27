@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
  * Created by oleg on 10.5.17
  */
 
-class Padzeia implements Comparable {
+class Padzeia implements Comparable<Padzeia> {
     final String padz;
     final String dat;
     final String tim;
@@ -38,8 +38,7 @@ class Padzeia implements Comparable {
     }
 
     @Override
-    public int compareTo(@NonNull Object o) {
-        Padzeia tmp = (Padzeia) o;
+    public int compareTo(@NonNull Padzeia tmp) {
         String[] days = this.dat.split("[.]");
         String[] tims = this.tim.split(":");
         GregorianCalendar gc = new GregorianCalendar(Integer.parseInt(days[2]), Integer.parseInt(days[1]) - 1, Integer.parseInt(days[0]), Integer.parseInt(tims[0]), Integer.parseInt(tims[1]), 0);

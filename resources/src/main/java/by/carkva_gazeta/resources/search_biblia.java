@@ -73,7 +73,7 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
     private SharedPreferences.Editor prefEditors;
     private static int zavet = 1;
     private boolean dzenNoch;
-    private static WeakReference<ArrayAdapter> adapterReference;
+    private static WeakReference<ArrayAdapter<String>> adapterReference;
     private static ArrayMap<String, Integer> setSinodalBible;
     private static ArrayMap<String, Integer> setSemuxaBible;
     private static boolean searche = false;
@@ -168,13 +168,13 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
             prefEditors.putString("search_string_filter", "");
             prefEditors.apply();
         }
-        if (!chin.getString("search_string", "").equals("")) {
+        if (!Objects.requireNonNull(chin.getString("search_string", "")).equals("")) {
             //if (savedInstanceState == null) {
             Gson gson = new Gson();
             String json = chin.getString("search_array", "");
             Type type = new TypeToken<ArrayList<String>>() {
             }.getType();
-            seash.addAll(gson.fromJson(json, type));
+            seash.addAll(Objects.requireNonNull(gson.fromJson(json, type)));
             akafist.setText(getResources().getString(by.carkva_gazeta.malitounik.R.string.seash, seash.size()));
             //}
         }
@@ -834,7 +834,8 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
         return seashpost;
     }
 
-    private static ArrayList<String> Sinoidal(Context context, String poshuk) {
+    @NonNull
+    private static ArrayList<String> Sinoidal(@NonNull Context context, @NonNull String poshuk) {
         SharedPreferences chin = context.getSharedPreferences("biblia", MODE_PRIVATE);
         boolean dzenNoch = chin.getBoolean("dzen_noch", false);
         ArrayList<String> seashpost = new ArrayList<>();
@@ -1323,7 +1324,7 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
             adapterReference.get().addAll(result);
             adapterReference.get().getFilter().filter(Objects.requireNonNull(editText2.getText()).toString());
             akafist.setText(activityReference.get().getResources().getString(by.carkva_gazeta.malitounik.R.string.seash, adapterReference.get().getCount()));
-            if (!chin.getString("search_string", "").equals("")) {
+            if (!Objects.requireNonNull(chin.getString("search_string", "")).equals("")) {
                 listView.clearFocus();
                 listView.post(() -> listView.setSelection(chin.getInt("search_position", 0)));
             }

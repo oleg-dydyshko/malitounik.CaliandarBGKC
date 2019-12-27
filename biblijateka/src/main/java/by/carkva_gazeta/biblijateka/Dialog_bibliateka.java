@@ -142,9 +142,9 @@ public class Dialog_bibliateka extends DialogFragment {
         int dirCount = Integer.parseInt(size);
         String izm;
         if (dirCount / 1024 > 1000) {
-            izm = formatFigureTwoPlaces(new BigDecimal((float) dirCount / 1024 / 1024).setScale(2, RoundingMode.HALF_UP).floatValue()) + " Мб";
+            izm = formatFigureTwoPlaces(BigDecimal.valueOf((float) dirCount / 1024 / 1024).setScale(2, RoundingMode.HALF_UP).floatValue()) + " Мб";
         } else {
-            izm = formatFigureTwoPlaces(new BigDecimal((float) dirCount / 1024).setScale(2, RoundingMode.HALF_UP).floatValue()) + " Кб";
+            izm = formatFigureTwoPlaces(BigDecimal.valueOf((float) dirCount / 1024).setScale(2, RoundingMode.HALF_UP).floatValue()) + " Кб";
         }
         if (file.exists()) {
             builder.setPositiveButton(getResources().getString(by.carkva_gazeta.malitounik.R.string.ok), (dialog, which) -> dialog.cancel());

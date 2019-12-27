@@ -211,7 +211,7 @@ public class Menu_pamiatka extends ListFragment {
         getListView().setPadding(pad, pad, pad, pad);
     }
 
-    private class MyArrayAdapter extends ArrayAdapter<String> {
+    private static class MyArrayAdapter extends ArrayAdapter<String> {
 
         private final ArrayList<String> list;
         private final Activity activity;

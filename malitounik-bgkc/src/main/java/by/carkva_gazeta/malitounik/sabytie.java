@@ -65,7 +65,6 @@ import static by.carkva_gazeta.malitounik.MainActivity.padzeia;
  * Created by oleg on 8.5.17
  */
 
-@SuppressWarnings({"unchecked"})//, "ConstantConditions"
 public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Dialog_sabytie_save_Listener, Dialog_context_menu_sabytie.Dialog_context_menu_sabytie_Listener, Dialog_delite.Dialog_delite_Listener {
 
     private SharedPreferences k;
@@ -1016,7 +1015,7 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
                         taK = ta;
                     }
                     if (!edit2.equals("")) {
-                        londs = Long.valueOf(edit2);
+                        londs = Long.parseLong(edit2);
                         switch (posit) {
                             case 0:
                                 londs = londs * 60000L;
@@ -1662,7 +1661,7 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
                         taK = ta;
                     }
                     if (!edit2.equals("")) {
-                        londs = Long.valueOf(edit2);
+                        londs = Long.parseLong(edit2);
                         switch (posit) {
                             case 0:
                                 londs = londs * 60000L;
@@ -2233,9 +2232,9 @@ public class sabytie extends AppCompatActivity implements Dialog_sabytie_save.Di
                             while ((line = reader.readLine()) != null && !line.equals("")) {
                                 String[] t1 = line.split(" ");
                                 if (t1.length == 11)
-                                    padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.valueOf(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], color));
+                                    padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.parseLong(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], color));
                                 else
-                                    padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.valueOf(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], Integer.parseInt(t1[11])));
+                                    padzeia.add(new Padzeia(t1[0].replace("_", " "), t1[1], t1[2], Long.parseLong(t1[3]), Integer.parseInt(t1[4]), t1[5], t1[6], t1[7], Integer.parseInt(t1[8]), t1[9], t1[10], Integer.parseInt(t1[11])));
                             }
                             inputStream.close();
                         }

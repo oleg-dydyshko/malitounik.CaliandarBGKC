@@ -397,19 +397,17 @@ public class Widget_mun extends AppWidgetProvider {
                     if (SviatyDvunadesiatya(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -426,11 +424,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button1a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button1a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -485,11 +482,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button2a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button2a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -506,11 +502,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button2a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button2a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button2a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -567,11 +562,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button3a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button3a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -588,11 +582,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button3a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button3a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button3a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -649,11 +642,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button4a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button4a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -670,11 +662,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button4a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button4a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button4a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -733,11 +724,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button5a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button5a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -754,11 +744,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button5a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button5a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button5a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -816,11 +805,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button6a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button6a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -837,11 +825,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button6a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button6a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button6a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -885,11 +872,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button7a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button7a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -906,11 +892,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button7a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button7a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button7a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -946,19 +931,17 @@ public class Widget_mun extends AppWidgetProvider {
                 if (SviatyDvunadesiatya(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -975,11 +958,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button8a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button8a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1020,11 +1002,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button9a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button9a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1041,11 +1022,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button9a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button9a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button9a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1088,11 +1068,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button10a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button10a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1109,11 +1088,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button10a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button10a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button10a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1156,11 +1134,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button11a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button11a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1177,11 +1154,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button11a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button11a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button11a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1224,11 +1200,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button12a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button12a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1245,11 +1220,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button12a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button12a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button12a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1292,11 +1266,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button13a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button13a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1313,11 +1286,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button13a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button13a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button13a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1360,11 +1332,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button14a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button14a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1381,11 +1352,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button14a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button14a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button14a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1421,19 +1391,17 @@ public class Widget_mun extends AppWidgetProvider {
                 if (SviatyDvunadesiatya(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1450,11 +1418,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button15a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button15a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1493,14 +1460,12 @@ public class Widget_mun extends AppWidgetProvider {
                     updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                     updateViews.setTextViewText(R.id.button16a, MainActivity.fromHtml("<strong>" + i + "</strong>"));
                 } else if (SviatyVialikia(i)) {
-
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button16a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button16a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1517,11 +1482,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button16a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button16a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button16a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1565,11 +1529,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button17a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button17a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1584,14 +1547,12 @@ public class Widget_mun extends AppWidgetProvider {
                             updateViews.setInt(R.id.button17a, "setBackgroundResource", R.drawable.calendar_post);
                     }
                     if (strogiPost) {
-
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button17a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button17a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button17a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1634,11 +1595,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button18a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button18a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1655,11 +1615,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button18a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button18a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button18a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1702,11 +1661,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button19a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button19a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1723,11 +1681,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button19a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button19a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button19a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1770,11 +1727,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button20a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button20a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1791,11 +1747,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button20a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button20a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button20a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1838,11 +1793,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button21a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button21a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1859,11 +1813,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button21a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button21a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button21a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1899,19 +1852,17 @@ public class Widget_mun extends AppWidgetProvider {
                 if (SviatyDvunadesiatya(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1928,11 +1879,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button22a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button22a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -1973,11 +1923,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button23a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button23a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -1994,11 +1943,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button23a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button23a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button23a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2039,14 +1987,12 @@ public class Widget_mun extends AppWidgetProvider {
                     updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                     updateViews.setTextViewText(R.id.button24a, MainActivity.fromHtml("<strong>" + i + "</strong>"));
                 } else if (SviatyVialikia(i)) {
-
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button24a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button24a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -2063,11 +2009,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button24a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button24a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button24a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2110,11 +2055,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button25a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button25a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -2131,11 +2075,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button25a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button25a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button25a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2178,11 +2121,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button26a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button26a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -2199,11 +2141,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button26a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button26a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button26a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2246,11 +2187,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button27a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button27a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -2267,11 +2207,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button27a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button27a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button27a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2314,11 +2253,10 @@ public class Widget_mun extends AppWidgetProvider {
                 } else if (SviatyVialikia(i)) {
                     if (mun_actual == i && munTudey) {
                         updateViews.setInt(R.id.button28a, "setBackgroundResource", R.drawable.calendar_red_today);
-                        updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         updateViews.setInt(R.id.button28a, "setBackgroundResource", R.drawable.calendar_red);
-                        updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
+                    updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                 } else {
                     if (nopost) {
                         if (mun_actual == i && munTudey)
@@ -2335,11 +2273,10 @@ public class Widget_mun extends AppWidgetProvider {
                     if (strogiPost) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button28a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                            updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button28a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                            updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button28a, ContextCompat.getColor(context, R.color.colorIcons));
                     }
                     if (!nopost && !post && !strogiPost) {
                         denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2388,19 +2325,17 @@ public class Widget_mun extends AppWidgetProvider {
                     if (SviatyDvunadesiatya(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2417,11 +2352,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button29a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button29a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2476,11 +2410,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button30a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button30a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2497,11 +2430,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button30a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button30a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button30a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2558,11 +2490,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button31a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button31a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2579,11 +2510,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button31a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button31a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button31a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2640,11 +2570,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button32a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button32a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2661,11 +2590,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button32a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button32a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button32a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2720,14 +2648,12 @@ public class Widget_mun extends AppWidgetProvider {
                         updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                         updateViews.setTextViewText(R.id.button33a, MainActivity.fromHtml("<strong>" + i + "</strong>"));
                     } else if (SviatyVialikia(i)) {
-
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button33a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button33a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2744,11 +2670,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button33a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button33a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button33a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2805,11 +2730,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button34a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button34a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2826,11 +2750,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button34a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button34a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button34a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2887,11 +2810,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button35a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button35a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2908,11 +2830,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button35a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button35a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button35a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -2962,19 +2883,17 @@ public class Widget_mun extends AppWidgetProvider {
                     if (SviatyDvunadesiatya(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -2991,11 +2910,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button36a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button36a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);
@@ -3050,11 +2968,10 @@ public class Widget_mun extends AppWidgetProvider {
                     } else if (SviatyVialikia(i)) {
                         if (mun_actual == i && munTudey) {
                             updateViews.setInt(R.id.button37a, "setBackgroundResource", R.drawable.calendar_red_today);
-                            updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                         } else {
                             updateViews.setInt(R.id.button37a, "setBackgroundResource", R.drawable.calendar_red);
-                            updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
+                        updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                     } else {
                         if (nopost) {
                             if (mun_actual == i && munTudey)
@@ -3071,11 +2988,10 @@ public class Widget_mun extends AppWidgetProvider {
                         if (strogiPost) {
                             if (mun_actual == i && munTudey) {
                                 updateViews.setInt(R.id.button37a, "setBackgroundResource", R.drawable.calendar_strogi_post_today);
-                                updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                             } else {
                                 updateViews.setInt(R.id.button37a, "setBackgroundResource", R.drawable.calendar_strogi_post);
-                                updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                             }
+                            updateViews.setTextColor(R.id.button37a, ContextCompat.getColor(context, R.color.colorIcons));
                         }
                         if (!nopost && !post && !strogiPost) {
                             denNedeli = calendar_post.get(Calendar.DAY_OF_WEEK);

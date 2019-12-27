@@ -130,7 +130,7 @@ public class Menu_psalter_nadsana extends Fragment implements View.OnClickListen
         }
         if (id == R.id.prodolzych) {
             String bible_time = k.getString("psalter_time_psalter_nadsan", "");
-            if (!bible_time.equals("")) {
+            if (!Objects.requireNonNull(bible_time).equals("")) {
                 Gson gson = new Gson();
                 Type type = new TypeToken<ArrayMap<String, Integer>>() {
                 }.getType();

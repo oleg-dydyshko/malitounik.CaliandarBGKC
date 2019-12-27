@@ -72,7 +72,7 @@ public class Menu_natatki extends ListFragment {
             if (res[1].contains("<RTE></RTE>")) {
                 int start = res[1].indexOf("<RTE></RTE>");
                 int end = res[1].lastIndexOf("\n");
-                lRTE = Long.valueOf(res[1].substring(start + 11, end));
+                lRTE = Long.parseLong(res[1].substring(start + 11, end));
             }
             if (lRTE <= 1) {
                 lRTE = f.lastModified();
@@ -155,7 +155,7 @@ public class Menu_natatki extends ListFragment {
                     if (res[1].contains("<RTE></RTE>")) {
                         int start = res[1].indexOf("<RTE></RTE>");
                         int end = res[1].lastIndexOf("\n");
-                        lRTE = Long.valueOf(res[1].substring(start + 11, end));
+                        lRTE = Long.parseLong(res[1].substring(start + 11, end));
                         res[1] = res[1].substring(0, start);
                     }
                     if (lRTE <= 1) {
