@@ -535,7 +535,6 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private void SabytieView(String sabytieTitle) {
         GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
         String title;
