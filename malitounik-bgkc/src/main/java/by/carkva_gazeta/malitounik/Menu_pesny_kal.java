@@ -52,7 +52,9 @@ public class Menu_pesny_kal extends ListFragment {
         data.add("Ціхая ноч (пер. Н. Арсеньневай)");
         data.add("Ціхая ноч-2");
         data.add("Ціхая ноч-3");
-        // так же добавить в search_pesny.getPesniaID
+        data.add("Прыйдзі, прыйдзі, Эмануэль (ХІХ ст.)");
+        data.add("Прыйдзі, прыйдзі, Эмануэль (XII–ХVIII стст.)");
+        // так же добавить в search_pesny.get_Menu_list_data
         Collections.sort(data);
         Menu_ListAdaprer adapter = new Menu_ListAdaprer(getActivity());
         setListAdapter(adapter);

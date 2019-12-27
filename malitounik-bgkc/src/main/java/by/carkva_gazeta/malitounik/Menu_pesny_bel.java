@@ -42,7 +42,7 @@ public class Menu_pesny_bel extends ListFragment {
         data.add("Малітва");
         data.add("Мая краіна");
         data.add("Мы хочам Бога");
-        // так же добавить в search_pesny.getPesniaID
+        // так же добавить в search_pesny.get_Menu_list_data
         Collections.sort(data);
         Menu_ListAdaprer adapter = new Menu_ListAdaprer(getActivity());
         setListAdapter(adapter);

@@ -105,6 +105,8 @@ public class search_pesny extends AppCompatActivity {
         menu_list_data.add(new Menu_list_data(R.raw.pesny_kal_17, "Ціхая ноч (пер. Н. Арсеньневай)"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_kal_18, "Ціхая ноч-2"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_kal_19, "Ціхая ноч-3"));
+        menu_list_data.add(new Menu_list_data(R.raw.pesny_kal_20, "Прыйдзі, прыйдзі, Эмануэль (ХІХ ст.)"));
+        menu_list_data.add(new Menu_list_data(R.raw.pesny_kal_21, "Прыйдзі, прыйдзі, Эмануэль (XII–ХVIII стст.)"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_0, "Ён паўсюль"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_1, "Ісус вызваліў мяне"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_2, "Ісус нам дае збаўленьне"));
@@ -176,6 +178,7 @@ public class search_pesny extends AppCompatActivity {
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_68, "Як гэта хораша й міла"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_69, "Яму за ўсё слава"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_70, "Цябе, Бога, хвалім"));
+        menu_list_data.add(new Menu_list_data(R.raw.pesny_prasl_71, "Мой Госпад, мой Збаўца"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_taize_0, "Magnifikat"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_taize_1, "Ostende nobis"));
         menu_list_data.add(new Menu_list_data(R.raw.pesny_taize_2, "Ubi caritas"));

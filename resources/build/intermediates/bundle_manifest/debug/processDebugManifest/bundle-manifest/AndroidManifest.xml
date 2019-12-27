@@ -3,8 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     featureSplit="resources"
     package="by.carkva_gazeta.malitounik"
-    android:versionCode="43551"
-    android:versionName="3.5.100" >
+    android:versionCode="43552"
+    android:versionName="3.5.101" >
 
     <uses-sdk
         android:minSdkVersion="15"

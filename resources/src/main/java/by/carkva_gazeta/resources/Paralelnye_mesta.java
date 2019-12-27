@@ -532,8 +532,8 @@ class Paralelnye_mesta {
                 nazvaBel = "Да Галятаў";
                 nomer = 66;
             }
-            if (fit.contains("Эф")) {
-                nazva = "Эфэсянам";
+            if (fit.contains("Еф")) {
+                nazva = "Ефесянам";
                 nazvaBel = "Да Эфэсянаў";
                 nomer = 67;
             }

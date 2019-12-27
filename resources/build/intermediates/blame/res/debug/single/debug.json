@@ -1236,6 +1236,10 @@
         "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_kal_4.html"
     },
     {
+        "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_kal_21.html.flat",
+        "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_kal_21.html"
+    },
+    {
         "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_taize_0.html.flat",
         "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_taize_0.html"
     },
@@ -1278,6 +1282,10 @@
     {
         "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_biblias34.txt.flat",
         "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/biblias34.txt"
+    },
+    {
+        "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_prasl_71.html.flat",
+        "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_prasl_71.html"
     },
     {
         "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_prasl_61.html.flat",
@@ -1486,6 +1494,10 @@
     {
         "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_prasl_29.html.flat",
         "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_prasl_29.html"
+    },
+    {
+        "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/raw_pesny_kal_20.html.flat",
+        "source": "/home/oleg/AndroidStudioProjects/Malitounik/resources/src/main/res/raw/pesny_kal_20.html"
     },
     {
         "merged": "/home/oleg/AndroidStudioProjects/Malitounik/resources/build/intermediates/res/merged/debug/layout_activity_bible.xml.flat",

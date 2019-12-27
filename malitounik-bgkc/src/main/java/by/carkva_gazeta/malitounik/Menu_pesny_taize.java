@@ -49,7 +49,7 @@ public class Menu_pesny_taize extends ListFragment {
         data.add("У цемры iдзём");
         data.add("У цемры нашых дзён");
         data.add("Хай тваё сэрца больш не журыцца");
-        // так же добавить в search_pesny.getPesniaID
+        // так же добавить в search_pesny.get_Menu_list_data
         Collections.sort(data);
         Menu_ListAdaprer adapter = new Menu_ListAdaprer(getActivity());
         setListAdapter(adapter);

@@ -48,7 +48,7 @@ public class Menu_pesny_bag extends ListFragment {
         data.add("Радуйся, Марыя!");
         data.add("Табе, Марыя, давяраю я");
         data.add("Ціхая, пакорная");
-        // так же добавить в search_pesny.getPesniaID
+        // так же добавить в search_pesny.get_Menu_list_data
         Collections.sort(data);
         Menu_ListAdaprer adapter = new Menu_ListAdaprer(getActivity());
         setListAdapter(adapter);

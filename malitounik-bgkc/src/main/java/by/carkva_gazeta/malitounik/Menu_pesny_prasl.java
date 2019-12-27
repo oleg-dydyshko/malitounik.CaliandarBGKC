@@ -103,7 +103,8 @@ public class Menu_pesny_prasl extends ListFragment {
         data.add("Як гэта хораша й міла");
         data.add("Яму за ўсё слава");
         data.add("Цябе, Бога, хвалім");
-        // так же добавить в search_pesny.getPesniaID
+        data.add("Мой Госпад, мой Збаўца");
+        // так же добавить в search_pesny.get_Menu_list_data
         Collections.sort(data);
         Menu_ListAdaprer adapter = new Menu_ListAdaprer(getActivity());
         setListAdapter(adapter);
