@@ -482,7 +482,7 @@ public class search_pesny extends AppCompatActivity {
         }
     }
 
-    static class search_ListAdaprer extends ArrayAdapter<String> {
+    private static class search_ListAdaprer extends ArrayAdapter<String> {
 
         private final Activity mContext;
         private final SharedPreferences k;

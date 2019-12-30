@@ -1818,6 +1818,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cytanne = cytanne.replace("Тон 7.", "");
         cytanne = cytanne.replace("Тон 8.", "");
         cytanne = cytanne.replace("Вялікія Гадзіны", "");
+        cytanne = cytanne.replace("На асвячэньне вады", "");
+        cytanne = cytanne.replace("Багародзіцы", "");
+        cytanne = cytanne.replace("Дабравешчаньне", "");
+        cytanne = cytanne.replace("Сустрэчы", "");
         cytanne = cytanne.replace("Літургіі няма", "");
         cytanne = cytanne.replace("На вячэрні", "");
         cytanne = cytanne.replace("Строгі пост", "");

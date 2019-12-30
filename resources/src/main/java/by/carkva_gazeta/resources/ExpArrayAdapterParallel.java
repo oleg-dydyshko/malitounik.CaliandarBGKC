@@ -418,7 +418,7 @@ class ExpArrayAdapterParallel extends ArrayAdapter<String> {
         paralel = paralel.replace("Исх", "Вых");
         paralel = paralel.replace("Лев", "Ляв");
         paralel = paralel.replace("Чис", "Лікі");
-        paralel = paralel.replace("Втор", "Др_Зак");
+        paralel = paralel.replace("Втор", "ДрЗак");
         //paralel = paralel.replace("Нав", "Нав");
         //paralel = paralel.replace("Суд", "Суд");
         paralel = paralel.replace("Руфь", "Рут");

@@ -78,8 +78,8 @@ public class SettingsActivity extends AppCompatActivity {
     public final static int GET_DEFAULT_FONT_SIZE = 18;
     public final static int GET_FONT_SIZE_MIN = 14;
     public final static int GET_FONT_SIZE_MAX = 54;
-    public final static int GET_CALIANDAR_YEAR_MIN = 2016;
-    public final static int GET_CALIANDAR_YEAR_MAX = 2020;
+    public final static int GET_CALIANDAR_YEAR_MIN = 2017;
+    public final static int GET_CALIANDAR_YEAR_MAX = 2021;
 
     @Override
     protected void onResume() {

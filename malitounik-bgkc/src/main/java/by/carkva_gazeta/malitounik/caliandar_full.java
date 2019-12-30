@@ -309,7 +309,7 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
             textPredsviaty.setVisibility(View.VISIBLE);
         }
         textChytanne.setText(data.get(day).get(9));
-        if (data.get(day).get(9).contains("Прабачьце, няма дадзеных"))
+        if (data.get(day).get(9).contains("Прабачьце, няма дадзеных") || data.get(day).get(9).equals("Літургіі няма"))
             textChytanne.setEnabled(false);
         if (!data.get(day).get(10).equals("")) {
             textChytanneSviatyia.setText(data.get(day).get(10));

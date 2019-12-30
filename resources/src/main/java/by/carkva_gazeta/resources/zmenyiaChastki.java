@@ -162,7 +162,6 @@ class zmenyiaChastki {
             } else if (zag1 != -1) {
                 zaglnum = Integer.parseInt(zaglav.substring(0, zag1)); // Номер главы
             }
-            int knigaN1 = Integer.parseInt(zaglav.substring(zag1 + 1));
             if (glav) {
                 int zagS1 = zagS.indexOf(".");
                 if (zagS1 == -1) {
@@ -173,7 +172,7 @@ class zmenyiaChastki {
                 }
             } else if (zag2 == -1) {
                 if (zag1 != -1) {
-                    knigaN = knigaN1; // Начало чтения
+                    knigaN = Integer.parseInt(zaglav.substring(zag1 + 1)); // Начало чтения
                 } else {
                     knigaN = Integer.parseInt(zaglav); // Начало чтения
                 }
@@ -182,7 +181,7 @@ class zmenyiaChastki {
                 knigaN = Integer.parseInt(zaglav.substring(zag1 + 1, zag2)); // Начало чтения
             }
             if (glav) {
-                knigaK = knigaN1; // Конец чтения
+                knigaK = Integer.parseInt(zaglav.substring(zag1 + 1)); // Конец чтения
             } else if (zag2 != -1) {
                 if (zag3 == -1) {
                     knigaK = Integer.parseInt(zaglav.substring(zag2 + 1)); // Конец чтения

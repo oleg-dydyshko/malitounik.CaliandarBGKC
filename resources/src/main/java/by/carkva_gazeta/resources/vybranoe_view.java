@@ -1134,7 +1134,7 @@ public class vybranoe_view extends AppCompatActivity implements View.OnTouchList
             outState.putBoolean("seach", false);
     }
 
-    static class MyWebView extends WebViewClient {
+    private static class MyWebView extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, @NonNull String url) {

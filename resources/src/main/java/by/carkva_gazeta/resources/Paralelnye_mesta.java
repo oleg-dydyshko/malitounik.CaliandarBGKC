@@ -45,7 +45,7 @@ class Paralelnye_mesta {
                 cytanneSours = cytanneSours.replace("Числа", "Лікі");
             }
             if (cytanneSours.contains("Втор")) {
-                cytanneSours = cytanneSours.replace("Втор", "Др.Зак");
+                cytanneSours = cytanneSours.replace("Втор", "ДрЗак");
             }
             if (cytanneSours.contains("Руфь")) {
                 cytanneSours = cytanneSours.replace("Руфь", "Рут");
@@ -224,7 +224,7 @@ class Paralelnye_mesta {
                 nazvaBel = "Лікі";
                 nomer = 4;
             }
-            if (fit.contains("Втор") || fit.contains("Др_Зак")) {
+            if (fit.contains("Втор") || fit.contains("ДрЗак")) {
                 nazva = "Второзаконие";
                 nazvaBel = "Другі Закон";
                 nomer = 5;
