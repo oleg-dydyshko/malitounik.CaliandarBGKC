@@ -1591,7 +1591,11 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
         if (kniga == 77) {
             res = parallel.kniga77(glava, position + 1);
         }
-        if (!res.contains("+-+")) res = "$" + res;
+        if (!res.contains("+-+")) {
+            if (belarus)
+                res = MainActivity.translateToBelarus(res);
+            res = "$" + res;
+        }
         return res;
     }
 
