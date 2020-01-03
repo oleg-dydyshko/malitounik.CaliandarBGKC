@@ -310,7 +310,7 @@ class ExpArrayAdapterParallel extends ArrayAdapter<String> {
         }
         if (!res.contains("+-+")) {
             if (mPerevod == 1)
-                res = translateToBelarus(res);
+                res = MainActivity.translateToBelarus(res);
             SpannableStringBuilder ssb = new SpannableStringBuilder(ea.textView.getText()).append("\n").append(res);//.append("\n");
             int start = ea.textView.getText().length();
             int end = ea.textView.getText().length() + 1 + res.length();
@@ -410,87 +410,6 @@ class ExpArrayAdapterParallel extends ArrayAdapter<String> {
             }
         }*/
         return convertView;
-    }
-
-    @NonNull
-    static String translateToBelarus(String paralel) {
-        paralel = paralel.replace("Быт", "Быц");
-        paralel = paralel.replace("Исх", "Вых");
-        paralel = paralel.replace("Лев", "Ляв");
-        paralel = paralel.replace("Чис", "Лікі");
-        paralel = paralel.replace("Втор", "ДрЗак");
-        //paralel = paralel.replace("Нав", "Нав");
-        //paralel = paralel.replace("Суд", "Суд");
-        paralel = paralel.replace("Руфь", "Рут");
-        //paralel = paralel.replace("1 Цар", "1 Цар");
-        //paralel = paralel.replace("2 Цар", "2 Цар");
-        //paralel = paralel.replace("3 Цар", "3 Цар");
-        //paralel = paralel.replace("4 Цар", "4 Цар");
-        paralel = paralel.replace("1 Пар", "1 Лет");
-        paralel = paralel.replace("2 Пар", "2 Лет");
-        paralel = paralel.replace("1 Езд", "1 Эзд");
-        paralel = paralel.replace("Неем", "Нээм");
-        paralel = paralel.replace("2 Езд", "2 Эзд");
-        paralel = paralel.replace("Тов", "Тав");
-        paralel = paralel.replace("Иудифь", "Іудыфь");
-        paralel = paralel.replace("Есф", "Эст");
-        paralel = paralel.replace("Иов", "Ёва");
-        //paralel = paralel.replace("Пс", "Пс");
-        paralel = paralel.replace("Притч", "Высл");
-        paralel = paralel.replace("Еккл", "Экл");
-        paralel = paralel.replace("Песн", "Песьн");
-        paralel = paralel.replace("Прем", "Прэм");
-        paralel = paralel.replace("Сир", "Сір");
-        paralel = paralel.replace("Ис", "Іс");
-        paralel = paralel.replace("Иер", "Ерам");
-        //paralel = paralel.replace("Плач", "Плач");
-        paralel = paralel.replace("Посл Иер", "Пасл Ерам");
-        //paralel = paralel.replace("Вар", "Вар");
-        paralel = paralel.replace("Иез", "Езэк");
-        //paralel = paralel.replace("Дан", "Дан");
-        paralel = paralel.replace("Ос", "Ас");
-        paralel = paralel.replace("Иоил", "Ёіл");
-        //paralel = paralel.replace("Ам", "Ам");
-        paralel = paralel.replace("Авд", "Аўд");
-        paralel = paralel.replace("Иона", "Ёны");
-        paralel = paralel.replace("Мих", "Міх");
-        paralel = paralel.replace("Наум", "Навум");
-        paralel = paralel.replace("Авв", "Абак");
-        paralel = paralel.replace("Соф", "Саф");
-        paralel = paralel.replace("Агг", "Аг");
-        //paralel = paralel.replace("Зах", "Зах");
-        //paralel = paralel.replace("Мал", "Мал");
-        //paralel = paralel.replace("1 Мак", "1 Мак");
-        //paralel = paralel.replace("2 Мак", "2 Мак");
-        //paralel = paralel.replace("3 Мак", "3 Мак");
-        paralel = paralel.replace("3 Езд", "3 Эзд");
-        paralel = paralel.replace("Мф", "Мац");
-        paralel = paralel.replace("Мк", "Марк");
-        paralel = paralel.replace("Лк", "Лук");
-        paralel = paralel.replace("Ин", "Ян");
-        paralel = paralel.replace("Деян", "Дзеі");
-        paralel = paralel.replace("Иак", "Якав");
-        paralel = paralel.replace("1 Пет", "1 Пят");
-        paralel = paralel.replace("2 Пет", "2 Пят");
-        paralel = paralel.replace("1 Ин", "1 Яна");
-        paralel = paralel.replace("2 Ин", "2 Яна");
-        paralel = paralel.replace("3 Ин", "3 Яна");
-        paralel = paralel.replace("Иуд", "Юды");
-        paralel = paralel.replace("1 Кор", "1 Кар");
-        paralel = paralel.replace("2 Кор", "2 Кар");
-        //paralel = paralel.replace("Гал", "Гал");
-        paralel = paralel.replace("Еф", "Эф");
-        paralel = paralel.replace("Флп", "Піл");
-        paralel = paralel.replace("Кол", "Кал");
-        //paralel = paralel.replace("1 Фес", "1 Фес");
-        //paralel = paralel.replace("2 Фес", "2 Фес");
-        paralel = paralel.replace("1 Тим", "1 Цім");
-        paralel = paralel.replace("2 Тим", "2 Цім");
-        paralel = paralel.replace("Тит", "Ціт");
-        paralel = paralel.replace("Флм", "Філ");
-        paralel = paralel.replace("Евр", "Габр");
-        paralel = paralel.replace("Откр", "Адкр");
-        return paralel;
     }
 
     static class ExpArrayAdapterParallelItems {

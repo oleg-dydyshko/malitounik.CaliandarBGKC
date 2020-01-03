@@ -1,12 +1,10 @@
 package by.carkva_gazeta.resources;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.MenuItem;
@@ -17,19 +15,14 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Objects;
@@ -50,13 +43,6 @@ public class My_natatki_add extends AppCompatActivity {
     private Boolean redak;
     private boolean dzenNoch;
     private String md5sum;
-    private TextView_Roboto_Condensed title_toolbar;
-
-    @NonNull
-    private String formatFigureTwoPlaces(float value) {
-        DecimalFormat myFormatter = new DecimalFormat("##0.00");
-        return myFormatter.format(value);
-    }
 
     @Override
     public void onPause() {
@@ -81,7 +67,6 @@ public class My_natatki_add extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,8 +91,8 @@ public class My_natatki_add extends AppCompatActivity {
                 Window window = getWindow();
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
-                window.setNavigationBarColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
+                window.setStatusBarColor(getResources().getColor(by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
+                window.setNavigationBarColor(getResources().getColor(by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
             }
         }
         editTextFull = findViewById(R.id.EditText);
@@ -122,10 +107,10 @@ public class My_natatki_add extends AppCompatActivity {
         editText = findViewById(R.id.file);
         editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontBiblia);
         if (dzenNoch) {
-            editTextFull.setTextColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorIcons));
-            editText.setTextColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorIcons));
+            editTextFull.setTextColor(getResources().getColor(by.carkva_gazeta.malitounik.R.color.colorIcons));
+            editText.setTextColor(getResources().getColor(by.carkva_gazeta.malitounik.R.color.colorIcons));
         } else {
-            editText.setTextColor(ContextCompat.getColor(this, by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
+            editText.setTextColor(getResources().getColor(by.carkva_gazeta.malitounik.R.color.colorPrimary_text));
         }
         if (redak) {
             title = getResources().getString(by.carkva_gazeta.malitounik.R.string.malitva_edit);
@@ -154,29 +139,11 @@ public class My_natatki_add extends AppCompatActivity {
         }
         editText.setSelection(Objects.requireNonNull(editText.getText()).toString().length());
         setTollbarTheme(title);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            new Thread(() -> {
-                try {
-                    String format;
-                    StorageManager storageManager = (StorageManager) getSystemService(STORAGE_SERVICE);
-                    long bates = Objects.requireNonNull(storageManager).getAllocatableBytes(storageManager.getUuidForPath(getFilesDir()));
-                    float bat = (float) bates / 1024;
-                    if (bat < 1000f)
-                        format = ": даступна " + formatFigureTwoPlaces(new BigDecimal(bat).setScale(2, RoundingMode.HALF_EVEN).floatValue()) + " Кб";
-                    else if (bates < 1000L)
-                        format = ": даступна " + bates + " байт";
-                    else
-                        format = "";
-                    My_natatki_add.this.runOnUiThread(() -> title_toolbar.setText(title_toolbar.getText().toString() + format));
-                } catch (IOException ignored) {
-                }
-            }).start();
-        }
     }
 
     private void setTollbarTheme(String title) {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        title_toolbar = findViewById(R.id.title_toolbar);
+        TextView_Roboto_Condensed title_toolbar = findViewById(R.id.title_toolbar);
         title_toolbar.setOnClickListener((v) -> {
             title_toolbar.setHorizontallyScrolling(true);
             title_toolbar.setFreezesText(true);
@@ -238,7 +205,7 @@ public class My_natatki_add extends AppCompatActivity {
                 Objects.requireNonNull(imm).hideSoftInputFromWindow(editTextFull.getWindowToken(), 0);
                 redak = true;
                 //MyBackupAgent.requestBackup(this);
-            } catch (IOException ignored) {
+            } catch (Exception ignored) {
             }
         }
     }

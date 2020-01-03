@@ -1,6 +1,5 @@
 package by.carkva_gazeta.resources;
 
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -29,8 +28,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -67,6 +64,7 @@ import by.carkva_gazeta.malitounik.Dialog_font_size;
 import by.carkva_gazeta.malitounik.EditText_Roboto_Condensed;
 import by.carkva_gazeta.malitounik.InteractiveScrollView;
 import by.carkva_gazeta.malitounik.MainActivity;
+import by.carkva_gazeta.malitounik.Malitvy_paslia_prychascia;
 import by.carkva_gazeta.malitounik.Menu_vybranoe;
 import by.carkva_gazeta.malitounik.SettingsActivity;
 import by.carkva_gazeta.malitounik.TextView_Roboto_Condensed;
@@ -74,7 +72,7 @@ import by.carkva_gazeta.malitounik.Vybranoe_data;
 import by.carkva_gazeta.malitounik.WebViewCustom;
 import by.carkva_gazeta.malitounik.help_text;
 
-public class vybranoe_view extends AppCompatActivity implements View.OnTouchListener, Dialog_font_size.Dialog_font_size_Listener, WebViewCustom.OnScrollChangedCallback, WebViewCustom.OnBottomListener, InteractiveScrollView.OnScrollChangedCallback {
+public class vybranoe_view extends AppCompatActivity implements View.OnTouchListener, Dialog_font_size.Dialog_font_size_Listener, WebViewCustom.OnScrollChangedCallback, WebViewCustom.OnBottomListener, InteractiveScrollView.OnScrollChangedCallback, MyWebViewClient.OnLinkListenner {
 
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
@@ -308,7 +306,9 @@ public class vybranoe_view extends AppCompatActivity implements View.OnTouchList
         akafist = findViewById(R.id.WebView);
         akafist.setOnTouchListener(this);
         akafist.setOnLongClickListener((view) -> scrollTimer != null);
-        akafist.setWebViewClient(new MyWebView());
+        MyWebViewClient client = new MyWebViewClient();
+        client.setOnLinkListenner(this);
+        akafist.setWebViewClient(client);
         scrollView = findViewById(R.id.scrollView2);
         scrollView.setOnTouchListener(this);
         textViewCount = findViewById(R.id.textCount);
@@ -473,9 +473,9 @@ public class vybranoe_view extends AppCompatActivity implements View.OnTouchList
                 if (dzenNoch)
                     line = line.replace("#d00505", "#f44336");
                 if (dzenNoch)
-                    line = line.replace("<html><head>", "<html><head><style type=\"text/css\">::selection {background: #eb9b9a;} body{color: #fff; background-color: #303030; margin: 0; padding: 0}</style>");
+                    line = line.replace("<html><head>", "<html><head><style type=\"text/css\">::selection {background: #eb9b9a;} body{-webkit-tap-highlight-color: rgba(244,67,54,0.2); color: #fff; background-color: #303030; margin: 0; padding: 0}</style>");
                 else
-                    line = line.replace("<html><head>", "<html><head><style type=\"text/css\">::selection {background: #eb9b9a;} body{margin: 0; padding: 0}</style>");
+                    line = line.replace("<html><head>", "<html><head><style type=\"text/css\">::selection {background: #eb9b9a;} body{-webkit-tap-highlight-color: rgba(208,5,5,0.1); margin: 0; padding: 0}</style>");
                 if (resurs.contains("bogashlugbovya")) {
                     if (line.intern().contains("<KANDAK></KANDAK>")) {
                         line = line.replace("<KANDAK></KANDAK>", "");
@@ -1134,15 +1134,16 @@ public class vybranoe_view extends AppCompatActivity implements View.OnTouchList
             outState.putBoolean("seach", false);
     }
 
-    private static class MyWebView extends WebViewClient {
+    @Override
+    public void onActivityStart() {
+        Intent intent = new Intent(this, Malitvy_paslia_prychascia.class);
+        startActivity(intent);
+        positionY = 0;
+    }
 
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, @NonNull String url) {
-            if (url.contains("https://m.carkva-gazeta.by/index.php?toUp=1")) {
-                ObjectAnimator anim = ObjectAnimator.ofInt(view, "scrollY", view.getScrollY(), 0);
-                anim.setDuration(1500).start();
-            }
-            return true;
-        }
+    @Override
+    public void onDialogStart(String message) {
+        Dialog_liturgia dialog_liturgia = Dialog_liturgia.getInstance(message);
+        dialog_liturgia.show(getSupportFragmentManager(), "dialog_liturgia");
     }
 }

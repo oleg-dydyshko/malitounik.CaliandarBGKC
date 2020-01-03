@@ -8,8 +8,8 @@ android {
         applicationId "by.carkva_gazeta.malitounik"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 43553
-        versionName "3.6.0"
+        versionCode 43554
+        versionName "3.6.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

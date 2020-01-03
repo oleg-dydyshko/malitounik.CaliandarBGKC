@@ -529,7 +529,7 @@ public class stary_zapaviet_sinaidal3 extends AppCompatActivity implements Dialo
                 fullglav = 31;
                 break;
             case 23:
-                bibleInfo.setText("Екклезнаста");
+                bibleInfo.setText("Екклезиаста");
                 fullglav = 12;
                 break;
             case 24:
@@ -778,7 +778,7 @@ public class stary_zapaviet_sinaidal3 extends AppCompatActivity implements Dialo
                 knigaName = "Притчи Соломона";
                 break;
             case 23:
-                knigaName = "Екклезнаста";
+                knigaName = "Екклезиаста";
                 break;
             case 24:
                 knigaName = "Песнь песней Соломона";

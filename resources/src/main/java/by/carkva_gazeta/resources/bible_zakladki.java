@@ -520,7 +520,7 @@ public class bible_zakladki extends AppCompatActivity implements AdapterView.OnI
                 knigaS = 21;
             if (knigaName.contains("Притчи Соломона"))
                 knigaS = 22;
-            if (knigaName.contains("Екклезнаста"))
+            if (knigaName.contains("Екклезиаста"))
                 knigaS = 23;
             if (knigaName.contains("Песнь песней Соломона"))
                 knigaS = 24;

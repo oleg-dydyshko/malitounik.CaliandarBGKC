@@ -469,24 +469,24 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                     if (zagl.equals("Гал")) kniga = 15;
                     if (zagl.equals("Эф")) kniga = 16;
                     if (zagl.equals("Флп")) kniga = 17;
-                    if (zagl.equals("Кал")) kniga = 18;
-                    if (zagl.equals("1 Сал")) kniga = 19;
-                    if (zagl.equals("2 Сал")) kniga = 20;
+                    if (zagl.equals("Клс")) kniga = 18;
+                    if (zagl.equals("1 Фес")) kniga = 19;
+                    if (zagl.equals("2 Фес")) kniga = 20;
                     if (zagl.equals("1 Цім")) kniga = 21;
                     if (zagl.equals("2 Цім")) kniga = 22;
                     if (zagl.equals("Ціт")) kniga = 23;
                     if (zagl.equals("Піл")) kniga = 24;
-                    if (zagl.equals("Габ")) kniga = 25;
+                    if (zagl.equals("Гбр")) kniga = 25;
                     if (zagl.equals("Быц")) kniga = 26;
                     if (zagl.equals("Высл")) kniga = 27;
-                    if (zagl.equals("Езэк")) kniga = 28;
+                    if (zagl.equals("Езк")) kniga = 28;
                     if (zagl.equals("Вых")) kniga = 29;
                     if (zagl.equals("Ёў")) kniga = 30;
                     if (zagl.equals("Зах")) kniga = 31;
-                    if (zagl.equals("Яэль")) kniga = 32;
+                    if (zagl.equals("Ёіл")) kniga = 32;
                     if (zagl.equals("Саф")) kniga = 33;
                     if (zagl.equals("Іс")) kniga = 34;
-                    if (zagl.equals("Ярэм")) kniga = 35;
+                    if (zagl.equals("Ер")) kniga = 35;
                     if (zagl.equals("Дан")) kniga = 36;
                     if (zagl.equals("Лікі")) kniga = 37;
                     if (zagl.equals("Міх")) kniga = 38;
@@ -790,7 +790,7 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                                 ssbTitle = new SpannableStringBuilder(getResources().getString(by.carkva_gazeta.malitounik.R.string.chtinia_zag, spln.trim()));
                             }
                             break;
-                            case 37:
+                        case 37:
                             inputStream = r.openRawResource(R.raw.biblias4);
                             if (e == 0) {
                                 ssbTitle = new SpannableStringBuilder(getResources().getString(by.carkva_gazeta.malitounik.R.string.chtinia_37, spln, zaglavieName));
@@ -798,7 +798,7 @@ public class chytanne extends AppCompatActivity implements View.OnTouchListener,
                                 ssbTitle = new SpannableStringBuilder(getResources().getString(by.carkva_gazeta.malitounik.R.string.chtinia_zag, spln.trim()));
                             }
                             break;
-                            case 38:
+                        case 38:
                             inputStream = r.openRawResource(R.raw.biblias33);
                             if (e == 0) {
                                 ssbTitle = new SpannableStringBuilder(getResources().getString(by.carkva_gazeta.malitounik.R.string.chtinia_38, spln, zaglavieName));

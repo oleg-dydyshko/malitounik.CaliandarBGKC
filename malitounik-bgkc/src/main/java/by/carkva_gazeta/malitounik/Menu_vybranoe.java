@@ -124,6 +124,7 @@ public class Menu_vybranoe extends ListFragment {
         if (MainActivity.checkModule_resources(getActivity())) {
             try {
                 Intent intent = new Intent(getActivity(), Class.forName("by.carkva_gazeta.resources.vybranoe_view"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 intent.putExtra("resurs", vybranoe.get(position).resurs);
                 intent.putExtra("title", vybranoe.get(position).data);
                 startActivity(intent);

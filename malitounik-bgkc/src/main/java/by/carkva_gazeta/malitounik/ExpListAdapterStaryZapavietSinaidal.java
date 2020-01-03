@@ -144,7 +144,7 @@ class ExpListAdapterStaryZapavietSinaidal extends BaseExpandableListAdapter {
                 textGroup.setText("Притчи Соломона");
                 break;
             case 23:
-                textGroup.setText("Екклезнаста");
+                textGroup.setText("Екклезиаста");
                 break;
             case 24:
                 textGroup.setText("Песнь песней Соломона");

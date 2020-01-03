@@ -61,6 +61,7 @@ public class Menu_bogashlugbovya extends ListFragment {
                 if (MainActivity.checkModule_resources(getActivity())) {
                     try {
                         Intent intent = new Intent(getActivity(), Class.forName("by.carkva_gazeta.resources.bogashlugbovya"));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         intent.putExtra("bogashlugbovya", position);
                         intent.putExtra("menu", 1);
                         startActivity(intent);

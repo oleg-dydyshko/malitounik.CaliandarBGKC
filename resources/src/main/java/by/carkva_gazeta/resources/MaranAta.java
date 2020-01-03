@@ -312,7 +312,7 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                 }
                 setFont = false;
                 int position = list.getFirstVisiblePosition();
-                int offset =  list.getChildAt(0).getTop();
+                int offset = list.getChildAt(0).getTop();
                 if (mPosition < position) {
                     mOffset = 0;
                 }
@@ -336,7 +336,10 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                         nazva = maranAta.get(list.getLastVisiblePosition() - 5);
                     }*/
                     if (scroll == 1) {
-                        nazva = maranAta.get(list.getLastVisiblePosition() - 5);
+                        if (list.getLastVisiblePosition() - 5 >= 0)
+                            nazva = maranAta.get(list.getLastVisiblePosition() - 5);
+                        else
+                            nazva = maranAta.get(list.getLastVisiblePosition());
                     }
                     String oldtollBarText = title_toolbar.getText().toString();
                     if (oldtollBarText.equals("")) {
@@ -707,478 +710,20 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
     }
 
     @SuppressLint("SetTextI18n")
-    private void setMaranata(String cytanne) {
+    private void setMaranata(@NonNull String cytanne) {
         fontBiblia = k.getInt("font_malitounik", SettingsActivity.GET_DEFAULT_FONT_SIZE);
         String[] chten = cytanne.split(";");
         for (int i = 0; i < chten.length; i++) {
             String fit = chten[i].trim();
-            String kniga = "Быт", nazva = "Бытие", nazvaBel = "Быцьцё";
             try {
-                int nachalo, konec, nomer = 1, stixn = -1, stixk = -1;
-                if (fit.contains("Быт")) {
-                    kniga = "Быт";
-                    nazva = "Бытие";
-                    nazvaBel = "Быцьцё";
-                    nomer = 1;
-                }
-                if (fit.contains("Исх")) {
-                    kniga = "Исх";
-                    nazva = "Исход";
-                    nazvaBel = "Выхад";
-                    nomer = 2;
-                }
-                if (fit.contains("Лев")) {
-                    kniga = "Лев";
-                    nazva = "Левит";
-                    nazvaBel = "Лявіт";
-                    nomer = 3;
-                }
-                if (fit.contains("Числа")) {
-                    kniga = "Числа";
-                    nazva = "Числа";
-                    nazvaBel = "Лікі";
-                    nomer = 4;
-                }
-                if (fit.contains("Втор")) {
-                    kniga = "Втор";
-                    nazva = "Второзаконие";
-                    nazvaBel = "Другі Закон";
-                    nomer = 5;
-                }
-                if (fit.contains("Нав")) {
-                    kniga = "Нав";
-                    nazva = "Иисуса Навина";
-                    nazvaBel = "Ісуса сына Нава";
-                    nomer = 6;
-                }
-                if (fit.contains("Суд")) {
-                    kniga = "Суд";
-                    nazva = "Судей израилевых";
-                    nazvaBel = "Судзьдзяў";
-                    nomer = 7;
-                }
-                if (fit.contains("Руфь")) {
-                    kniga = "Руфь";
-                    nazva = "Руфи";
-                    nazvaBel = "Рут";
-                    nomer = 8;
-                }
-                if (fit.contains("1 Цар")) {
-                    kniga = "1 Цар";
-                    nazva = "1-я Царств";
-                    nazvaBel = "1-я Царстваў";
-                    nomer = 9;
-                }
-                if (fit.contains("2 Цар")) {
-                    kniga = "2 Цар";
-                    nazva = "2-я Царств";
-                    nazvaBel = "2-я Царстваў";
-                    nomer = 10;
-                }
-                if (fit.contains("3 Цар")) {
-                    kniga = "3 Цар";
-                    nazva = "3-я Царств";
-                    nazvaBel = "3-я Царстваў";
-                    nomer = 11;
-                }
-                if (fit.contains("4 Цар")) {
-                    kniga = "4 Цар";
-                    nazva = "4-я Царств";
-                    nazvaBel = "4-я Царстваў";
-                    nomer = 12;
-                }
-                if (fit.contains("1 Пар")) {
-                    kniga = "1 Пар";
-                    nazva = "1-я Паралипоменон";
-                    nazvaBel = "1-я Летапісаў";
-                    nomer = 13;
-                }
-                if (fit.contains("2 Пар")) {
-                    kniga = "2 Пар";
-                    nazva = "2-я Паралипоменон";
-                    nazvaBel = "2-я Летапісаў";
-                    nomer = 14;
-                }
-                if (fit.contains("1 Езд")) {
-                    kniga = "1 Езд";
-                    nazva = "1-я Ездры";
-                    nazvaBel = "1-я Эздры";
-                    nomer = 15;
-                }
-                if (fit.contains("Неем")) {
-                    kniga = "Неем";
-                    nazva = "Неемии";
-                    nazvaBel = "Нээміі";
-                    nomer = 16;
-                }
-                if (fit.contains("2 Езд")) {
-                    kniga = "2 Езд";
-                    nazva = "2-я Ездры";
-                    nazvaBel = "2-я Эздры";
-                    nomer = 17;
-                }
-                if (fit.contains("Тов")) {
-                    kniga = "Тов";
-                    nazva = "Товита";
-                    nazvaBel = "Тавіта";
-                    nomer = 18;
-                }
-                if (fit.contains("Иудифь")) {
-                    kniga = "Иудифь";
-                    nazva = "Иудифи";
-                    nazvaBel = "Юдыфі";
-                    nomer = 19;
-                }
-                if (fit.contains("Есф")) {
-                    kniga = "Есф";
-                    nazva = "Есфири";
-                    nazvaBel = "Эстэр";
-                    nomer = 20;
-                }
-                if (fit.contains("Иов")) {
-                    kniga = "Иов";
-                    nazva = "Иова";
-                    nazvaBel = "Ёва";
-                    nomer = 21;
-                }
-                if (fit.contains("Пс")) {
-                    kniga = "Пс";
-                    nazva = "Псалтирь";
-                    nazvaBel = "Псалтыр";
-                    nomer = 22;
-                }
-                if (fit.contains("Притч")) {
-                    kniga = "Притч";
-                    nazva = "Притчи Соломона";
-                    nazvaBel = "Выслоўяў Саламонавых";
-                    nomer = 23;
-                }
-                if (fit.contains("Еккл")) {
-                    kniga = "Еккл";
-                    nazva = "Екклезнаста";
-                    nazvaBel = "Эклезіяста";
-                    nomer = 24;
-                }
-                if (fit.contains("Песн")) {
-                    kniga = "Песн";
-                    nazva = "Песнь песней Соломона";
-                    nazvaBel = "Найвышэйшая Песьня Саламонава";
-                    nomer = 25;
-                }
-                if (fit.contains("Прем")) {
-                    kniga = "Прем";
-                    nazva = "Премудрости Соломона";
-                    nazvaBel = "Прамудрасьці Саламона";
-                    nomer = 26;
-                }
-                if (fit.contains("Сир")) {
-                    kniga = "Сир";
-                    nazva = "Премудрости Иисуса, сына Сирахова";
-                    nazvaBel = "Прамудрасьці Ісуса, сына Сірахава";
-                    nomer = 27;
-                }
-                if (fit.contains("Ис") && !fit.contains("Исх")) {
-                    kniga = "Ис";
-                    nazva = "Исаии";
-                    nazvaBel = "Ісаі";
-                    nomer = 28;
-                }
-                if (fit.contains("Иер")) {
-                    kniga = "Иер";
-                    nazva = "Иеремии";
-                    nazvaBel = "Ераміі";
-                    nomer = 29;
-                }
-                if (fit.contains("Плач Иер")) {
-                    kniga = "Плач Иер";
-                    nazva = "Плач Иеремии";
-                    nazvaBel = "Ераміін Плач";
-                    nomer = 30;
-                }
-                if (fit.contains("Посл Иеремии")) {
-                    kniga = "Посл Иеремии";
-                    nazva = "Послание Иеремии";
-                    nazvaBel = "Пасланьне Ераміі";
-                    nomer = 31;
-                }
-                if (fit.contains("Вар")) {
-                    kniga = "Вар";
-                    nazva = "Варуха";
-                    nazvaBel = "Варуха";
-                    nomer = 32;
-                }
-                if (fit.contains("Иез")) {
-                    kniga = "Иез";
-                    nazva = "Иезекииля";
-                    nazvaBel = "Езэкііля";
-                    nomer = 33;
-                }
-                if (fit.contains("Дан")) {
-                    kniga = "Дан";
-                    nazva = "Даниила";
-                    nazvaBel = "Данііла";
-                    nomer = 34;
-                }
-                if (fit.contains("Ос")) {
-                    kniga = "Ос";
-                    nazva = "Осии";
-                    nazvaBel = "Асіі";
-                    nomer = 35;
-                }
-                if (fit.contains("Иоиль")) {
-                    kniga = "Иоиль";
-                    nazva = "Иоиля";
-                    nazvaBel = "Ёіля";
-                    nomer = 36;
-                }
-                if (fit.contains("Ам")) {
-                    kniga = "Ам";
-                    nazva = "Амоса";
-                    nazvaBel = "Амоса";
-                    nomer = 37;
-                }
-                if (fit.contains("Авдий")) {
-                    kniga = "Авдий";
-                    nazva = "Авдия";
-                    nazvaBel = "Аўдзея";
-                    nomer = 38;
-                }
-                if (fit.contains("Иона")) {
-                    kniga = "Иона";
-                    nazva = "Ионы";
-                    nazvaBel = "Ёны";
-                    nomer = 39;
-                }
-                if (fit.contains("Мих")) {
-                    kniga = "Мих";
-                    nazva = "Михея";
-                    nazvaBel = "Міхея";
-                    nomer = 40;
-                }
-                if (fit.contains("Наум")) {
-                    kniga = "Наум";
-                    nazva = "Наума";
-                    nazvaBel = "Навума";
-                    nomer = 41;
-                }
-                if (fit.contains("Аввакум")) {
-                    kniga = "Аввакум";
-                    nazva = "Аввакума";
-                    nazvaBel = "Абакума";
-                    nomer = 42;
-                }
-                if (fit.contains("Сафония")) {
-                    kniga = "Сафония";
-                    nazva = "Сафонии";
-                    nazvaBel = "Сафона";
-                    nomer = 43;
-                }
-                if (fit.contains("Аггей")) {
-                    kniga = "Аггей";
-                    nazva = "Аггея";
-                    nazvaBel = "Агея";
-                    nomer = 44;
-                }
-                if (fit.contains("Зах")) {
-                    kniga = "Зах";
-                    nazva = "Захарии";
-                    nazvaBel = "Захарыі";
-                    nomer = 45;
-                }
-                if (fit.contains("Мал")) {
-                    kniga = "Мал";
-                    nazva = "Малахии";
-                    nazvaBel = "Малахіі";
-                    nomer = 46;
-                }
-                if (fit.contains("1 Макк")) {
-                    kniga = "1 Макк";
-                    nazva = "1-я Маккавейская";
-                    nazvaBel = "1-я Макавейская";
-                    nomer = 47;
-                }
-                if (fit.contains("2 Макк")) {
-                    kniga = "2 Макк";
-                    nazva = "2-я Маккавейская";
-                    nazvaBel = "2-я Макавейская";
-                    nomer = 48;
-                }
-                if (fit.contains("3 Макк")) {
-                    kniga = "3 Макк";
-                    nazva = "3-я Маккавейская";
-                    nazvaBel = "3-я Макавейская";
-                    nomer = 49;
-                }
-                if (fit.contains("3 Езд")) {
-                    kniga = "3 Езд";
-                    nazva = "3-я Ездры";
-                    nazvaBel = "3-я Эздры";
-                    nomer = 50;
-                }
-                if (fit.contains("Мф")) {
-                    kniga = "Мф";
-                    nazva = "От Матфея";
-                    nazvaBel = "Паводле Мацьвея";
-                    nomer = 51;
-                }
-                if (fit.contains("Мк")) {
-                    kniga = "Мк";
-                    nazva = "От Марка";
-                    nazvaBel = "Паводле Марка";
-                    nomer = 52;
-                }
-                if (fit.contains("Лк")) {
-                    kniga = "Лк";
-                    nazva = "От Луки";
-                    nazvaBel = "Паводле Лукаша";
-                    nomer = 53;
-                }
-                if (fit.contains("Ин")) {
-                    kniga = "Ин";
-                    nazva = "От Иоанна";
-                    nazvaBel = "Паводле Яна";
-                    nomer = 54;
-                }
-                if (fit.contains("Деян")) {
-                    kniga = "Деян";
-                    nazva = "Деяния святых апостолов";
-                    nazvaBel = "Дзеі Апосталаў";
-                    nomer = 55;
-                }
-                if (fit.contains("Иак")) {
-                    kniga = "Иак";
-                    nazva = "Иакова";
-                    nazvaBel = "Якава";
-                    nomer = 56;
-                }
-                if (fit.contains("1 Петр")) {
-                    kniga = "1 Петр";
-                    nazva = "1-е Петра";
-                    nazvaBel = "1-е Пятра";
-                    nomer = 57;
-                }
-                if (fit.contains("2 Петр")) {
-                    kniga = "2 Петр";
-                    nazva = "2-е Петра";
-                    nazvaBel = "2-е Пятра";
-                    nomer = 58;
-                }
-                if (fit.contains("1 Ин")) {
-                    kniga = "1 Ин";
-                    nazva = "1-е Иоанна";
-                    nazvaBel = "1-е Яна Багаслова";
-                    nomer = 59;
-                }
-                if (fit.contains("2 Ин")) {
-                    kniga = "2 Ин";
-                    nazva = "2-е Иоанна";
-                    nazvaBel = "2-е Яна Багаслова";
-                    nomer = 60;
-                }
-                if (fit.contains("3 Ин")) {
-                    kniga = "3 Ин";
-                    nazva = "3-е Иоанна";
-                    nazvaBel = "3-е Яна Багаслова";
-                    nomer = 61;
-                }
-                if (fit.contains("Иуды")) {
-                    kniga = "Иуды";
-                    nazva = "Иуды";
-                    nazvaBel = "Юды";
-                    nomer = 62;
-                }
-                if (fit.contains("Рим")) {
-                    kniga = "Рим";
-                    nazva = "Римлянам";
-                    nazvaBel = "Да Рымлянаў";
-                    nomer = 63;
-                }
-                if (fit.contains("1 Кор")) {
-                    kniga = "1 Кор";
-                    nazva = "1-е Коринфянам";
-                    nazvaBel = "1-е да Карынфянаў";
-                    nomer = 64;
-                }
-                if (fit.contains("2 Кор")) {
-                    kniga = "2 Кор";
-                    nazva = "2-е Коринфянам";
-                    nazvaBel = "2-е да Карынфянаў";
-                    nomer = 65;
-                }
-                if (fit.contains("Гал")) {
-                    kniga = "Гал";
-                    nazva = "Галатам";
-                    nazvaBel = "Да Галятаў";
-                    nomer = 66;
-                }
-                if (fit.contains("Еф")) {
-                    kniga = "Еф";
-                    nazva = "Ефесянам";
-                    nazvaBel = "Да Эфэсянаў";
-                    nomer = 67;
-                }
-                if (fit.contains("Флп")) {
-                    kniga = "Флп";
-                    nazva = "Филиппийцам";
-                    nazvaBel = "Да Піліпянаў";
-                    nomer = 68;
-                }
-                if (fit.contains("Кол")) {
-                    kniga = "Кол";
-                    nazva = "Колоссянам";
-                    nazvaBel = "Да Каласянаў";
-                    nomer = 69;
-                }
-                if (fit.contains("1 Фес")) {
-                    kniga = "1 Фес";
-                    nazva = "1-е Фессалоникийцам (Солунянам)";
-                    nazvaBel = "1-е да Фесаланікійцаў";
-                    nomer = 70;
-                }
-                if (fit.contains("2 Фес")) {
-                    kniga = "2 Фес";
-                    nazva = "2-е Фессалоникийцам (Солунянам)";
-                    nazvaBel = "2-е да Фесаланікійцаў";
-                    nomer = 71;
-                }
-                if (fit.contains("1 Тим")) {
-                    kniga = "1 Тим";
-                    nazva = "1-е Тимофею";
-                    nazvaBel = "1-е да Цімафея";
-                    nomer = 72;
-                }
-                if (fit.contains("2 Тим")) {
-                    kniga = "2 Тим";
-                    nazva = "2-е Тимофею";
-                    nazvaBel = "2-е да Цімафея";
-                    nomer = 73;
-                }
-                if (fit.contains("Тит")) {
-                    kniga = "Тит";
-                    nazva = "Титу";
-                    nazvaBel = "Да Ціта";
-                    nomer = 74;
-                }
-                if (fit.contains("Флм")) {
-                    kniga = "Флм";
-                    nazva = "Филимону";
-                    nazvaBel = "Да Філімона";
-                    nomer = 75;
-                }
-                if (fit.contains("Евр")) {
-                    kniga = "Евр";
-                    nazva = "Евреям";
-                    nazvaBel = "Да Габрэяў";
-                    nomer = 76;
-                }
-                if (fit.contains("Откр")) {
-                    kniga = "Откр";
-                    nazva = "Откровение (Апокалипсис)";
-                    nazvaBel = "Адкрыцьцё (Апакаліпсіс)";
-                    nomer = 77;
-                }
-                int s1 = kniga.length();
-                int s2 = fit.indexOf(" ", s1);
+                int nachalo, konec, stixn = -1, stixk = -1;
+                String[] bible = Paralelnye_mesta.biblia(fit);
+                Paralelnye_mesta.kniga = bible[0];
+                Paralelnye_mesta.nazva = bible[1];
+                Paralelnye_mesta.nazvaBel = bible[2];
+                Paralelnye_mesta.nomer = Integer.parseInt(bible[3]);
+                //int s1 = kniga.length();
+                int s2 = fit.lastIndexOf(" ");
                 int s5 = -1;
                 if (s2 == -1) {
                     nachalo = 1;
@@ -1210,150 +755,150 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                 }
                 Resources r = MaranAta.this.getResources();
                 if (belarus) {
-                    if (nomer == 1) inputStream = r.openRawResource(R.raw.biblias1);
-                    if (nomer == 2) inputStream = r.openRawResource(R.raw.biblias2);
-                    if (nomer == 3) inputStream = r.openRawResource(R.raw.biblias3);
-                    if (nomer == 4) inputStream = r.openRawResource(R.raw.biblias4);
-                    if (nomer == 5) inputStream = r.openRawResource(R.raw.biblias5);
-                    if (nomer == 6) inputStream = r.openRawResource(R.raw.biblias6);
-                    if (nomer == 7) inputStream = r.openRawResource(R.raw.biblias7);
-                    if (nomer == 8) inputStream = r.openRawResource(R.raw.biblias8);
-                    if (nomer == 9) inputStream = r.openRawResource(R.raw.biblias9);
-                    if (nomer == 10) inputStream = r.openRawResource(R.raw.biblias10);
-                    if (nomer == 11) inputStream = r.openRawResource(R.raw.biblias11);
-                    if (nomer == 12) inputStream = r.openRawResource(R.raw.biblias12);
-                    if (nomer == 13) inputStream = r.openRawResource(R.raw.biblias13);
-                    if (nomer == 14) inputStream = r.openRawResource(R.raw.biblias14);
-                    if (nomer == 15) inputStream = r.openRawResource(R.raw.biblias15);
-                    if (nomer == 16) inputStream = r.openRawResource(R.raw.biblias16);
-                    if (nomer == 20) inputStream = r.openRawResource(R.raw.biblias17);
-                    if (nomer == 21) inputStream = r.openRawResource(R.raw.biblias18);
-                    if (nomer == 22) inputStream = r.openRawResource(R.raw.biblias19);
-                    if (nomer == 23) inputStream = r.openRawResource(R.raw.biblias20);
-                    if (nomer == 24) inputStream = r.openRawResource(R.raw.biblias21);
-                    if (nomer == 25) inputStream = r.openRawResource(R.raw.biblias22);
-                    if (nomer == 28) inputStream = r.openRawResource(R.raw.biblias23);
-                    if (nomer == 29) inputStream = r.openRawResource(R.raw.biblias24);
-                    if (nomer == 30) inputStream = r.openRawResource(R.raw.biblias25);
-                    if (nomer == 33) inputStream = r.openRawResource(R.raw.biblias26);
-                    if (nomer == 34) inputStream = r.openRawResource(R.raw.biblias27);
-                    if (nomer == 35) inputStream = r.openRawResource(R.raw.biblias28);
-                    if (nomer == 36) inputStream = r.openRawResource(R.raw.biblias29);
-                    if (nomer == 37) inputStream = r.openRawResource(R.raw.biblias30);
-                    if (nomer == 38) inputStream = r.openRawResource(R.raw.biblias31);
-                    if (nomer == 39) inputStream = r.openRawResource(R.raw.biblias32);
-                    if (nomer == 40) inputStream = r.openRawResource(R.raw.biblias33);
-                    if (nomer == 41) inputStream = r.openRawResource(R.raw.biblias34);
-                    if (nomer == 42) inputStream = r.openRawResource(R.raw.biblias35);
-                    if (nomer == 43) inputStream = r.openRawResource(R.raw.biblias36);
-                    if (nomer == 44) inputStream = r.openRawResource(R.raw.biblias37);
-                    if (nomer == 45) inputStream = r.openRawResource(R.raw.biblias38);
-                    if (nomer == 46) inputStream = r.openRawResource(R.raw.biblias39);
-                    if (nomer == 51) inputStream = r.openRawResource(R.raw.biblian1);
-                    if (nomer == 52) inputStream = r.openRawResource(R.raw.biblian2);
-                    if (nomer == 53) inputStream = r.openRawResource(R.raw.biblian3);
-                    if (nomer == 54) inputStream = r.openRawResource(R.raw.biblian4);
-                    if (nomer == 55) inputStream = r.openRawResource(R.raw.biblian5);
-                    if (nomer == 56) inputStream = r.openRawResource(R.raw.biblian6);
-                    if (nomer == 57) inputStream = r.openRawResource(R.raw.biblian7);
-                    if (nomer == 58) inputStream = r.openRawResource(R.raw.biblian8);
-                    if (nomer == 59) inputStream = r.openRawResource(R.raw.biblian9);
-                    if (nomer == 60) inputStream = r.openRawResource(R.raw.biblian10);
-                    if (nomer == 61) inputStream = r.openRawResource(R.raw.biblian11);
-                    if (nomer == 62) inputStream = r.openRawResource(R.raw.biblian12);
-                    if (nomer == 63) inputStream = r.openRawResource(R.raw.biblian13);
-                    if (nomer == 64) inputStream = r.openRawResource(R.raw.biblian14);
-                    if (nomer == 65) inputStream = r.openRawResource(R.raw.biblian15);
-                    if (nomer == 66) inputStream = r.openRawResource(R.raw.biblian16);
-                    if (nomer == 67) inputStream = r.openRawResource(R.raw.biblian17);
-                    if (nomer == 68) inputStream = r.openRawResource(R.raw.biblian18);
-                    if (nomer == 69) inputStream = r.openRawResource(R.raw.biblian19);
-                    if (nomer == 70) inputStream = r.openRawResource(R.raw.biblian20);
-                    if (nomer == 71) inputStream = r.openRawResource(R.raw.biblian21);
-                    if (nomer == 72) inputStream = r.openRawResource(R.raw.biblian22);
-                    if (nomer == 73) inputStream = r.openRawResource(R.raw.biblian23);
-                    if (nomer == 74) inputStream = r.openRawResource(R.raw.biblian24);
-                    if (nomer == 75) inputStream = r.openRawResource(R.raw.biblian25);
-                    if (nomer == 76) inputStream = r.openRawResource(R.raw.biblian26);
-                    if (nomer == 77) inputStream = r.openRawResource(R.raw.biblian27);
+                    if (Paralelnye_mesta.nomer == 1) inputStream = r.openRawResource(R.raw.biblias1);
+                    if (Paralelnye_mesta.nomer == 2) inputStream = r.openRawResource(R.raw.biblias2);
+                    if (Paralelnye_mesta.nomer == 3) inputStream = r.openRawResource(R.raw.biblias3);
+                    if (Paralelnye_mesta.nomer == 4) inputStream = r.openRawResource(R.raw.biblias4);
+                    if (Paralelnye_mesta.nomer == 5) inputStream = r.openRawResource(R.raw.biblias5);
+                    if (Paralelnye_mesta.nomer == 6) inputStream = r.openRawResource(R.raw.biblias6);
+                    if (Paralelnye_mesta.nomer == 7) inputStream = r.openRawResource(R.raw.biblias7);
+                    if (Paralelnye_mesta.nomer == 8) inputStream = r.openRawResource(R.raw.biblias8);
+                    if (Paralelnye_mesta.nomer == 9) inputStream = r.openRawResource(R.raw.biblias9);
+                    if (Paralelnye_mesta.nomer == 10) inputStream = r.openRawResource(R.raw.biblias10);
+                    if (Paralelnye_mesta.nomer == 11) inputStream = r.openRawResource(R.raw.biblias11);
+                    if (Paralelnye_mesta.nomer == 12) inputStream = r.openRawResource(R.raw.biblias12);
+                    if (Paralelnye_mesta.nomer == 13) inputStream = r.openRawResource(R.raw.biblias13);
+                    if (Paralelnye_mesta.nomer == 14) inputStream = r.openRawResource(R.raw.biblias14);
+                    if (Paralelnye_mesta.nomer == 15) inputStream = r.openRawResource(R.raw.biblias15);
+                    if (Paralelnye_mesta.nomer == 16) inputStream = r.openRawResource(R.raw.biblias16);
+                    if (Paralelnye_mesta.nomer == 20) inputStream = r.openRawResource(R.raw.biblias17);
+                    if (Paralelnye_mesta.nomer == 21) inputStream = r.openRawResource(R.raw.biblias18);
+                    if (Paralelnye_mesta.nomer == 22) inputStream = r.openRawResource(R.raw.biblias19);
+                    if (Paralelnye_mesta.nomer == 23) inputStream = r.openRawResource(R.raw.biblias20);
+                    if (Paralelnye_mesta.nomer == 24) inputStream = r.openRawResource(R.raw.biblias21);
+                    if (Paralelnye_mesta.nomer == 25) inputStream = r.openRawResource(R.raw.biblias22);
+                    if (Paralelnye_mesta.nomer == 28) inputStream = r.openRawResource(R.raw.biblias23);
+                    if (Paralelnye_mesta.nomer == 29) inputStream = r.openRawResource(R.raw.biblias24);
+                    if (Paralelnye_mesta.nomer == 30) inputStream = r.openRawResource(R.raw.biblias25);
+                    if (Paralelnye_mesta.nomer == 33) inputStream = r.openRawResource(R.raw.biblias26);
+                    if (Paralelnye_mesta.nomer == 34) inputStream = r.openRawResource(R.raw.biblias27);
+                    if (Paralelnye_mesta.nomer == 35) inputStream = r.openRawResource(R.raw.biblias28);
+                    if (Paralelnye_mesta.nomer == 36) inputStream = r.openRawResource(R.raw.biblias29);
+                    if (Paralelnye_mesta.nomer == 37) inputStream = r.openRawResource(R.raw.biblias30);
+                    if (Paralelnye_mesta.nomer == 38) inputStream = r.openRawResource(R.raw.biblias31);
+                    if (Paralelnye_mesta.nomer == 39) inputStream = r.openRawResource(R.raw.biblias32);
+                    if (Paralelnye_mesta.nomer == 40) inputStream = r.openRawResource(R.raw.biblias33);
+                    if (Paralelnye_mesta.nomer == 41) inputStream = r.openRawResource(R.raw.biblias34);
+                    if (Paralelnye_mesta.nomer == 42) inputStream = r.openRawResource(R.raw.biblias35);
+                    if (Paralelnye_mesta.nomer == 43) inputStream = r.openRawResource(R.raw.biblias36);
+                    if (Paralelnye_mesta.nomer == 44) inputStream = r.openRawResource(R.raw.biblias37);
+                    if (Paralelnye_mesta.nomer == 45) inputStream = r.openRawResource(R.raw.biblias38);
+                    if (Paralelnye_mesta.nomer == 46) inputStream = r.openRawResource(R.raw.biblias39);
+                    if (Paralelnye_mesta.nomer == 51) inputStream = r.openRawResource(R.raw.biblian1);
+                    if (Paralelnye_mesta.nomer == 52) inputStream = r.openRawResource(R.raw.biblian2);
+                    if (Paralelnye_mesta.nomer == 53) inputStream = r.openRawResource(R.raw.biblian3);
+                    if (Paralelnye_mesta.nomer == 54) inputStream = r.openRawResource(R.raw.biblian4);
+                    if (Paralelnye_mesta.nomer == 55) inputStream = r.openRawResource(R.raw.biblian5);
+                    if (Paralelnye_mesta.nomer == 56) inputStream = r.openRawResource(R.raw.biblian6);
+                    if (Paralelnye_mesta.nomer == 57) inputStream = r.openRawResource(R.raw.biblian7);
+                    if (Paralelnye_mesta.nomer == 58) inputStream = r.openRawResource(R.raw.biblian8);
+                    if (Paralelnye_mesta.nomer == 59) inputStream = r.openRawResource(R.raw.biblian9);
+                    if (Paralelnye_mesta.nomer == 60) inputStream = r.openRawResource(R.raw.biblian10);
+                    if (Paralelnye_mesta.nomer == 61) inputStream = r.openRawResource(R.raw.biblian11);
+                    if (Paralelnye_mesta.nomer == 62) inputStream = r.openRawResource(R.raw.biblian12);
+                    if (Paralelnye_mesta.nomer == 63) inputStream = r.openRawResource(R.raw.biblian13);
+                    if (Paralelnye_mesta.nomer == 64) inputStream = r.openRawResource(R.raw.biblian14);
+                    if (Paralelnye_mesta.nomer == 65) inputStream = r.openRawResource(R.raw.biblian15);
+                    if (Paralelnye_mesta.nomer == 66) inputStream = r.openRawResource(R.raw.biblian16);
+                    if (Paralelnye_mesta.nomer == 67) inputStream = r.openRawResource(R.raw.biblian17);
+                    if (Paralelnye_mesta.nomer == 68) inputStream = r.openRawResource(R.raw.biblian18);
+                    if (Paralelnye_mesta.nomer == 69) inputStream = r.openRawResource(R.raw.biblian19);
+                    if (Paralelnye_mesta.nomer == 70) inputStream = r.openRawResource(R.raw.biblian20);
+                    if (Paralelnye_mesta.nomer == 71) inputStream = r.openRawResource(R.raw.biblian21);
+                    if (Paralelnye_mesta.nomer == 72) inputStream = r.openRawResource(R.raw.biblian22);
+                    if (Paralelnye_mesta.nomer == 73) inputStream = r.openRawResource(R.raw.biblian23);
+                    if (Paralelnye_mesta.nomer == 74) inputStream = r.openRawResource(R.raw.biblian24);
+                    if (Paralelnye_mesta.nomer == 75) inputStream = r.openRawResource(R.raw.biblian25);
+                    if (Paralelnye_mesta.nomer == 76) inputStream = r.openRawResource(R.raw.biblian26);
+                    if (Paralelnye_mesta.nomer == 77) inputStream = r.openRawResource(R.raw.biblian27);
                 } else {
-                    if (nomer == 1) inputStream = r.openRawResource(R.raw.sinaidals1);
-                    if (nomer == 2) inputStream = r.openRawResource(R.raw.sinaidals2);
-                    if (nomer == 3) inputStream = r.openRawResource(R.raw.sinaidals3);
-                    if (nomer == 4) inputStream = r.openRawResource(R.raw.sinaidals4);
-                    if (nomer == 5) inputStream = r.openRawResource(R.raw.sinaidals5);
-                    if (nomer == 6) inputStream = r.openRawResource(R.raw.sinaidals6);
-                    if (nomer == 7) inputStream = r.openRawResource(R.raw.sinaidals7);
-                    if (nomer == 8) inputStream = r.openRawResource(R.raw.sinaidals8);
-                    if (nomer == 9) inputStream = r.openRawResource(R.raw.sinaidals9);
-                    if (nomer == 10) inputStream = r.openRawResource(R.raw.sinaidals10);
-                    if (nomer == 11) inputStream = r.openRawResource(R.raw.sinaidals11);
-                    if (nomer == 12) inputStream = r.openRawResource(R.raw.sinaidals12);
-                    if (nomer == 13) inputStream = r.openRawResource(R.raw.sinaidals13);
-                    if (nomer == 14) inputStream = r.openRawResource(R.raw.sinaidals14);
-                    if (nomer == 15) inputStream = r.openRawResource(R.raw.sinaidals15);
-                    if (nomer == 16) inputStream = r.openRawResource(R.raw.sinaidals16);
-                    if (nomer == 17) inputStream = r.openRawResource(R.raw.sinaidals17);
-                    if (nomer == 18) inputStream = r.openRawResource(R.raw.sinaidals18);
-                    if (nomer == 19) inputStream = r.openRawResource(R.raw.sinaidals19);
-                    if (nomer == 20) inputStream = r.openRawResource(R.raw.sinaidals20);
-                    if (nomer == 21) inputStream = r.openRawResource(R.raw.sinaidals21);
-                    if (nomer == 22) inputStream = r.openRawResource(R.raw.sinaidals22);
-                    if (nomer == 23) inputStream = r.openRawResource(R.raw.sinaidals23);
-                    if (nomer == 24) inputStream = r.openRawResource(R.raw.sinaidals24);
-                    if (nomer == 25) inputStream = r.openRawResource(R.raw.sinaidals25);
-                    if (nomer == 26) inputStream = r.openRawResource(R.raw.sinaidals26);
-                    if (nomer == 27) inputStream = r.openRawResource(R.raw.sinaidals27);
-                    if (nomer == 28) inputStream = r.openRawResource(R.raw.sinaidals28);
-                    if (nomer == 29) inputStream = r.openRawResource(R.raw.sinaidals29);
-                    if (nomer == 30) inputStream = r.openRawResource(R.raw.sinaidals30);
-                    if (nomer == 31) inputStream = r.openRawResource(R.raw.sinaidals31);
-                    if (nomer == 32) inputStream = r.openRawResource(R.raw.sinaidals32);
-                    if (nomer == 33) inputStream = r.openRawResource(R.raw.sinaidals33);
-                    if (nomer == 34) inputStream = r.openRawResource(R.raw.sinaidals34);
-                    if (nomer == 35) inputStream = r.openRawResource(R.raw.sinaidals35);
-                    if (nomer == 36) inputStream = r.openRawResource(R.raw.sinaidals36);
-                    if (nomer == 37) inputStream = r.openRawResource(R.raw.sinaidals37);
-                    if (nomer == 38) inputStream = r.openRawResource(R.raw.sinaidals38);
-                    if (nomer == 39) inputStream = r.openRawResource(R.raw.sinaidals39);
-                    if (nomer == 40) inputStream = r.openRawResource(R.raw.sinaidals40);
-                    if (nomer == 41) inputStream = r.openRawResource(R.raw.sinaidals41);
-                    if (nomer == 42) inputStream = r.openRawResource(R.raw.sinaidals42);
-                    if (nomer == 43) inputStream = r.openRawResource(R.raw.sinaidals43);
-                    if (nomer == 44) inputStream = r.openRawResource(R.raw.sinaidals44);
-                    if (nomer == 45) inputStream = r.openRawResource(R.raw.sinaidals45);
-                    if (nomer == 46) inputStream = r.openRawResource(R.raw.sinaidals46);
-                    if (nomer == 47) inputStream = r.openRawResource(R.raw.sinaidals47);
-                    if (nomer == 48) inputStream = r.openRawResource(R.raw.sinaidals48);
-                    if (nomer == 49) inputStream = r.openRawResource(R.raw.sinaidals49);
-                    if (nomer == 50) inputStream = r.openRawResource(R.raw.sinaidals50);
-                    if (nomer == 51) inputStream = r.openRawResource(R.raw.sinaidaln1);
-                    if (nomer == 52) inputStream = r.openRawResource(R.raw.sinaidaln2);
-                    if (nomer == 53) inputStream = r.openRawResource(R.raw.sinaidaln3);
-                    if (nomer == 54) inputStream = r.openRawResource(R.raw.sinaidaln4);
-                    if (nomer == 55) inputStream = r.openRawResource(R.raw.sinaidaln5);
-                    if (nomer == 56) inputStream = r.openRawResource(R.raw.sinaidaln6);
-                    if (nomer == 57) inputStream = r.openRawResource(R.raw.sinaidaln7);
-                    if (nomer == 58) inputStream = r.openRawResource(R.raw.sinaidaln8);
-                    if (nomer == 59) inputStream = r.openRawResource(R.raw.sinaidaln9);
-                    if (nomer == 60) inputStream = r.openRawResource(R.raw.sinaidaln10);
-                    if (nomer == 61) inputStream = r.openRawResource(R.raw.sinaidaln11);
-                    if (nomer == 62) inputStream = r.openRawResource(R.raw.sinaidaln12);
-                    if (nomer == 63) inputStream = r.openRawResource(R.raw.sinaidaln13);
-                    if (nomer == 64) inputStream = r.openRawResource(R.raw.sinaidaln14);
-                    if (nomer == 65) inputStream = r.openRawResource(R.raw.sinaidaln15);
-                    if (nomer == 66) inputStream = r.openRawResource(R.raw.sinaidaln16);
-                    if (nomer == 67) inputStream = r.openRawResource(R.raw.sinaidaln17);
-                    if (nomer == 68) inputStream = r.openRawResource(R.raw.sinaidaln18);
-                    if (nomer == 69) inputStream = r.openRawResource(R.raw.sinaidaln19);
-                    if (nomer == 70) inputStream = r.openRawResource(R.raw.sinaidaln20);
-                    if (nomer == 71) inputStream = r.openRawResource(R.raw.sinaidaln21);
-                    if (nomer == 72) inputStream = r.openRawResource(R.raw.sinaidaln22);
-                    if (nomer == 73) inputStream = r.openRawResource(R.raw.sinaidaln23);
-                    if (nomer == 74) inputStream = r.openRawResource(R.raw.sinaidaln24);
-                    if (nomer == 75) inputStream = r.openRawResource(R.raw.sinaidaln25);
-                    if (nomer == 76) inputStream = r.openRawResource(R.raw.sinaidaln26);
-                    if (nomer == 77) inputStream = r.openRawResource(R.raw.sinaidaln27);
+                    if (Paralelnye_mesta.nomer == 1) inputStream = r.openRawResource(R.raw.sinaidals1);
+                    if (Paralelnye_mesta.nomer == 2) inputStream = r.openRawResource(R.raw.sinaidals2);
+                    if (Paralelnye_mesta.nomer == 3) inputStream = r.openRawResource(R.raw.sinaidals3);
+                    if (Paralelnye_mesta.nomer == 4) inputStream = r.openRawResource(R.raw.sinaidals4);
+                    if (Paralelnye_mesta.nomer == 5) inputStream = r.openRawResource(R.raw.sinaidals5);
+                    if (Paralelnye_mesta.nomer == 6) inputStream = r.openRawResource(R.raw.sinaidals6);
+                    if (Paralelnye_mesta.nomer == 7) inputStream = r.openRawResource(R.raw.sinaidals7);
+                    if (Paralelnye_mesta.nomer == 8) inputStream = r.openRawResource(R.raw.sinaidals8);
+                    if (Paralelnye_mesta.nomer == 9) inputStream = r.openRawResource(R.raw.sinaidals9);
+                    if (Paralelnye_mesta.nomer == 10) inputStream = r.openRawResource(R.raw.sinaidals10);
+                    if (Paralelnye_mesta.nomer == 11) inputStream = r.openRawResource(R.raw.sinaidals11);
+                    if (Paralelnye_mesta.nomer == 12) inputStream = r.openRawResource(R.raw.sinaidals12);
+                    if (Paralelnye_mesta.nomer == 13) inputStream = r.openRawResource(R.raw.sinaidals13);
+                    if (Paralelnye_mesta.nomer == 14) inputStream = r.openRawResource(R.raw.sinaidals14);
+                    if (Paralelnye_mesta.nomer == 15) inputStream = r.openRawResource(R.raw.sinaidals15);
+                    if (Paralelnye_mesta.nomer == 16) inputStream = r.openRawResource(R.raw.sinaidals16);
+                    if (Paralelnye_mesta.nomer == 17) inputStream = r.openRawResource(R.raw.sinaidals17);
+                    if (Paralelnye_mesta.nomer == 18) inputStream = r.openRawResource(R.raw.sinaidals18);
+                    if (Paralelnye_mesta.nomer == 19) inputStream = r.openRawResource(R.raw.sinaidals19);
+                    if (Paralelnye_mesta.nomer == 20) inputStream = r.openRawResource(R.raw.sinaidals20);
+                    if (Paralelnye_mesta.nomer == 21) inputStream = r.openRawResource(R.raw.sinaidals21);
+                    if (Paralelnye_mesta.nomer == 22) inputStream = r.openRawResource(R.raw.sinaidals22);
+                    if (Paralelnye_mesta.nomer == 23) inputStream = r.openRawResource(R.raw.sinaidals23);
+                    if (Paralelnye_mesta.nomer == 24) inputStream = r.openRawResource(R.raw.sinaidals24);
+                    if (Paralelnye_mesta.nomer == 25) inputStream = r.openRawResource(R.raw.sinaidals25);
+                    if (Paralelnye_mesta.nomer == 26) inputStream = r.openRawResource(R.raw.sinaidals26);
+                    if (Paralelnye_mesta.nomer == 27) inputStream = r.openRawResource(R.raw.sinaidals27);
+                    if (Paralelnye_mesta.nomer == 28) inputStream = r.openRawResource(R.raw.sinaidals28);
+                    if (Paralelnye_mesta.nomer == 29) inputStream = r.openRawResource(R.raw.sinaidals29);
+                    if (Paralelnye_mesta.nomer == 30) inputStream = r.openRawResource(R.raw.sinaidals30);
+                    if (Paralelnye_mesta.nomer == 31) inputStream = r.openRawResource(R.raw.sinaidals31);
+                    if (Paralelnye_mesta.nomer == 32) inputStream = r.openRawResource(R.raw.sinaidals32);
+                    if (Paralelnye_mesta.nomer == 33) inputStream = r.openRawResource(R.raw.sinaidals33);
+                    if (Paralelnye_mesta.nomer == 34) inputStream = r.openRawResource(R.raw.sinaidals34);
+                    if (Paralelnye_mesta.nomer == 35) inputStream = r.openRawResource(R.raw.sinaidals35);
+                    if (Paralelnye_mesta.nomer == 36) inputStream = r.openRawResource(R.raw.sinaidals36);
+                    if (Paralelnye_mesta.nomer == 37) inputStream = r.openRawResource(R.raw.sinaidals37);
+                    if (Paralelnye_mesta.nomer == 38) inputStream = r.openRawResource(R.raw.sinaidals38);
+                    if (Paralelnye_mesta.nomer == 39) inputStream = r.openRawResource(R.raw.sinaidals39);
+                    if (Paralelnye_mesta.nomer == 40) inputStream = r.openRawResource(R.raw.sinaidals40);
+                    if (Paralelnye_mesta.nomer == 41) inputStream = r.openRawResource(R.raw.sinaidals41);
+                    if (Paralelnye_mesta.nomer == 42) inputStream = r.openRawResource(R.raw.sinaidals42);
+                    if (Paralelnye_mesta.nomer == 43) inputStream = r.openRawResource(R.raw.sinaidals43);
+                    if (Paralelnye_mesta.nomer == 44) inputStream = r.openRawResource(R.raw.sinaidals44);
+                    if (Paralelnye_mesta.nomer == 45) inputStream = r.openRawResource(R.raw.sinaidals45);
+                    if (Paralelnye_mesta.nomer == 46) inputStream = r.openRawResource(R.raw.sinaidals46);
+                    if (Paralelnye_mesta.nomer == 47) inputStream = r.openRawResource(R.raw.sinaidals47);
+                    if (Paralelnye_mesta.nomer == 48) inputStream = r.openRawResource(R.raw.sinaidals48);
+                    if (Paralelnye_mesta.nomer == 49) inputStream = r.openRawResource(R.raw.sinaidals49);
+                    if (Paralelnye_mesta.nomer == 50) inputStream = r.openRawResource(R.raw.sinaidals50);
+                    if (Paralelnye_mesta.nomer == 51) inputStream = r.openRawResource(R.raw.sinaidaln1);
+                    if (Paralelnye_mesta.nomer == 52) inputStream = r.openRawResource(R.raw.sinaidaln2);
+                    if (Paralelnye_mesta.nomer == 53) inputStream = r.openRawResource(R.raw.sinaidaln3);
+                    if (Paralelnye_mesta.nomer == 54) inputStream = r.openRawResource(R.raw.sinaidaln4);
+                    if (Paralelnye_mesta.nomer == 55) inputStream = r.openRawResource(R.raw.sinaidaln5);
+                    if (Paralelnye_mesta.nomer == 56) inputStream = r.openRawResource(R.raw.sinaidaln6);
+                    if (Paralelnye_mesta.nomer == 57) inputStream = r.openRawResource(R.raw.sinaidaln7);
+                    if (Paralelnye_mesta.nomer == 58) inputStream = r.openRawResource(R.raw.sinaidaln8);
+                    if (Paralelnye_mesta.nomer == 59) inputStream = r.openRawResource(R.raw.sinaidaln9);
+                    if (Paralelnye_mesta.nomer == 60) inputStream = r.openRawResource(R.raw.sinaidaln10);
+                    if (Paralelnye_mesta.nomer == 61) inputStream = r.openRawResource(R.raw.sinaidaln11);
+                    if (Paralelnye_mesta.nomer == 62) inputStream = r.openRawResource(R.raw.sinaidaln12);
+                    if (Paralelnye_mesta.nomer == 63) inputStream = r.openRawResource(R.raw.sinaidaln13);
+                    if (Paralelnye_mesta.nomer == 64) inputStream = r.openRawResource(R.raw.sinaidaln14);
+                    if (Paralelnye_mesta.nomer == 65) inputStream = r.openRawResource(R.raw.sinaidaln15);
+                    if (Paralelnye_mesta.nomer == 66) inputStream = r.openRawResource(R.raw.sinaidaln16);
+                    if (Paralelnye_mesta.nomer == 67) inputStream = r.openRawResource(R.raw.sinaidaln17);
+                    if (Paralelnye_mesta.nomer == 68) inputStream = r.openRawResource(R.raw.sinaidaln18);
+                    if (Paralelnye_mesta.nomer == 69) inputStream = r.openRawResource(R.raw.sinaidaln19);
+                    if (Paralelnye_mesta.nomer == 70) inputStream = r.openRawResource(R.raw.sinaidaln20);
+                    if (Paralelnye_mesta.nomer == 71) inputStream = r.openRawResource(R.raw.sinaidaln21);
+                    if (Paralelnye_mesta.nomer == 72) inputStream = r.openRawResource(R.raw.sinaidaln22);
+                    if (Paralelnye_mesta.nomer == 73) inputStream = r.openRawResource(R.raw.sinaidaln23);
+                    if (Paralelnye_mesta.nomer == 74) inputStream = r.openRawResource(R.raw.sinaidaln24);
+                    if (Paralelnye_mesta.nomer == 75) inputStream = r.openRawResource(R.raw.sinaidaln25);
+                    if (Paralelnye_mesta.nomer == 76) inputStream = r.openRawResource(R.raw.sinaidaln26);
+                    if (Paralelnye_mesta.nomer == 77) inputStream = r.openRawResource(R.raw.sinaidaln27);
                 }
                 if (inputStream != null) {
                     InputStreamReader isr = new InputStreamReader(inputStream);
@@ -1419,57 +964,57 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
                             }
                         } else {
                             if (belarus) {
-                                maranAta.add("<!--no--><!--nazva+++" + nazvaBel + " " + e + "--><br><strong>" + nazvaBel + " " + e + "</strong><br>\n");
+                                maranAta.add("<!--no--><!--nazva+++" + Paralelnye_mesta.nazvaBel + " " + e + "--><br><strong>" + Paralelnye_mesta.nazvaBel + " " + e + "</strong><br>\n");
                             } else {
-                                maranAta.add("<!--no--><!--nazva+++" + nazva + " " + e + "--><br><strong>" + nazva + " " + e + "</strong><br>\n");
+                                maranAta.add("<!--no--><!--nazva+++" + Paralelnye_mesta.nazva + " " + e + "--><br><strong>" + Paralelnye_mesta.nazva + " " + e + "</strong><br>\n");
                             }
                             String[] splitline = split2[e].trim().split("\n");
                             int i3;
                             for (int i2 = 0; i2 < splitline.length; i2++) {
-                                if (kniga.contains("Сир") && e == 1 && i2 >= 8)
+                                if (Paralelnye_mesta.kniga.contains("Сир") && e == 1 && i2 >= 8)
                                     i3 = i2 - 7;
                                 else
                                     i3 = i2 + 1;
                                 if (belarus)
-                                    maranAta.add("<!--" + kniga + "." + e + "." + i3 + "--><!--nazva+++" + nazvaBel + " " + e + "-->" + splitline[i2] + getParallel(nomer, e, i2) + "\n");
+                                    maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + e + "." + i3 + "--><!--nazva+++" + Paralelnye_mesta.nazvaBel + " " + e + "-->" + splitline[i2] + getParallel(Paralelnye_mesta.nomer, e, i2) + "\n");
                                 else
-                                    maranAta.add("<!--" + kniga + "." + e + "." + i3 + "--><!--nazva+++" + nazva + " " + e + "-->" + splitline[i2] + getParallel(nomer, e, i2) + "\n");
+                                    maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + e + "." + i3 + "--><!--nazva+++" + Paralelnye_mesta.nazva + " " + e + "-->" + splitline[i2] + getParallel(Paralelnye_mesta.nomer, e, i2) + "\n");
                             }
                         }
                     }
                     if (stixn != -1) {
                         int t1 = fit.indexOf(".");
                         if (belarus) {
-                            maranAta.add("<!--no--><!--nazva+++" + nazvaBel + " " + fit.substring(s2 + 1, t1) + "--><br><strong>" + nazvaBel + " " + fit.substring(s2 + 1) + "</strong><br>\n");
+                            maranAta.add("<!--no--><!--nazva+++" + Paralelnye_mesta.nazvaBel + " " + fit.substring(s2 + 1, t1) + "--><br><strong>" + Paralelnye_mesta.nazvaBel + " " + fit.substring(s2 + 1) + "</strong><br>\n");
                         } else {
-                            maranAta.add("<!--no--><!--nazva+++" + nazva + " " + fit.substring(s2 + 1, t1) + "--><br><strong>" + nazva + " " + fit.substring(s2 + 1) + "</strong><br>\n");
+                            maranAta.add("<!--no--><!--nazva+++" + Paralelnye_mesta.nazva + " " + fit.substring(s2 + 1, t1) + "--><br><strong>" + Paralelnye_mesta.nazva + " " + fit.substring(s2 + 1) + "</strong><br>\n");
                         }
                         String[] res1 = r1.toString().trim().split("\n");
                         for (int i2 = 0, i3 = stixn; i2 < res1.length; i2++, i3++) {
                             if (belarus)
-                                maranAta.add("<!--" + kniga + "." + nachalo + "." + i3 + "--><!--nazva+++" + nazvaBel + " " + fit.substring(s2 + 1, t1) + "-->" + res1[i2] + getParallel(nomer, nachalo, i3 - 1) + "\n");
+                                maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + nachalo + "." + i3 + "--><!--nazva+++" + Paralelnye_mesta.nazvaBel + " " + fit.substring(s2 + 1, t1) + "-->" + res1[i2] + getParallel(Paralelnye_mesta.nomer, nachalo, i3 - 1) + "\n");
                             else
-                                maranAta.add("<!--" + kniga + "." + nachalo + "." + i3 + "--><!--nazva+++" + nazva + " " + fit.substring(s2 + 1, t1) + "-->" + res1[i2] + getParallel(nomer, nachalo, i3 - 1) + "\n");
+                                maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + nachalo + "." + i3 + "--><!--nazva+++" + Paralelnye_mesta.nazva + " " + fit.substring(s2 + 1, t1) + "-->" + res1[i2] + getParallel(Paralelnye_mesta.nomer, nachalo, i3 - 1) + "\n");
                         }
                         if (konec - nachalo != 0) {
                             String[] res2 = r2.trim().split("\n");
                             for (int i2 = 0; i2 < res2.length; i2++) {
                                 if (belarus)
-                                    maranAta.add("<!--" + kniga + "." + konec + "." + (i2 + 1) + "--><!--nazva+++" + nazvaBel + " " + konec + "-->" + res2[i2] + getParallel(nomer, konec, i2) + "\n");
+                                    maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + konec + "." + (i2 + 1) + "--><!--nazva+++" + Paralelnye_mesta.nazvaBel + " " + konec + "-->" + res2[i2] + getParallel(Paralelnye_mesta.nomer, konec, i2) + "\n");
                                 else
-                                    maranAta.add("<!--" + kniga + "." + konec + "." + (i2 + 1) + "--><!--nazva+++" + nazva + " " + konec + "-->" + res2[i2] + getParallel(nomer, konec, i2) + "\n");
+                                    maranAta.add("<!--" + Paralelnye_mesta.kniga + "." + konec + "." + (i2 + 1) + "--><!--nazva+++" + Paralelnye_mesta.nazva + " " + konec + "-->" + res2[i2] + getParallel(Paralelnye_mesta.nomer, konec, i2) + "\n");
                             }
                         }
                     }
                 } else {
-                    maranAta.add("<!--no--><!--nazva+++" + nazvaBel + "--><br><strong>" + nazvaBel + "</strong><br>\n");
+                    maranAta.add("<!--no--><!--nazva+++" + Paralelnye_mesta.nazvaBel + "--><br><strong>" + Paralelnye_mesta.nazvaBel + "</strong><br>\n");
                     maranAta.add("<!--no-->" + getString(by.carkva_gazeta.malitounik.R.string.semuxa_maran_ata_error));
                 }
             } catch (Throwable t) {
                 if (belarus) {
-                    maranAta.add("<!--no--><br><strong>" + nazvaBel + " " + fit + "</strong><br>\n");
+                    maranAta.add("<!--no--><br><strong>" + Paralelnye_mesta.nazvaBel + " " + fit + "</strong><br>\n");
                 } else {
-                    maranAta.add("<!--no--><br><strong>" + nazva + " " + fit + "</strong><br>\n");
+                    maranAta.add("<!--no--><br><strong>" + Paralelnye_mesta.nazva + " " + fit + "</strong><br>\n");
                 }
                 maranAta.add("<!--no-->" + getResources().getString(by.carkva_gazeta.malitounik.R.string.error_ch) + "\n");
             }
@@ -2047,8 +1592,6 @@ public class MaranAta extends AppCompatActivity implements View.OnTouchListener,
             res = parallel.kniga77(glava, position + 1);
         }
         if (!res.contains("+-+")) res = "$" + res;
-        if (belarus)
-            res = ExpArrayAdapterParallel.translateToBelarus(res);
         return res;
     }
 

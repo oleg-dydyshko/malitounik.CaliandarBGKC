@@ -74,7 +74,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-@SuppressWarnings({"ResultOfMethodCallIgnored", "ConstantConditions"})
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Dialog_context_menu.Dialog_context_menu_Listener, Dialog_context_menu_vybranoe.Dialog_context_menu_vybranoe_Listener, Menu_cviaty.carkva_carkva_Listener, Dialog_delite.Dialog_delite_Listener, Menu_caliandar.Menu_caliandarPageListinner, Dialog_font_size.Dialog_font_size_Listener, Dialog_pasxa.Dialog_pasxa_Listener, Dialog_prazdnik.Dialog_prazdnik_Listener {
 
     private static boolean setAlarm = true;
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView logosite = findViewById(R.id.imageView);
         logosite.post(() -> {
             BitmapDrawable bd = (BitmapDrawable) ContextCompat.getDrawable(this, R.drawable.logotip);
-            float imageHeight = bd.getBitmap().getHeight() / density;
+            float imageHeight = Objects.requireNonNull(bd).getBitmap().getHeight() / density;
             float imageWidth = bd.getBitmap().getWidth() / density;
             float widthDp = logosite.getWidth() / density;
             float kooficient = widthDp / imageWidth;
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         File dirV = new File(getFilesDir() + "/Vybranoe");
         if (dirV.exists()) {
             String[] dirContents = dirV.list();
-            for (String dirContent : dirContents) {
+            for (String dirContent : Objects.requireNonNull(dirContents)) {
                 File file = new File(getFilesDir() + "/Vybranoe/" + dirContent);
                 if (file.exists()) {
                     file.delete();
@@ -631,7 +631,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
             if (c2.getTimeInMillis() > mkTime(c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DAY_OF_MONTH)))
                 c2.add(Calendar.DATE, 1);
-            am.setRepeating(AlarmManager.RTC_WAKEUP, mkTime(c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DAY_OF_MONTH)), 86400000L, pServise);
+            Objects.requireNonNull(am).setRepeating(AlarmManager.RTC_WAKEUP, mkTime(c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DAY_OF_MONTH)), 86400000L, pServise);
             setAlarm = false;
         }
         if (MainActivity.setPadzeia) {
@@ -647,7 +647,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             MainActivity.padzeia.clear();
             try {
                 File dir = new File(activity.getFilesDir() + "/Sabytie");
-                for (String s : dir.list()) {
+                for (String s : Objects.requireNonNull(dir.list())) {
                     File fileS = new File(activity.getFilesDir() + "/Sabytie/" + s);
                     if (fileS.exists()) {
                         FileReader inputStream = new FileReader(fileS);
@@ -1874,6 +1874,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return cytanne;
     }
 
+    @NonNull
+    public static String translateToBelarus(String paralel) {
+        paralel = paralel.replace("Быт", "Быц");
+        paralel = paralel.replace("Исх", "Вых");
+        paralel = paralel.replace("Лев", "Ляв");
+        paralel = paralel.replace("Чис", "Лікі");
+        paralel = paralel.replace("Втор", "Дрг");
+        //paralel = paralel.replace("Нав", "Нав");
+        //paralel = paralel.replace("Суд", "Суд");
+        paralel = paralel.replace("Руфь", "Рут");
+        //paralel = paralel.replace("1 Цар", "1 Цар");
+        //paralel = paralel.replace("2 Цар", "2 Цар");
+        //paralel = paralel.replace("3 Цар", "3 Цар");
+        //paralel = paralel.replace("4 Цар", "4 Цар");
+        paralel = paralel.replace("1 Пар", "1 Лет");
+        paralel = paralel.replace("2 Пар", "2 Лет");
+        paralel = paralel.replace("1 Езд", "1 Эзд");
+        paralel = paralel.replace("Неем", "Нээм");
+        paralel = paralel.replace("2 Езд", "2 Эзд");
+        paralel = paralel.replace("Тов", "Тав");
+        paralel = paralel.replace("Иудифь", "Юдт");
+        paralel = paralel.replace("Есф", "Эст");
+        paralel = paralel.replace("Иов", "Ёва");
+        //paralel = paralel.replace("Пс", "Пс");
+        paralel = paralel.replace("Притч", "Высл");
+        paralel = paralel.replace("Еккл", "Экл");
+        paralel = paralel.replace("Песн", "Псн");
+        paralel = paralel.replace("Прем", "Мдр");
+        paralel = paralel.replace("Сир", "Сір");
+        paralel = paralel.replace("Ис", "Іс");
+        paralel = paralel.replace("Иер", "Ер");
+        //paralel = paralel.replace("Плач", "Плач");
+        paralel = paralel.replace("Посл Иер", "Пасл Ер");
+        //paralel = paralel.replace("Вар", "Бар");
+        paralel = paralel.replace("Иез", "Езк");
+        //paralel = paralel.replace("Дан", "Дан");
+        paralel = paralel.replace("Ос", "Ас");
+        paralel = paralel.replace("Иоил", "Ёіл");
+        //paralel = paralel.replace("Ам", "Ам");
+        paralel = paralel.replace("Авд", "Аўдз");
+        paralel = paralel.replace("Иона", "Ёны");
+        paralel = paralel.replace("Мих", "Міх");
+        paralel = paralel.replace("Наум", "Нвм");
+        paralel = paralel.replace("Авв", "Абк");
+        paralel = paralel.replace("Соф", "Саф");
+        paralel = paralel.replace("Агг", "Аг");
+        //paralel = paralel.replace("Зах", "Зах");
+        //paralel = paralel.replace("Мал", "Мал");
+        //paralel = paralel.replace("1 Мак", "1 Мак");
+        //paralel = paralel.replace("2 Мак", "2 Мак");
+        //paralel = paralel.replace("3 Мак", "3 Мак");
+        paralel = paralel.replace("3 Езд", "3 Эзд");
+        paralel = paralel.replace("Мф", "Мц");
+        //paralel = paralel.replace("Мк", "Мк");
+        //paralel = paralel.replace("Лк", "Лк");
+        paralel = paralel.replace("Ин", "Ян");
+        paralel = paralel.replace("Деян", "Дз");
+        paralel = paralel.replace("Иак", "Як");
+        paralel = paralel.replace("1 Пет", "1 Пт");
+        paralel = paralel.replace("2 Пет", "2 Пт");
+        paralel = paralel.replace("1 Ин", "1 Ян");
+        paralel = paralel.replace("2 Ин", "2 Ян");
+        paralel = paralel.replace("3 Ин", "3 Ян");
+        paralel = paralel.replace("Иуд", "Юд");
+        paralel = paralel.replace("Рим", "Рым");
+        paralel = paralel.replace("1 Кор", "1 Кар");
+        paralel = paralel.replace("2 Кор", "2 Кар");
+        //paralel = paralel.replace("Гал", "Гал");
+        paralel = paralel.replace("Еф", "Эф");
+        paralel = paralel.replace("Флп", "Плп");
+        paralel = paralel.replace("Кол", "Клс");
+        //paralel = paralel.replace("1 Фес", "1 Фес");
+        //paralel = paralel.replace("2 Фес", "2 Фес");
+        paralel = paralel.replace("1 Тим", "1 Цім");
+        paralel = paralel.replace("2 Тим", "2 Цім");
+        paralel = paralel.replace("Тит", "Ціт");
+        //paralel = paralel.replace("Флм", "Флм");
+        paralel = paralel.replace("Евр", "Гбр");
+        paralel = paralel.replace("Откр", "Адкр");
+        return paralel;
+    }
+
     @SuppressWarnings("deprecation")
     public static Spanned fromHtml(String html) {
         if (html == null) {
@@ -1885,7 +1967,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public static boolean isNetworkAvailable(Context context) {
+    public static boolean isNetworkAvailable(@NonNull Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Network nm = Objects.requireNonNull(connectivityManager).getActiveNetwork();
@@ -1899,7 +1981,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public static int isIntNetworkAvailable(Context context) {
+    public static int isIntNetworkAvailable(@NonNull Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Network nm = Objects.requireNonNull(connectivityManager).getActiveNetwork();
@@ -1911,7 +1993,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else return 0;
         } else {
             NetworkInfo activeNetwork = Objects.requireNonNull(connectivityManager).getActiveNetworkInfo();
-            if (activeNetwork.isConnectedOrConnecting()) { // connected to the internet
+            if (Objects.requireNonNull(activeNetwork).isConnectedOrConnecting()) { // connected to the internet
                 if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
                     // connected to wifi
                     return 1;

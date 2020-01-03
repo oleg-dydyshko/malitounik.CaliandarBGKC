@@ -20,8 +20,6 @@ import android.view.Surface;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +36,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 import by.carkva_gazeta.malitounik.Dialog_Help_Fullscreen;
@@ -74,7 +71,7 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
 
     private boolean fullscreenPage = false;
     private boolean trak = false;
-    private boolean paralel = false;
+    //private boolean paralel = false;
     private TextView_Roboto_Condensed bibleInfo;
     private ViewPager vpPager;
     private int fullglav = 0;
@@ -82,11 +79,11 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
     private SharedPreferences k;
     private boolean dzenNoch;
     private boolean dialog = true;
-    private ScrollView scrollView;
-    private LinearLayout linearLayout;
+    //private ScrollView scrollView;
+    //private LinearLayout linearLayout;
     private ConstraintLayout linearLayoutTitle;
-    private String cytanneSours;
-    private String cytanneParalelnye;
+    //private String cytanneSours;
+    //private String cytanneParalelnye;
     private TextView_Roboto_Condensed title_toolbar;
     private boolean checkSetDzenNoch = false;
     public static int fierstPosition = 0;
@@ -157,8 +154,8 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
         }
 
         linearLayoutTitle = findViewById(R.id.linealLayoutTitle);
-        linearLayout = findViewById(R.id.conteiner);
-        scrollView = findViewById(R.id.scroll);
+        //linearLayout = findViewById(R.id.conteiner);
+        //scrollView = findViewById(R.id.scroll);
         vpPager = findViewById(R.id.pager);
         PagerTabStrip vpTabStrip = findViewById(R.id.pagerTabStrip);
         vpTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_SP, SettingsActivity.GET_FONT_SIZE_MIN - 2);
@@ -215,14 +212,14 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
 
         if (savedInstanceState != null) {
             dialog = savedInstanceState.getBoolean("dialog");
-            paralel = savedInstanceState.getBoolean("paralel");
-            cytanneSours = savedInstanceState.getString("cytanneSours");
-            cytanneParalelnye = savedInstanceState.getString("cytanneParalelnye");
+            //paralel = savedInstanceState.getBoolean("paralel");
+            //cytanneSours = savedInstanceState.getString("cytanneSours");
+            //cytanneParalelnye = savedInstanceState.getString("cytanneParalelnye");
             fullscreenPage = savedInstanceState.getBoolean("fullscreen");
             checkSetDzenNoch = savedInstanceState.getBoolean("checkSetDzenNoch");
-            if (paralel) {
-                setOnClic(cytanneParalelnye, cytanneSours);
-            }
+            //if (paralel) {
+            //    setOnClic(cytanneParalelnye, cytanneSours);
+            //}
         }
         vpPager.setCurrentItem(glava);
 
@@ -372,23 +369,24 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("dialog", dialog);
-        outState.putBoolean("paralel", paralel);
-        outState.putString("cytanneSours", cytanneSours);
-        outState.putString("cytanneParalelnye", cytanneParalelnye);
+        //outState.putBoolean("paralel", paralel);
+        //outState.putString("cytanneSours", cytanneSours);
+        //outState.putString("cytanneParalelnye", cytanneParalelnye);
         outState.putBoolean("fullscreen", fullscreenPage);
         outState.putBoolean("checkSetDzenNoch", checkSetDzenNoch);
     }
 
     @Override
     public void onBackPressed() {
-        if (paralel) {
+        /*if (paralel) {
             scrollView.setVisibility(View.GONE);
             bibleInfo.setVisibility(View.VISIBLE);
             vpPager.setVisibility(View.VISIBLE);
             title_toolbar.setText(getResources().getText(by.carkva_gazeta.malitounik.R.string.psalter));
             paralel = false;
             supportInvalidateOptionsMenu();
-        } else if (fullscreenPage) {
+        } else*/
+        if (fullscreenPage) {
             fullscreenPage = false;
             show();
         }
@@ -401,11 +399,11 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (paralel) {
+        /*if (paralel) {
             menu.findItem(by.carkva_gazeta.malitounik.R.id.action_glava).setVisible(false);
-        } else {
-            menu.findItem(by.carkva_gazeta.malitounik.R.id.action_glava).setVisible(true);
-        }
+        } else {*/
+        menu.findItem(by.carkva_gazeta.malitounik.R.id.action_glava).setVisible(true);
+        //}
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_orientation).setChecked(k.getBoolean("orientation", false));
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_dzen_noch).setChecked(k.getBoolean("dzen_noch", false));
         return true;
@@ -506,7 +504,7 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
         mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
     }
 
-    private void setOnClic(String cytanneParalelnye, String cytanneSours) {
+    /*private void setOnClic(String cytanneParalelnye, String cytanneSours) {
         paralel = true;
         this.cytanneParalelnye = cytanneParalelnye;
         this.cytanneSours = cytanneSours;
@@ -521,7 +519,7 @@ public class nadsanContentActivity extends AppCompatActivity implements Dialog_f
         vpPager.setVisibility(View.GONE);
         title_toolbar.setText(getResources().getString(by.carkva_gazeta.malitounik.R.string.paralel_smoll, cytanneSours));
         supportInvalidateOptionsMenu();
-    }
+    }*/
 
     class MyPagerAdapter extends SmartFragmentStatePagerAdapter {
 

@@ -271,7 +271,7 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
                 if (strText.contains("Иова")) nazvaS = 20;
                 if (strText.contains("Псалтирь")) nazvaS = 21;
                 if (strText.contains("Притчи Соломона")) nazvaS = 22;
-                if (strText.contains("Екклезнаста")) nazvaS = 23;
+                if (strText.contains("Екклезиаста")) nazvaS = 23;
                 if (strText.contains("Песнь песней Соломона")) nazvaS = 24;
                 if (strText.contains("Премудрости Соломона")) nazvaS = 25;
                 if (strText.contains("Премудрости Иисуса, сына Сирахова")) nazvaS = 26;
@@ -925,7 +925,7 @@ public class search_biblia extends AppCompatActivity implements View.OnClickList
                     if (setSinodalBible.keyAt(i).contains("sinaidals23"))
                         nazva = "Притчи Соломона";
                     if (setSinodalBible.keyAt(i).contains("sinaidals24"))
-                        nazva = "Екклезнаста";
+                        nazva = "Екклезиаста";
                     if (setSinodalBible.keyAt(i).contains("sinaidals25"))
                         nazva = "Песнь песней Соломона";
                     if (setSinodalBible.keyAt(i).contains("sinaidals26"))

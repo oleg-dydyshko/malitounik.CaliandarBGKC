@@ -177,7 +177,10 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
             }
             maranata1.setVisibility(View.VISIBLE);
             textTitleMaranata.setVisibility(View.VISIBLE);
-            maranata1.setText(data.get(day).get(13));
+            String dataMaranAta = data.get(day).get(13);
+            if (k.getBoolean("belarus", false))
+                dataMaranAta = MainActivity.translateToBelarus(dataMaranAta);
+            maranata1.setText(dataMaranAta);
         }
 
         TextView_Roboto_Condensed textMesiac = rootView.findViewById(R.id.textMesiac);
@@ -311,6 +314,8 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
         textChytanne.setText(data.get(day).get(9));
         if (data.get(day).get(9).contains("Прабачьце, няма дадзеных") || data.get(day).get(9).equals("Літургіі няма"))
             textChytanne.setEnabled(false);
+        if (data.get(day).get(9).equals(""))
+            textChytanne.setVisibility(View.GONE);
         if (!data.get(day).get(10).equals("")) {
             textChytanneSviatyia.setText(data.get(day).get(10));
             textChytanneSviatyia.setVisibility(View.VISIBLE);

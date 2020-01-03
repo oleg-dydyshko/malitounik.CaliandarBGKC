@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.util.TypedValue;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
@@ -25,9 +26,10 @@ import by.carkva_gazeta.malitounik.TextView_Roboto_Condensed;
 class Paralelnye_mesta {
 
     private InputStream inputStream;
+    static String kniga, nazva, nazvaBel;
+    static int nomer;
 
     @SuppressLint("SetTextI18n")
-    @SuppressWarnings("ConstantConditions")
     ArrayList<TextView_Roboto_Condensed> paralel(Context context, String cytanneSours, String cytanneParalelnye, boolean semuxa) {
         ArrayList<TextView_Roboto_Condensed> arrayList = new ArrayList<>();
         TextView_Roboto_Condensed textViewSours, textViewZag, textViewOpis;
@@ -35,7 +37,7 @@ class Paralelnye_mesta {
             if (cytanneSours.contains("Быт")) {
                 cytanneSours = cytanneSours.replace("Быт", "Быц");
             }
-            if (cytanneSours.contains("Исх")) {
+            if (cytanneSours.equals("Исх")) {
                 cytanneSours = cytanneSours.replace("Исх", "Вых");
             }
             if (cytanneSours.contains("Лев")) {
@@ -45,7 +47,7 @@ class Paralelnye_mesta {
                 cytanneSours = cytanneSours.replace("Числа", "Лікі");
             }
             if (cytanneSours.contains("Втор")) {
-                cytanneSours = cytanneSours.replace("Втор", "ДрЗак");
+                cytanneSours = cytanneSours.replace("Втор", "Дрг");
             }
             if (cytanneSours.contains("Руфь")) {
                 cytanneSours = cytanneSours.replace("Руфь", "Рут");
@@ -57,7 +59,7 @@ class Paralelnye_mesta {
                 cytanneSours = cytanneSours.replace("2 Пар", "2 Лет");
             }
             if (cytanneSours.contains("1 Езд")) {
-                cytanneSours = cytanneSours.replace("1 Езд", "Эзд");
+                cytanneSours = cytanneSours.replace("1 Езд", "1 Эзд");
             }
             if (cytanneSours.contains("Неем")) {
                 cytanneSours = cytanneSours.replace("Неем", "Нээм");
@@ -75,28 +77,28 @@ class Paralelnye_mesta {
                 cytanneSours = cytanneSours.replace("Еккл", "Экл");
             }
             if (cytanneSours.contains("Песн")) {
-                cytanneSours = cytanneSours.replace("Песн", "Найв");
+                cytanneSours = cytanneSours.replace("Песн", "Псн");
             }
-            if (cytanneSours.contains("Ис") && !cytanneSours.contains("Исх")) {
+            if (cytanneSours.equals("Ис")) {
                 cytanneSours = cytanneSours.replace("Ис", "Іс");
             }
             if (cytanneSours.contains("Иер")) {
                 cytanneSours = cytanneSours.replace("Иер", "Ер");
             }
             if (cytanneSours.contains("Плач Иер")) {
-                cytanneSours = cytanneSours.replace("Плач Иер", "Ер Плач");
+                cytanneSours = cytanneSours.replace("Плач Иер", "Пасл Ер");
             }
             if (cytanneSours.contains("Иез")) {
-                cytanneSours = cytanneSours.replace("Иез", "Езэ");
+                cytanneSours = cytanneSours.replace("Иез", "Езк");
             }
             if (cytanneSours.contains("Ос")) {
                 cytanneSours = cytanneSours.replace("Ос", "Ас");
             }
             if (cytanneSours.contains("Иоиль")) {
-                cytanneSours = cytanneSours.replace("Иоиль", "Ёіля");
+                cytanneSours = cytanneSours.replace("Иоиль", "Ёіл");
             }
             if (cytanneSours.contains("Авдий")) {
-                cytanneSours = cytanneSours.replace("Авдий", "Аўдзея");
+                cytanneSours = cytanneSours.replace("Авдий", "Аўдз");
             }
             if (cytanneSours.contains("Иона")) {
                 cytanneSours = cytanneSours.replace("Иона", "Ёны");
@@ -105,34 +107,37 @@ class Paralelnye_mesta {
                 cytanneSours = cytanneSours.replace("Мих", "Міх");
             }
             if (cytanneSours.contains("Наум")) {
-                cytanneSours = cytanneSours.replace("Наум", "Нав");
+                cytanneSours = cytanneSours.replace("Наум", "Нвм");
             }
             if (cytanneSours.contains("Аввакум")) {
-                cytanneSours = cytanneSours.replace("Аввакум", "Абакума");
+                cytanneSours = cytanneSours.replace("Аввакум", "Абк");
             }
             if (cytanneSours.contains("Сафония")) {
-                cytanneSours = cytanneSours.replace("Сафония", "Сафона");
+                cytanneSours = cytanneSours.replace("Сафония", "Саф");
             }
             if (cytanneSours.contains("Аггей")) {
-                cytanneSours = cytanneSours.replace("Аггей", "Агея");
+                cytanneSours = cytanneSours.replace("Аггей", "Аг");
             }
             if (cytanneSours.contains("Мф")) {
                 cytanneSours = cytanneSours.replace("Мф", "Мц");
+            }
+            if (cytanneSours.contains("Лк")) {
+                cytanneSours = cytanneSours.replace("Лк", "Лук");
             }
             if (cytanneSours.contains("Ин")) {
                 cytanneSours = cytanneSours.replace("Ин", "Ян");
             }
             if (cytanneSours.contains("Деян")) {
-                cytanneSours = cytanneSours.replace("Деян", "Дзеі");
+                cytanneSours = cytanneSours.replace("Деян", "Дз");
             }
             if (cytanneSours.contains("Иак")) {
-                cytanneSours = cytanneSours.replace("Иак", "Якав");
+                cytanneSours = cytanneSours.replace("Иак", "Як");
             }
             if (cytanneSours.contains("1 Пет")) {
-                cytanneSours = cytanneSours.replace("1 Пет", "1 Пятр");
+                cytanneSours = cytanneSours.replace("1 Пет", "1 Пт");
             }
             if (cytanneSours.contains("2 Пет")) {
-                cytanneSours = cytanneSours.replace("2 Пет", "2 Пятр");
+                cytanneSours = cytanneSours.replace("2 Пет", "2 Пт");
             }
             if (cytanneSours.contains("1 Ин")) {
                 cytanneSours = cytanneSours.replace("1 Ин", "1 Ян");
@@ -143,8 +148,8 @@ class Paralelnye_mesta {
             if (cytanneSours.contains("3 Ин")) {
                 cytanneSours = cytanneSours.replace("3 Ин", "3 Ян");
             }
-            if (cytanneSours.contains("Иуды")) {
-                cytanneSours = cytanneSours.replace("Иуды", "Юды");
+            if (cytanneSours.contains("Иуд")) {
+                cytanneSours = cytanneSours.replace("Иуд", "Юд");
             }
             if (cytanneSours.contains("Рим")) {
                 cytanneSours = cytanneSours.replace("Рим", "Рым");
@@ -155,11 +160,14 @@ class Paralelnye_mesta {
             if (cytanneSours.contains("2 Кор")) {
                 cytanneSours = cytanneSours.replace("2 Кор", "2 Кар");
             }
+            if (cytanneSours.contains("Еф")) {
+                cytanneSours = cytanneSours.replace("Еф", "Эф");
+            }
             if (cytanneSours.contains("Флп")) {
-                cytanneSours = cytanneSours.replace("Флп", "Піл");
+                cytanneSours = cytanneSours.replace("Флп", "Плп");
             }
             if (cytanneSours.contains("Кол")) {
-                cytanneSours = cytanneSours.replace("Кол", "Кал");
+                cytanneSours = cytanneSours.replace("Кол", "Клс");
             }
             if (cytanneSours.contains("1 Тим")) {
                 cytanneSours = cytanneSours.replace("1 Тим", "1 Цім");
@@ -170,19 +178,14 @@ class Paralelnye_mesta {
             if (cytanneSours.contains("Тит")) {
                 cytanneSours = cytanneSours.replace("Тит", "Ціт");
             }
-            if (cytanneSours.contains("Флм")) {
-                cytanneSours = cytanneSours.replace("Флм", "Філ");
-            }
             if (cytanneSours.contains("Евр")) {
-                cytanneSours = cytanneSours.replace("Евр", "Габ");
+                cytanneSours = cytanneSours.replace("Евр", "Гбр");
             }
             if (cytanneSours.contains("Откр")) {
                 cytanneSours = cytanneSours.replace("Откр", "Адкр");
             }
         }
 
-        String nazva = "Бытие", nazvaBel = "Быцьцё";
-        int nomer = 1;
         String[] chten = cytanneParalelnye.split(";");
 
         textViewSours = new TextView_Roboto_Condensed(context);
@@ -204,391 +207,11 @@ class Paralelnye_mesta {
         for (String aChten : chten) {
             int nomerglavy = 1;
             String fit = aChten.trim(), nachalo, konec;
-            if (fit.contains("Быт") || fit.contains("Быц")) {
-                nazva = "Бытие";
-                nazvaBel = "Быцьцё";
-                nomer = 1;
-            }
-            if (fit.contains("Исх") || fit.contains("Вых")) {
-                nazva = "Исход";
-                nazvaBel = "Выхад";
-                nomer = 2;
-            }
-            if (fit.contains("Лев") || fit.contains("Ляв")) {
-                nazva = "Левит";
-                nazvaBel = "Лявіт";
-                nomer = 3;
-            }
-            if (fit.contains("Чис") || fit.contains("Лікі")) {
-                nazva = "Числа";
-                nazvaBel = "Лікі";
-                nomer = 4;
-            }
-            if (fit.contains("Втор") || fit.contains("ДрЗак")) {
-                nazva = "Второзаконие";
-                nazvaBel = "Другі Закон";
-                nomer = 5;
-            }
-            if (fit.contains("Нав")) {
-                nazva = "Иисуса Навина";
-                nazvaBel = "Ісуса сына Нава";
-                nomer = 6;
-            }
-            if (fit.contains("Суд")) {
-                nazva = "Судей израилевых";
-                nazvaBel = "Судзьдзяў";
-                nomer = 7;
-            }
-            if (fit.contains("Руфь") || fit.contains("Рут")) {
-                nazva = "Руфи";
-                nazvaBel = "Рут";
-                nomer = 8;
-            }
-            if (fit.contains("1 Цар")) {
-                nazva = "1-я Царств";
-                nazvaBel = "1-я Царстваў";
-                nomer = 9;
-            }
-            if (fit.contains("2 Цар")) {
-                nazva = "2-я Царств";
-                nazvaBel = "2-я Царстваў";
-                nomer = 10;
-            }
-            if (fit.contains("3 Цар")) {
-                nazva = "3-я Царств";
-                nazvaBel = "3-я Царстваў";
-                nomer = 11;
-            }
-            if (fit.contains("4 Цар")) {
-                nazva = "4-я Царств";
-                nazvaBel = "4-я Царстваў";
-                nomer = 12;
-            }
-            if (fit.contains("1 Пар") || fit.contains("1 Лет")) {
-                nazva = "1-я Паралипоменон";
-                nazvaBel = "1-я Летапісаў";
-                nomer = 13;
-            }
-            if (fit.contains("2 Пар") || fit.contains("2 Лет")) {
-                nazva = "1-я Паралипоменон";
-                nazvaBel = "2-я Летапісаў";
-                nomer = 14;
-            }
-            if (fit.contains("1 Езд") || fit.contains("1 Эзд")) {
-                nazva = "1-я Ездры";
-                nazvaBel = "Эздры";
-                nomer = 15;
-            }
-            if (fit.contains("Неем") || fit.contains("Нээм")) {
-                nazva = "Неемии";
-                nazvaBel = "Нээміі";
-                nomer = 16;
-            }
-            if (fit.contains("2 Езд") || fit.contains("2 Эзд")) {
-                nazva = "2-я Ездры";
-                nazvaBel = "2-я Эздры";
-                nomer = 17;
-            }
-            if (fit.contains("Тов") || fit.contains("Тав")) {
-                nazva = "Товита";
-                nazvaBel = "Тавіта";
-                nomer = 18;
-            }
-            if (fit.contains("Иудифь") || fit.contains("Іудыфь")) {
-                nazva = "Иудифи";
-                nazvaBel = "Іудыфі";
-                nomer = 19;
-            }
-            if (fit.contains("Есф") || fit.contains("Эст")) {
-                nazva = "Есфири";
-                nazvaBel = "Эстэр";
-                nomer = 20;
-            }
-            if (fit.contains("Иов") || fit.contains("Ёва")) {
-                nazva = "Иова";
-                nazvaBel = "Ёва";
-                nomer = 21;
-            }
-            if (fit.contains("Пс")) {
-                nazva = "Псалтирь";
-                nazvaBel = "Псалтыр";
-                nomer = 22;
-            }
-            if (fit.contains("Притч") || fit.contains("Высл")) {
-                nazva = "Притчи Соломона";
-                nazvaBel = "Выслоўяў Саламонавых";
-                nomer = 23;
-            }
-            if (fit.contains("Еккл") || fit.contains("Экл")) {
-                nazva = "Екклезнаста";
-                nazvaBel = "Эклезіяста";
-                nomer = 24;
-            }
-            if (fit.contains("Песн") || fit.contains("Песьн")) {
-                nazva = "Песнь песней Соломона";
-                nazvaBel = "Найвышэйшая Песьня Саламонава";
-                nomer = 25;
-            }
-            if (fit.contains("Прем") || fit.contains("Прэм")) {
-                nazva = "Премудрости Соломона";
-                nazvaBel = "Прамудрасьці Саламона";
-                nomer = 26;
-            }
-            if (fit.contains("Сир") || fit.contains("Сір")) {
-                nazva = "Премудрости Иисуса, сына Сирахова";
-                nazvaBel = "Прамудрасьці Ісуса, сына Сірахава";
-                nomer = 27;
-            }
-            if ((fit.contains("Ис") && !fit.contains("Исх")) || fit.contains("Іс")) {
-                nazva = "Исаии";
-                nazvaBel = "Ісаі";
-                nomer = 28;
-            }
-            if (fit.contains("Иер") || fit.contains("Ерам")) {
-                nazva = "Иеремии";
-                nazvaBel = "Ераміі";
-                nomer = 29;
-            }
-            if (fit.contains("Плач")) {
-                nazva = "Плач Иеремии";
-                nazvaBel = "Ераміін Плач";
-                nomer = 30;
-            }
-            if (fit.contains("Посл Иер") || fit.contains("Пасл Ерам")) {
-                nazva = "Послание Иеремии";
-                nazvaBel = "Пасланmне Ераміі";
-                nomer = 31;
-            }
-            if (fit.contains("Вар")) {
-                nazva = "Варуха";
-                nazvaBel = "Варуха";
-                nomer = 32;
-            }
-            if (fit.contains("Иез") || fit.contains("Езэк")) {
-                nazva = "Иезекииля";
-                nazvaBel = "Езэкііля";
-                nomer = 33;
-            }
-            if (fit.contains("Дан")) {
-                nazva = "Даниила";
-                nazvaBel = "Данііла";
-                nomer = 34;
-            }
-            if (fit.contains("Ос") || fit.contains("Ас")) {
-                nazva = "Осии";
-                nazvaBel = "Асіі";
-                nomer = 35;
-            }
-            if (fit.contains("Иоил") || fit.contains("Ёіл")) {
-                nazva = "Иоиля";
-                nazvaBel = "Ёіля";
-                nomer = 36;
-            }
-            if (fit.contains("Ам")) {
-                nazva = "Амоса";
-                nazvaBel = "Амоса";
-                nomer = 37;
-            }
-            if (fit.contains("Авд") || fit.contains("Аўд")) {
-                nazva = "Авдия";
-                nazvaBel = "Аўдзея";
-                nomer = 38;
-            }
-            if (fit.contains("Иона") || fit.contains("Ёны")) {
-                nazva = "Ионы";
-                nazvaBel = "Ёны";
-                nomer = 39;
-            }
-            if (fit.contains("Мих") || fit.contains("Міх")) {
-                nazva = "Михея";
-                nazvaBel = "Міхея";
-                nomer = 40;
-            }
-            if (fit.contains("Наум") || fit.contains("Навум")) {
-                nazva = "Наума";
-                nazvaBel = "Навума";
-                nomer = 41;
-            }
-            if (fit.contains("Авв") || fit.contains("Абак")) {
-                nazva = "Аввакума";
-                nazvaBel = "Абакума";
-                nomer = 42;
-            }
-            if (fit.contains("Соф") || fit.contains("Саф")) {
-                nazva = "Софонии";
-                nazvaBel = "Сафона";
-                nomer = 43;
-            }
-            if (fit.contains("Агг") || fit.contains("Аг")) {
-                nazva = "Аггея";
-                nazvaBel = "Агея";
-                nomer = 44;
-            }
-            if (fit.contains("Зах")) {
-                nazva = "Захарии";
-                nazvaBel = "Захарыі";
-                nomer = 45;
-            }
-            if (fit.contains("Мал")) {
-                nazva = "Малахии";
-                nazvaBel = "Малахіі";
-                nomer = 46;
-            }
-            if (fit.contains("1 Мак")) {
-                nazva = "1-я Маккавейская";
-                nazvaBel = "1-я Маккавейская";
-                nomer = 47;
-            }
-            if (fit.contains("2 Мак")) {
-                nazva = "2-я Маккавейская";
-                nazvaBel = "2-я Маккавейская";
-                nomer = 48;
-            }
-            if (fit.contains("3 Мак")) {
-                nazva = "3-я Маккавейская";
-                nazvaBel = "3-я Маккавейская";
-                nomer = 49;
-            }
-            if (fit.contains("3 Езд") || fit.contains("3 Эзд")) {
-                nazva = "3-я Ездры";
-                nazvaBel = "3-я Эздры";
-                nomer = 50;
-            }
-            if (fit.contains("Мф") || fit.contains("Мац")) {
-                nazva = "От Матфея";
-                nazvaBel = "Паводле Мацьвея";
-                nomer = 51;
-            }
-            if (fit.contains("Мк") || fit.contains("Марк")) {
-                nazva = "От Марка";
-                nazvaBel = "Паводле Марка";
-                nomer = 52;
-            }
-            if (fit.contains("Лк") || fit.contains("Лук")) {
-                nazva = "От Луки";
-                nazvaBel = "Паводле Лукаша";
-                nomer = 53;
-            }
-            if (fit.contains("Ин") || fit.contains("Ян")) {
-                nazva = "От Иоанна";
-                nazvaBel = "Паводле Яна";
-                nomer = 54;
-            }
-            if (fit.contains("Деян") || fit.contains("Дзеі")) {
-                nazva = "Деяния святых апостолов";
-                nazvaBel = "Дзеі Апосталаў";
-                nomer = 55;
-            }
-            if (fit.contains("Иак") || fit.contains("Якав")) {
-                nazva = "Иакова";
-                nazvaBel = "Якава";
-                nomer = 56;
-            }
-            if (fit.contains("1 Пет") || fit.contains("1 Пят")) {
-                nazva = "1-е Петра";
-                nazvaBel = "1-е Пятра";
-                nomer = 57;
-            }
-            if (fit.contains("2 Пет") || fit.contains("2 Пят")) {
-                nazva = "2-е Петра";
-                nazvaBel = "2-е Пятра";
-                nomer = 58;
-            }
-            if (fit.contains("1 Ин") || fit.contains("1 Яна")) {
-                nazva = "1-е Иоанна";
-                nazvaBel = "1-е Яна Багаслова";
-                nomer = 59;
-            }
-            if (fit.contains("2 Ин") || fit.contains("2 Яна")) {
-                nazva = "2-е Иоанна";
-                nazvaBel = "2-е Яна Багаслова";
-                nomer = 60;
-            }
-            if (fit.contains("3 Ин") || fit.contains("3 Яна")) {
-                nazva = "3-е Иоанна";
-                nazvaBel = "3-е Яна Багаслова";
-                nomer = 61;
-            }
-            if (fit.contains("Иуд") || fit.contains("Юды")) {
-                nazva = "Иуды";
-                nazvaBel = "Юды";
-                nomer = 62;
-            }
-            if (fit.contains("Рим") || fit.contains("1 Кар")) {
-                nazva = "Римлянам";
-                nazvaBel = "Да Рымлянаў";
-                nomer = 63;
-            }
-            if (fit.contains("1 Кор") || fit.contains("2 Кар")) {
-                nazva = "1-е Коринфянам";
-                nazvaBel = "1-е да Карынфянаў";
-                nomer = 64;
-            }
-            if (fit.contains("2 Кор") || fit.contains("Эф")) {
-                nazva = "2-е Коринфянам";
-                nazvaBel = "2-е да Карынфянаў";
-                nomer = 65;
-            }
-            if (fit.contains("Гал")) {
-                nazva = "Галатам";
-                nazvaBel = "Да Галятаў";
-                nomer = 66;
-            }
-            if (fit.contains("Еф") || fit.contains("Эф")) {
-                nazva = "Ефесянам";
-                nazvaBel = "Да Эфэсянаў";
-                nomer = 67;
-            }
-            if (fit.contains("Флп") || fit.contains("Піл")) {
-                nazva = "Филиппийцам";
-                nazvaBel = "Да Піліпянаў";
-                nomer = 68;
-            }
-            if (fit.contains("Кол") || fit.contains("Кал")) {
-                nazva = "Колоссянам";
-                nazvaBel = "Да Каласянаў";
-                nomer = 69;
-            }
-            if (fit.contains("1 Фес")) {
-                nazva = "1-е Фессалоникийцам (Солунянам)";
-                nazvaBel = "1-е да Фесаланікійцаў";
-                nomer = 70;
-            }
-            if (fit.contains("2 Фес")) {
-                nazva = "2-е Фессалоникийцам (Солунянам)";
-                nazvaBel = "2-е да Фесаланікійцаў";
-                nomer = 71;
-            }
-            if (fit.contains("1 Тим") || fit.contains("1 Цім")) {
-                nazva = "1-е Тимофею";
-                nazvaBel = "1-е да Цімафея";
-                nomer = 72;
-            }
-            if (fit.contains("2 Тим") || fit.contains("2 Цім")) {
-                nazva = "2-е Тимофею";
-                nazvaBel = "2-е да Цімафея";
-                nomer = 73;
-            }
-            if (fit.contains("Тит") || fit.contains("Ціт")) {
-                nazva = "Титу";
-                nazvaBel = "Да Ціта";
-                nomer = 74;
-            }
-            if (fit.contains("Флм") || fit.contains("Філ")) {
-                nazva = "Филимону";
-                nazvaBel = "Да Філімона";
-                nomer = 75;
-            }
-            if (fit.contains("Евр") || fit.contains("Габр")) {
-                nazva = "Евреям";
-                nazvaBel = "Да Габрэяў";
-                nomer = 76;
-            }
-            if (fit.contains("Откр") || fit.contains("Адкр")) {
-                nazva = "Откровение (Апокалипсис)";
-                nazvaBel = "Адкрыцьцё (Апакаліпсіс)";
-                nomer = 77;
-            }
+            String[] bible = biblia(fit);
+            kniga = bible[0];
+            nazva = bible[1];
+            nazvaBel = bible[2];
+            nomer = Integer.parseInt(bible[3]);
             // Пс 88:12-13; 135:5; 145:6; Сир 18:1; Ин 1:3; Пс 22
             // Быт 13:15; 15:7, 18, 15-16; 26:3-4; Втор 34:4; 1 Тим 2:13
             String[] split = fit.split(",");
@@ -1024,5 +647,472 @@ class Paralelnye_mesta {
             }
         }
         return arrayList;
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    static String[] biblia(@NonNull String kniga) {
+        String[] bible = {Paralelnye_mesta.kniga, nazva, nazvaBel, String.valueOf(nomer)};
+        if (kniga.contains("Быт") || kniga.contains("Быц")) {
+            bible[0] = "Быт"; // Сокращение по русски
+            bible[1] = "Бытие"; // Название по русски
+            bible[2] = "Быцьцё"; // Название по Белорусски
+            bible[3] = "1";// Номер книги
+        }
+        if (kniga.contains("Исх") || kniga.contains("Вых")) {
+            bible[0] = "Исх";
+            bible[1] = "Исход";
+            bible[2] = "Выхад";
+            bible[3] = "2";
+        }
+        if (kniga.contains("Лев") || kniga.contains("Ляв")) {
+            bible[0] = "Лев";
+            bible[1] = "Левит";
+            bible[2] = "Лявіт";
+            bible[3] = "3";
+        }
+        if (kniga.contains("Чис") || kniga.contains("Лікі")) {
+            bible[0] = "Числа";
+            bible[1] = "Числа";
+            bible[2] = "Лікі";
+            bible[3] = "4";
+        }
+        if (kniga.contains("Втор") || kniga.contains("Дрг")) {
+            bible[0] = "Втор";
+            bible[1] = "Второзаконие";
+            bible[2] = "Другі Закон";
+            bible[3] = "5";
+        }
+        if (kniga.contains("Нав")) {
+            bible[0] = "Нав";
+            bible[1] = "Иисуса Навина";
+            bible[2] = "Ісуса сына Нава";
+            bible[3] = "6";
+        }
+        if (kniga.contains("Суд")) {
+            bible[0] = "Суд";
+            bible[1] = "Судей израилевых";
+            bible[2] = "Судзьдзяў";
+            bible[3] = "7";
+        }
+        if (kniga.contains("Руфь") || kniga.contains("Рут")) {
+            bible[0] = "Руфь";
+            bible[1] = "Руфи";
+            bible[2] = "Рут";
+            bible[3] = "8";
+        }
+        if (kniga.contains("1 Цар")) {
+            bible[0] = "1 Цар";
+            bible[1] = "1-я Царств";
+            bible[2] = "1-я Царстваў";
+            bible[3] = "9";
+        }
+        if (kniga.contains("2 Цар")) {
+            bible[0] = "2 Цар";
+            bible[1] = "2-я Царств";
+            bible[2] = "2-я Царстваў";
+            bible[3] = "10";
+        }
+        if (kniga.contains("3 Цар")) {
+            bible[0] = "3 Цар";
+            bible[1] = "3-я Царств";
+            bible[2] = "3-я Царстваў";
+            bible[3] = "11";
+        }
+        if (kniga.contains("4 Цар")) {
+            bible[0] = "4 Цар";
+            bible[1] = "4-я Царств";
+            bible[2] = "4-я Царстваў";
+            bible[3] = "12";
+        }
+        if (kniga.contains("1 Пар") || kniga.contains("1 Лет")) {
+            bible[0] = "1 Пар";
+            bible[1] = "1-я Паралипоменон";
+            bible[2] = "1-я Летапісаў";
+            bible[3] = "13";
+        }
+        if (kniga.contains("2 Пар") || kniga.contains("2 Лет")) {
+            bible[0] = "2 Пар";
+            bible[1] = "2-я Паралипоменон";
+            bible[2] = "2-я Летапісаў";
+            bible[3] = "14";
+        }
+        if (kniga.contains("1 Езд") || kniga.contains("1 Эзд")) {
+            bible[0] = "1 Езд";
+            bible[1] = "1-я Ездры";
+            bible[2] = "1-я Эздры";
+            bible[3] = "15";
+        }
+        if (kniga.contains("Неем") || kniga.contains("Нээм")) {
+            bible[0] = "Неем";
+            bible[1] = "Неемии";
+            bible[2] = "Нээміі";
+            bible[3] = "16";
+        }
+        if (kniga.contains("2 Езд") || kniga.contains("2 Эзд")) {
+            bible[0] = "2 Езд";
+            bible[1] = "2-я Ездры";
+            bible[2] = "2-я Эздры";
+            bible[3] = "17";
+        }
+        if (kniga.contains("Тов") || kniga.contains("Тав")) {
+            bible[0] = "Тов";
+            bible[1] = "Товита";
+            bible[2] = "Тавіта";
+            bible[3] = "18";
+        }
+        if (kniga.contains("Иудифь") || kniga.contains("Юдт")) {
+            bible[0] = "Иудифь";
+            bible[1] = "Иудифи";
+            bible[2] = "Юдыты";
+            bible[3] = "19";
+        }
+        if (kniga.contains("Есф") || kniga.contains("Эст")) {
+            bible[0] = "Есф";
+            bible[1] = "Есфири";
+            bible[2] = "Эстэр";
+            bible[3] = "20";
+        }
+        if (kniga.contains("Иов") || kniga.contains("Ёва")) {
+            bible[0] = "Иов";
+            bible[1] = "Иова";
+            bible[2] = "Ёва";
+            bible[3] = "21";
+        }
+        if (kniga.contains("Пс")) {
+            bible[0] = "Пс";
+            bible[1] = "Псалтирь";
+            bible[2] = "Псалтыр";
+            bible[3] = "22";
+        }
+        if (kniga.contains("Притч") || kniga.contains("Высл")) {
+            bible[0] = "Притч";
+            bible[1] = "Притчи Соломона";
+            bible[2] = "Выслоўяў Саламонавых";
+            bible[3] = "23";
+        }
+        if (kniga.contains("Еккл") || kniga.contains("Экл")) {
+            bible[0] = "Еккл";
+            bible[1] = "Екклезиаста";
+            bible[2] = "Эклезіяста";
+            bible[3] = "24";
+        }
+        if (kniga.contains("Песн") || kniga.contains("Псн")) {
+            bible[0] = "Песн";
+            bible[1] = "Песнь песней Соломона";
+            bible[2] = "Найвышэйшая Песьня Саламонава";
+            bible[3] = "25";
+        }
+        if (kniga.contains("Прем") || kniga.contains("Мдр")) {
+            bible[0] = "Прем";
+            bible[1] = "Премудрости Соломона";
+            bible[2] = "Мудрасьці Саламона";
+            bible[3] = "26";
+        }
+        if (kniga.contains("Сир") || kniga.contains("Сір")) {
+            bible[0] = "Сир";
+            bible[1] = "Премудрости Иисуса, сына Сирахова";
+            bible[2] = "Мудрасьці Ісуса, сына Сірахава";
+            bible[3] = "27";
+        }
+        if (kniga.equals("Ис") || kniga.contains("Іс")) {
+            bible[0] = "Ис";
+            bible[1] = "Исаии";
+            bible[2] = "Ісаі";
+            bible[3] = "28";
+        }
+        if (kniga.contains("Иер") || kniga.contains("Ер")) {
+            bible[0] = "Иер";
+            bible[1] = "Иеремии";
+            bible[2] = "Ераміі";
+            bible[3] = "29";
+        }
+        if (kniga.contains("Плач")) {
+            bible[0] = "Плач Иер";
+            bible[1] = "Плач Иеремии";
+            bible[2] = "Ераміін Плач";
+            bible[3] = "30";
+        }
+        if (kniga.contains("Посл Иер") || kniga.contains("Пасл Ер")) {
+            bible[0] = "Посл Иеремии";
+            bible[1] = "Послание Иеремии";
+            bible[2] = "Пасланьне Ераміі";
+            bible[3] = "31";
+        }
+        if (kniga.contains("Вар") || kniga.contains("Бар")) {
+            bible[0] = "Вар";
+            bible[1] = "Варуха";
+            bible[2] = "Баруха";
+            bible[3] = "32";
+        }
+        if (kniga.contains("Иез") || kniga.contains("Езк")) {
+            bible[0] = "Иез";
+            bible[1] = "Иезекииля";
+            bible[2] = "Езэкііля";
+            bible[3] = "33";
+        }
+        if (kniga.contains("Дан")) {
+            bible[0] = "Дан";
+            bible[1] = "Даниила";
+            bible[2] = "Данііла";
+            bible[3] = "34";
+        }
+        if (kniga.contains("Ос") || kniga.contains("Ас")) {
+            bible[0] = "Ос";
+            bible[1] = "Осии";
+            bible[2] = "Асіі";
+            bible[3] = "35";
+        }
+        if (kniga.contains("Иоил") || kniga.contains("Ёіл")) {
+            bible[0] = "Иоиль";
+            bible[1] = "Иоиля";
+            bible[2] = "Ёіля";
+            bible[3] = "36";
+        }
+        if (kniga.contains("Ам")) {
+            bible[0] = "Ам";
+            bible[1] = "Амоса";
+            bible[2] = "Амоса";
+            bible[3] = "37";
+        }
+        if (kniga.contains("Авд") || kniga.contains("Аўдз")) {
+            bible[0] = "Авдий";
+            bible[1] = "Авдия";
+            bible[2] = "Аўдзея";
+            bible[3] = "38";
+        }
+        if (kniga.contains("Иона") || kniga.contains("Ёны")) {
+            bible[0] = "Иона";
+            bible[1] = "Ионы";
+            bible[2] = "Ёны";
+            bible[3] = "39";
+        }
+        if (kniga.contains("Мих") || kniga.contains("Міх")) {
+            bible[0] = "Мих";
+            bible[1] = "Михея";
+            bible[2] = "Міхея";
+            bible[3] = "40";
+        }
+        if (kniga.contains("Наум") || kniga.contains("Нвм")) {
+            bible[0] = "Наум";
+            bible[1] = "Наума";
+            bible[2] = "Навума";
+            bible[3] = "41";
+        }
+        if (kniga.contains("Авв") || kniga.contains("Абк")) {
+            bible[0] = "Аввакум";
+            bible[1] = "Аввакума";
+            bible[2] = "Абакума";
+            bible[3] = "42";
+        }
+        if (kniga.contains("Соф") || kniga.contains("Саф")) {
+            bible[0] = "Сафония";
+            bible[1] = "Софонии";
+            bible[2] = "Сафона";
+            bible[3] = "43";
+        }
+        if (kniga.contains("Агг") || kniga.contains("Аг")) {
+            bible[0] = "Аггей";
+            bible[1] = "Аггея";
+            bible[2] = "Агея";
+            bible[3] = "44";
+        }
+        if (kniga.contains("Зах")) {
+            bible[0] = "Зах";
+            bible[1] = "Захарии";
+            bible[2] = "Захарыі";
+            bible[3] = "45";
+        }
+        if (kniga.contains("Мал")) {
+            bible[0] = "Мал";
+            bible[1] = "Малахии";
+            bible[2] = "Малахіі";
+            bible[3] = "46";
+        }
+        if (kniga.contains("1 Мак")) {
+            bible[0] = "1 Мак";
+            bible[1] = "1-я Маккавейская";
+            bible[2] = "1-я Макабэяў";
+            bible[3] = "47";
+        }
+        if (kniga.contains("2 Мак")) {
+            bible[0] = "2 Мак";
+            bible[1] = "2-я Маккавейская";
+            bible[2] = "2-я Макабэяў";
+            bible[3] = "48";
+        }
+        if (kniga.contains("3 Мак")) {
+            bible[0] = "3 Мак";
+            bible[1] = "3-я Маккавейская";
+            bible[2] = "3-я Макабэяў";
+            bible[3] = "49";
+        }
+        if (kniga.contains("3 Езд") || kniga.contains("3 Эзд")) {
+            bible[1] = "3-я Ездры";
+            bible[2] = "3-я Эздры";
+            bible[3] = "50";
+        }
+        if (kniga.contains("Мф") || kniga.contains("Мц")) {
+            bible[0] = "Мф";
+            bible[1] = "От Матфея";
+            bible[2] = "Паводле Мацьвея";
+            bible[3] = "51";
+        }
+        if (kniga.contains("Мк")) {
+            bible[0] = "Мк";
+            bible[1] = "От Марка";
+            bible[2] = "Паводле Марка";
+            bible[3] = "52";
+        }
+        if (kniga.contains("Лк")) {
+            bible[0] = "Лк";
+            bible[1] = "От Луки";
+            bible[2] = "Паводле Лукаша";
+            bible[3] = "53";
+        }
+        if (kniga.contains("Ин") || kniga.contains("Ян")) {
+            bible[0] = "Ин";
+            bible[1] = "От Иоанна";
+            bible[2] = "Паводле Яна";
+            bible[3] = "54";
+        }
+        if (kniga.contains("Деян") || kniga.contains("Дз")) {
+            bible[0] = "Деян";
+            bible[1] = "Деяния святых апостолов";
+            bible[2] = "Дзеі Апосталаў";
+            bible[3] = "55";
+        }
+        if (kniga.contains("Иак") || kniga.contains("Як")) {
+            bible[0] = "Иак";
+            bible[1] = "Иакова";
+            bible[2] = "Якава";
+            bible[3] = "56";
+        }
+        if (kniga.contains("1 Пет") || kniga.contains("1 Пт")) {
+            bible[0] = "1 Петр";
+            bible[1] = "1-е Петра";
+            bible[2] = "1-е Пятра";
+            bible[3] = "57";
+        }
+        if (kniga.contains("2 Пет") || kniga.contains("2 Пт")) {
+            bible[0] = "2 Петр";
+            bible[1] = "2-е Петра";
+            bible[2] = "2-е Пятра";
+            bible[3] = "58";
+        }
+        if (kniga.contains("1 Ин") || kniga.contains("1 Ян")) {
+            bible[0] = "1 Ин";
+            bible[1] = "1-е Иоанна";
+            bible[2] = "1-е Яна Багаслова";
+            bible[3] = "59";
+        }
+        if (kniga.contains("2 Ин") || kniga.contains("2 Ян")) {
+            bible[0] = "2 Ин";
+            bible[1] = "2-е Иоанна";
+            bible[2] = "2-е Яна Багаслова";
+            bible[3] = "60";
+        }
+        if (kniga.contains("3 Ин") || kniga.contains("3 Ян")) {
+            bible[0] = "3 Ин";
+            bible[1] = "3-е Иоанна";
+            bible[2] = "3-е Яна Багаслова";
+            bible[3] = "61";
+        }
+        if (kniga.contains("Иуд") || (kniga.contains("Юд") && !kniga.contains("Юдт"))) {
+            bible[0] = "Иуд";
+            bible[1] = "Иуды";
+            bible[2] = "Юды";
+            bible[3] = "62";
+        }
+        if (kniga.contains("Рим") || kniga.contains("Рым")) {
+            bible[0] = "Рим";
+            bible[1] = "Римлянам";
+            bible[2] = "Да Рымлянаў";
+            bible[3] = "63";
+        }
+        if (kniga.contains("1 Кор") || kniga.contains("1 Кар")) {
+            bible[0] = "1 Кор";
+            bible[1] = "1-е Коринфянам";
+            bible[2] = "1-е да Карынфянаў";
+            bible[3] = "64";
+        }
+        if (kniga.contains("2 Кор") || kniga.contains("2 Кар")) {
+            bible[0] = "2 Кор";
+            bible[1] = "2-е Коринфянам";
+            bible[2] = "2-е да Карынфянаў";
+            bible[3] = "65";
+        }
+        if (kniga.contains("Гал")) {
+            bible[0] = "Гал";
+            bible[1] = "Галатам";
+            bible[2] = "Да Галятаў";
+            bible[3] = "66";
+        }
+        if (kniga.contains("Еф") || kniga.contains("Эф")) {
+            bible[0] = "Еф";
+            bible[1] = "Ефесянам";
+            bible[2] = "Да Эфэсянаў";
+            bible[3] = "67";
+        }
+        if (kniga.contains("Флп") || kniga.contains("Плп")) {
+            bible[0] = "Флп";
+            bible[1] = "Филиппийцам";
+            bible[2] = "Да Піліпянаў";
+            bible[3] = "68";
+        }
+        if (kniga.contains("Кол") || kniga.contains("Клс")) {
+            bible[0] = "Кол";
+            bible[1] = "Колоссянам";
+            bible[2] = "Да Каласянаў";
+            bible[3] = "69";
+        }
+        if (kniga.contains("1 Фес")) {
+            bible[0] = "1 Фес";
+            bible[1] = "1-е Фессалоникийцам (Солунянам)";
+            bible[2] = "1-е да Фесаланікійцаў";
+            bible[3] = "70";
+        }
+        if (kniga.contains("2 Фес")) {
+            bible[0] = "2 Фес";
+            bible[1] = "2-е Фессалоникийцам (Солунянам)";
+            bible[2] = "2-е да Фесаланікійцаў";
+            bible[3] = "71";
+        }
+        if (kniga.contains("1 Тим") || kniga.contains("1 Цім")) {
+            bible[0] = "1 Тим";
+            bible[1] = "1-е Тимофею";
+            bible[2] = "1-е да Цімафея";
+            bible[3] = "72";
+        }
+        if (kniga.contains("2 Тим") || kniga.contains("2 Цім")) {
+            bible[0] = "2 Тим";
+            bible[1] = "2-е Тимофею";
+            bible[2] = "2-е да Цімафея";
+            bible[3] = "73";
+        }
+        if (kniga.contains("Тит") || kniga.contains("Ціт")) {
+            bible[0] = "Тит";
+            bible[1] = "Титу";
+            bible[2] = "Да Ціта";
+            bible[3] = "74";
+        }
+        if (kniga.contains("Флм")) {
+            bible[0] = "Флм";
+            bible[1] = "Филимону";
+            bible[2] = "Да Філімона";
+            bible[3] = "75";
+        }
+        if (kniga.contains("Евр") || kniga.contains("Гбр")) {
+            bible[0] = "Евр";
+            bible[1] = "Евреям";
+            bible[2] = "Да Габрэяў";
+            bible[3] = "76";
+        }
+        if (kniga.contains("Откр") || kniga.contains("Адкр")) {
+            bible[0] = "Откр";
+            bible[1] = "Откровение (Апокалипсис)";
+            bible[2] = "Адкрыцьцё (Апакаліпсіс)";
+            bible[3] = "77";
+        }
+        return bible;
     }
 }
