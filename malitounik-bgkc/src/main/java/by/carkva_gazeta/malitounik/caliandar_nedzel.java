@@ -76,7 +76,7 @@ public class caliandar_nedzel extends ListFragment {
 
     private void getJsonFile() throws IOException {
         StringBuilder builder = new StringBuilder();
-        InputStream inputStream = getResources().openRawResource(MainActivity.caliandar(date));
+        InputStream inputStream = getResources().openRawResource(MainActivity.caliandar(Objects.requireNonNull(getActivity()), date));
         InputStreamReader isr = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(isr);
         String line;
@@ -93,7 +93,7 @@ public class caliandar_nedzel extends ListFragment {
                 if (26 >= Integer.parseInt(strings.get(i).get(1))) {
                     int t1 = builder.toString().lastIndexOf("]");
                     StringBuilder builderN = new StringBuilder();
-                    inputStream = getResources().openRawResource(MainActivity.caliandar(date + 1));
+                    inputStream = getResources().openRawResource(MainActivity.caliandar(getActivity(),date + 1));
                     isr = new InputStreamReader(inputStream);
                     reader = new BufferedReader(isr);
                     while ((line = reader.readLine()) != null) {

@@ -73,7 +73,7 @@ public class caliandar_full extends Fragment implements View.OnClickListener {
         } else {
             StringBuilder builder = new StringBuilder();
             try {
-                InputStream inputStream = getResources().openRawResource(MainActivity.caliandar(mun));
+                InputStream inputStream = getResources().openRawResource(MainActivity.caliandar(Objects.requireNonNull(getActivity()), mun));
                 InputStreamReader isr = new InputStreamReader(inputStream);
                 BufferedReader reader = new BufferedReader(isr);
                 String line;

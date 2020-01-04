@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         overridePendingTransition(R.anim.alphain, R.anim.alphaout);
     }
 
-    private void ajustCompoundDrawableSizeWithText(final TextView_Roboto_Condensed textView, final Drawable leftDrawable) {
+    private void ajustCompoundDrawableSizeWithText(@NonNull final TextView_Roboto_Condensed textView, final Drawable leftDrawable) {
         textView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -1460,7 +1460,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return calendar.getTimeInMillis();
     }
 
-    private static int getOrientation(Activity context) {
+    private static int getOrientation(@NonNull Activity context) {
         int rotation = context.getWindowManager().getDefaultDisplay().getRotation();
         int displayOrientation = context.getResources().getConfiguration().orientation;
 
@@ -1610,191 +1610,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-    public static int caliandar(int mun) {
-        int id = R.raw.caliandar0;
-        switch (mun) {
-            case 0:
-                id = R.raw.caliandar0;
-                break;
-            case 1:
-                id = R.raw.caliandar1;
-                break;
-            case 2:
-                id = R.raw.caliandar2;
-                break;
-            case 3:
-                id = R.raw.caliandar3;
-                break;
-            case 4:
-                id = R.raw.caliandar4;
-                break;
-            case 5:
-                id = R.raw.caliandar5;
-                break;
-            case 6:
-                id = R.raw.caliandar6;
-                break;
-            case 7:
-                id = R.raw.caliandar7;
-                break;
-            case 8:
-                id = R.raw.caliandar8;
-                break;
-            case 9:
-                id = R.raw.caliandar9;
-                break;
-            case 10:
-                id = R.raw.caliandar10;
-                break;
-            case 11:
-                id = R.raw.caliandar11;
-                break;
-            case 12:
-                id = R.raw.caliandar12;
-                break;
-            case 13:
-                id = R.raw.caliandar13;
-                break;
-            case 14:
-                id = R.raw.caliandar14;
-                break;
-            case 15:
-                id = R.raw.caliandar15;
-                break;
-            case 16:
-                id = R.raw.caliandar16;
-                break;
-            case 17:
-                id = R.raw.caliandar17;
-                break;
-            case 18:
-                id = R.raw.caliandar18;
-                break;
-            case 19:
-                id = R.raw.caliandar19;
-                break;
-            case 20:
-                id = R.raw.caliandar20;
-                break;
-            case 21:
-                id = R.raw.caliandar21;
-                break;
-            case 22:
-                id = R.raw.caliandar22;
-                break;
-            case 23:
-                id = R.raw.caliandar23;
-                break;
-            case 24:
-                id = R.raw.caliandar24;
-                break;
-            case 25:
-                id = R.raw.caliandar25;
-                break;
-            case 26:
-                id = R.raw.caliandar26;
-                break;
-            case 27:
-                id = R.raw.caliandar27;
-                break;
-            case 28:
-                id = R.raw.caliandar28;
-                break;
-            case 29:
-                id = R.raw.caliandar29;
-                break;
-            case 30:
-                id = R.raw.caliandar30;
-                break;
-            case 31:
-                id = R.raw.caliandar31;
-                break;
-            case 32:
-                id = R.raw.caliandar32;
-                break;
-            case 33:
-                id = R.raw.caliandar33;
-                break;
-            case 34:
-                id = R.raw.caliandar34;
-                break;
-            case 35:
-                id = R.raw.caliandar35;
-                break;
-            case 36:
-                id = R.raw.caliandar36;
-                break;
-            case 37:
-                id = R.raw.caliandar37;
-                break;
-            case 38:
-                id = R.raw.caliandar38;
-                break;
-            case 39:
-                id = R.raw.caliandar39;
-                break;
-            case 40:
-                id = R.raw.caliandar40;
-                break;
-            case 41:
-                id = R.raw.caliandar41;
-                break;
-            case 42:
-                id = R.raw.caliandar42;
-                break;
-            case 43:
-                id = R.raw.caliandar43;
-                break;
-            case 44:
-                id = R.raw.caliandar44;
-                break;
-            case 45:
-                id = R.raw.caliandar45;
-                break;
-            case 46:
-                id = R.raw.caliandar46;
-                break;
-            case 47:
-                id = R.raw.caliandar47;
-                break;
-            case 48:
-                id = R.raw.caliandar48;
-                break;
-            case 49:
-                id = R.raw.caliandar49;
-                break;
-            case 50:
-                id = R.raw.caliandar50;
-                break;
-            case 51:
-                id = R.raw.caliandar51;
-                break;
-            case 52:
-                id = R.raw.caliandar52;
-                break;
-            case 53:
-                id = R.raw.caliandar53;
-                break;
-            case 54:
-                id = R.raw.caliandar54;
-                break;
-            case 55:
-                id = R.raw.caliandar55;
-                break;
-            case 56:
-                id = R.raw.caliandar56;
-                break;
-            case 57:
-                id = R.raw.caliandar57;
-                break;
-            case 58:
-                id = R.raw.caliandar58;
-                break;
-            case 59:
-                id = R.raw.caliandar59;
-                break;
-        }
-        return id;
+    public static int caliandar(@NonNull Context context, int mun) {
+        String filename = "caliandar" + mun;
+        return context.getResources().getIdentifier(filename, "raw", context.getPackageName());
     }
 
     public static String removeZnakiAndSlovy(String cytanne) {

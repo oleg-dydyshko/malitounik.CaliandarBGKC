@@ -98,6 +98,8 @@ public class caliandar_mun extends AppCompatActivity {
         c = (GregorianCalendar) Calendar.getInstance();
         posMun = Objects.requireNonNull(getIntent().getExtras()).getInt("mun", c.get(Calendar.MONTH));
         yearG = getIntent().getExtras().getInt("year", c.get(Calendar.YEAR));
+        if (yearG > SettingsActivity.GET_CALIANDAR_YEAR_MAX)
+            yearG = SettingsActivity.GET_CALIANDAR_YEAR_MAX;
         day = getIntent().getExtras().getInt("day", c.get(Calendar.DATE));
         vpPager = findViewById(R.id.pager);
         vpPagerNedel = findViewById(R.id.pagerNedel);

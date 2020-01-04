@@ -314,7 +314,7 @@ public class Widget_mun extends AppWidgetProvider {
 
         StringBuilder builder = new StringBuilder();
         try {
-            InputStream inputStream = context.getResources().openRawResource(MainActivity.caliandar(getmun(Month, year)));
+            InputStream inputStream = context.getResources().openRawResource(MainActivity.caliandar(context, getmun(Month, year)));
             InputStreamReader isr = new InputStreamReader(inputStream);
             BufferedReader reader = new BufferedReader(isr);
             String line;

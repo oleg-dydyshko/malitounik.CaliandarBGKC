@@ -163,7 +163,7 @@ public class Widget extends AppWidgetProvider {
 
         StringBuilder builder = new StringBuilder();
         try {
-            InputStream inputStream = context.getResources().openRawResource(MainActivity.caliandar(getmun()));
+            InputStream inputStream = context.getResources().openRawResource(MainActivity.caliandar(context, getmun()));
             InputStreamReader isr = new InputStreamReader(inputStream);
             BufferedReader reader = new BufferedReader(isr);
             String line;

@@ -6,10 +6,10 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "by.carkva_gazeta.malitounik"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 29
-        versionCode 43554
-        versionName "3.6.1"
+        versionCode 43555
+        versionName "3.6.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -89,7 +89,7 @@ class zmenyiaChastki {
     private ArrayList<ArrayList<String>> getDate() {
         StringBuilder builder = new StringBuilder();
         try {
-            InputStream inputStream =context.getResources().openRawResource(MainActivity.caliandar(getmun()));
+            InputStream inputStream = context.getResources().openRawResource(MainActivity.caliandar(context, getmun()));
             InputStreamReader isr = new InputStreamReader(inputStream);
             BufferedReader reader = new BufferedReader(isr);
             String line;
@@ -100,7 +100,8 @@ class zmenyiaChastki {
         } catch (IOException ignored) {
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<ArrayList<String>>>(){}.getType();
+        Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
+        }.getType();
         return new ArrayList<>(gson.fromJson(builder.toString(), type));
     }
 
