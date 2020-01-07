@@ -1591,6 +1591,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public static boolean checkModules_biblijateka(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
+            return true;
         Set<String> muduls = SplitInstallManagerFactory.create(context).getInstalledModules();
         for (String mod : muduls) {
             if (mod.equals("biblijateka")) {
@@ -1601,6 +1603,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public static boolean checkModule_resources(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
+            return true;
         Set<String> muduls = SplitInstallManagerFactory.create(context).getInstalledModules();
         for (String mod : muduls) {
             if (mod.equals("resources")) {
@@ -1635,8 +1639,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cytanne = cytanne.replace("Тон 6.", "");
         cytanne = cytanne.replace("Тон 7.", "");
         cytanne = cytanne.replace("Тон 8.", "");
-        cytanne = cytanne.replace("Вялікія Гадзіны", "");
-        cytanne = cytanne.replace("На асвячэньне вады", "");
+        cytanne = cytanne.replace("Вялікія гадзіны", "");
+        cytanne = cytanne.replace("На асьвячэньне вады", "");
         cytanne = cytanne.replace("Багародзіцы", "");
         cytanne = cytanne.replace("Дабравешчаньне", "");
         cytanne = cytanne.replace("Сустрэчы", "");
@@ -1676,7 +1680,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cytanne = cytanne.replace("Айцам.", "");
         cytanne = cytanne.replace("Прар.", "");
         cytanne = cytanne.replace("Муч.", "");
-        cytanne = cytanne.replace("Крыжу.", "");
+        cytanne = cytanne.replace("Крыжу", "");
         cytanne = cytanne.replace("Вобр.", "");
         cytanne = cytanne.replace("Нов_году.", "");
         cytanne = cytanne.replace("Вял.", "");
