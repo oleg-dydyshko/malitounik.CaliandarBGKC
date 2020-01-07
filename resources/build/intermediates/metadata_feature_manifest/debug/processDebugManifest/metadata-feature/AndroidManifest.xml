@@ -20,8 +20,7 @@
 
     <application
         android:debuggable="true"
-        android:hardwareAccelerated="true"
-        android:testOnly="true" >
+        android:hardwareAccelerated="true" >
         <activity
             android:name="by.carkva_gazeta.resources.chytanne"
             android:label="@string/CZYTANNE"
