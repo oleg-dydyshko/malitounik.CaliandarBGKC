@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -51,6 +52,7 @@ public class Malitvy_prynagodnyia extends AppCompatActivity {
     private EditText_Roboto_Condensed editText;
     private TextView_Roboto_Condensed textView;
     private Menu_ListAdaprer adapter;
+    private long mLastClickTime = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -171,6 +173,10 @@ public class Malitvy_prynagodnyia extends AppCompatActivity {
             }
         });
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                return;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
             Intent intent = new Intent(Malitvy_prynagodnyia.this, prynagodnyia.class);
             intent.putExtra("prynagodnyia", data.get(position).data);
             intent.putExtra("prynagodnyiaID", data.get(position).id);
