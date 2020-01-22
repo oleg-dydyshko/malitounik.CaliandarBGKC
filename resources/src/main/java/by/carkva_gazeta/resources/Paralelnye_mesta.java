@@ -814,7 +814,7 @@ class Paralelnye_mesta {
             bible[2] = "Мудрасьці Ісуса, сына Сірахава";
             bible[3] = "27";
         }
-        if (kniga.equals("Ис") || kniga.contains("Іс")) {
+        if ((kniga.contains("Ис") && !kniga.contains("Исх")) || kniga.contains("Іс")) {
             bible[0] = "Ис";
             bible[1] = "Исаии";
             bible[2] = "Ісаі";

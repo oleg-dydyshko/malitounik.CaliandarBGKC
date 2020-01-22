@@ -23,8 +23,6 @@ import android.view.Surface;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -78,8 +76,8 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
     private int fontBiblia;
     private boolean dzenNoch;
     private int n;
-    private String resurs;
-    private Boolean men = false;
+    //private String resurs;
+    //private Boolean men = false;
     private String title = "";
     private ConstraintLayout constraintLayout;
     private boolean levo = false, pravo = false;
@@ -163,35 +161,35 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
                 inputStream = r.openRawResource(R.raw.bogashlugbovya9);
                 switch (ton) {
                     case 1:
-                        resurs = "ton_n1";
+                        //resurs = "ton_n1";
                         title = "Тон 1";
                         break;
                     case 2:
-                        resurs = "ton_n2";
+                        //resurs = "ton_n2";
                         title = "Тон 2";
                         break;
                     case 3:
-                        resurs = "ton_n3";
+                        //resurs = "ton_n3";
                         title = "Тон 3";
                         break;
                     case 4:
-                        resurs = "ton_n4";
+                        //resurs = "ton_n4";
                         title = "Тон 4";
                         break;
                     case 5:
-                        resurs = "ton_n5";
+                        //resurs = "ton_n5";
                         title = "Тон 5";
                         break;
                     case 6:
-                        resurs = "ton_n6";
+                        //resurs = "ton_n6";
                         title = "Тон 6";
                         break;
                     case 7:
-                        resurs = "ton_n7";
+                        //resurs = "ton_n7";
                         title = "Тон 7";
                         break;
                     case 8:
-                        resurs = "ton_n8";
+                        //resurs = "ton_n8";
                         title = "Тон 8";
                         break;
                 }
@@ -199,27 +197,27 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
                 inputStream = r.openRawResource(R.raw.bogashlugbovya10);
                 switch (ton) {
                     case 1:
-                        resurs = "ton_sh1";
+                        //resurs = "ton_sh1";
                         title = "ПАНЯДЗЕЛАК\nСлужба сьвятым анёлам";
                         break;
                     case 2:
-                        resurs = "ton_sh2";
+                        //resurs = "ton_sh2";
                         title = "АЎТОРАК\nСлужба сьвятому Яну Хрысьціцелю";
                         break;
                     case 3:
-                        resurs = "ton_sh3";
+                        //resurs = "ton_sh3";
                         title = "СЕРАДА\nСлужба Найсьвяцейшай Багародзіцы і Крыжу";
                         break;
                     case 4:
-                        resurs = "ton_sh4";
+                        //resurs = "ton_sh4";
                         title = "ЧАЦЬВЕР\nСлужба апосталам і сьвятому Мікалаю";
                         break;
                     case 5:
-                        resurs = "ton_sh5";
+                        //resurs = "ton_sh5";
                         title = "ПЯТНІЦА\nСлужба Крыжу Гасподняму";
                         break;
                     case 6:
-                        resurs = "ton_sh6";
+                        //resurs = "ton_sh6";
                         title = "Субота\nСлужба ўсім сьвятым і памёрлым";
                         break;
                 }
@@ -278,7 +276,7 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
         } catch (Throwable ignored) {
         }
 
-        men = vybranoe_view.checkVybranoe(this, resurs);
+        //men = vybranoe_view.checkVybranoe(this, resurs);
 
         scrollView = findViewById(R.id.scrollView2);
 
@@ -430,13 +428,14 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_plus).setVisible(false);
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_minus).setVisible(false);
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_auto).setVisible(false);
-        if (men) {
+        /*if (men) {
             menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe).setIcon(ContextCompat.getDrawable(this, by.carkva_gazeta.malitounik.R.drawable.star_big_on));
             menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe).setTitle(getResources().getString(by.carkva_gazeta.malitounik.R.string.vybranoe_del));
         } else {
             menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe).setIcon(ContextCompat.getDrawable(this, by.carkva_gazeta.malitounik.R.drawable.star_big_off));
             menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe).setTitle(getResources().getString(by.carkva_gazeta.malitounik.R.string.vybranoe));
-        }
+        }*/
+        menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe).setVisible(false);
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_orientation).setChecked(k.getBoolean("orientation", false));
         menu.findItem(by.carkva_gazeta.malitounik.R.id.action_dzen_noch).setChecked(k.getBoolean("dzen_noch", false));
         MenuItem item = menu.findItem(by.carkva_gazeta.malitounik.R.id.action_vybranoe);
@@ -496,7 +495,7 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
                 prefEditor.putBoolean("orientation", false);
             }
         }
-        if (id == by.carkva_gazeta.malitounik.R.id.action_vybranoe) {
+        /*if (id == by.carkva_gazeta.malitounik.R.id.action_vybranoe) {
             men = vybranoe_view.setVybranoe(this, resurs, title);
             if (men) {
                 LinearLayout layout = new LinearLayout(this);
@@ -515,7 +514,7 @@ public class Ton extends AppCompatActivity implements View.OnTouchListener, Dial
                 mes.show();
             }
             supportInvalidateOptionsMenu();
-        }
+        }*/
         if (id == by.carkva_gazeta.malitounik.R.id.action_font) {
             Dialog_font_size dialog_font_size = new Dialog_font_size();
             dialog_font_size.show(getSupportFragmentManager(), "font");

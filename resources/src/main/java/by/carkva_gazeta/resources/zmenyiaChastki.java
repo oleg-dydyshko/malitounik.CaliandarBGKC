@@ -193,18 +193,18 @@ class zmenyiaChastki {
 
             int kniga = 0;
             //if (zagl.equals("Ціт")) kniga = 0;
-            if (zagl.equals("Езэк")) kniga = 1;
-            if (zagl.equals("Габ")) kniga = 2;
+            if (zagl.equals("Езк")) kniga = 1;
+            if (zagl.equals("Гбр")) kniga = 2;
             if (zagl.equals("Гал")) kniga = 3;
             if (zagl.equals("Высл")) kniga = 4;
-            if (zagl.equals("Флп")) kniga = 5;
+            if (zagl.equals("Плп")) kniga = 5;
             if (zagl.equals("Лк")) kniga = 6;
             if (zagl.equals("Мк")) kniga = 7;
             if (zagl.equals("Юд")) kniga = 8;
             if (zagl.equals("1 Ян")) kniga = 9;
             if (zagl.equals("Мц")) kniga = 10;
             if (zagl.equals("2 Пт")) kniga = 11;
-            if (zagl.equals("Яэль")) kniga = 12;
+            if (zagl.equals("Ёіл")) kniga = 12;
             if (zagl.equals("Іс")) kniga = 13;
             if (zagl.equals("2 Ян")) kniga = 14;
             if (zagl.equals("Ёў")) kniga = 15;
@@ -218,11 +218,11 @@ class zmenyiaChastki {
             if (zagl.equals("Вых")) kniga = 23;
             if (zagl.equals("Эф")) kniga = 24;
             if (zagl.equals("Рым")) kniga = 25;
-            if (zagl.equals("Кал")) kniga = 26;
+            if (zagl.equals("Клс")) kniga = 26;
             if (zagl.equals("Ян")) kniga = 27;
             if (zagl.equals("3 Ян")) kniga = 28;
-            if (zagl.equals("1 Сал")) kniga = 29;
-            if (zagl.equals("2 Сал")) kniga = 30;
+            if (zagl.equals("1 Фес")) kniga = 29;
+            if (zagl.equals("2 Фес")) kniga = 30;
             if (zagl.equals("2 Кар")) kniga = 31;
             if (zagl.equals("2 Цім")) kniga = 32;
             if (zagl.equals("Як")) kniga = 33;
